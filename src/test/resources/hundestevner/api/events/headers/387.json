@@ -1,0 +1,37 @@
+{
+  "result": {
+    "id": 387,
+    "name": "Norwegian Open 2018",
+    "countryId": 1,
+    "countryName": "Norge",
+    "location": null,
+    "locationId": 1,
+    "locationName": "Kongsvinger",
+    "locationMap": "60.1912902,12.0054252",
+    "homePageUrl": "http:\/\/norwegian-open.com",
+    "pmUrl": null,
+    "facebookEventUrl": null,
+    "startDate": "2018-10-11",
+    "endDate": "2018-10-14",
+    "registrationDeadline": "2018-08-31",
+    "confirmed": true,
+    "registration": true,
+    "cacheValidSince": null,
+    "allowCreditCard": false,
+    "startNumberGenerated": true,
+    "publishStartNumber": true,
+    "websocket": false,
+    "eventClasses": {
+      "2": {
+        "names": "2xAgility, 2xHopp, 3x\u00c5pen agility, 3x\u00c5pen Hopp, AG finale",
+        "namesShort": "2xAG, 2xH, 3x\u00c5AG, 3x\u00c5H, AG finale",
+        "judgeNames": ""
+      }
+    },
+    "hostNames": "Hokksund Og Omegn Hundeklubb",
+    "started": false,
+    "finished": true,
+    "enrollments": null
+  },
+  "created": "2019-09-10 16:38:38"
+}

@@ -1,0 +1,2099 @@
+<html>
+<head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-132831071-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+
+        gtag('js', new Date());
+
+        gtag('config', 'UA-132831071-1');
+    </script>
+
+
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+    <title>AGIDA – AgilityData</title>
+    <link href="/css/EvryAgilitycss/bootstrap.min.css" rel="stylesheet"/>
+    <link href="/css/EvryAgilitycss/bootstrap-extra.css" rel="stylesheet"/>
+    <link href="/css/EvryAgilityCss/slider.css" rel="stylesheet"/>
+    <link href="/css/EvryAgilityCss/refineslide.css" rel="stylesheet"/>
+    <link href="/css/EvryAgilityCss/widgets.css" rel="stylesheet"/>
+    <link href="/css/EvryAgilityCss/bootstrap-datetimepicker.css" rel="stylesheet"/>
+    <link href="/css/EvryAgilitycss/jquery-ui.min.css" rel="stylesheet"/>
+    <link href="/css/EvryAgilityCss/font-awesome.css" rel="stylesheet"/>
+    <link href="/css/EvryAgilityCss/application-common.css?Version=1.0.11" rel="stylesheet"/>
+    <link href="/css/toggles.css" rel="stylesheet"/>
+    <!-- Fonts -->
+    <link href='https://fonts.googleapis.com/css?family=Roboto:400,500,100,100italic,300,300italic,400italic,500italic,700,700italic,900,900italic'
+          rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic,900italic,900'
+          rel='stylesheet' type='text/css'>
+
+    <script src="/scripts/AgilityJS/jquery-1.10.2.js" type="text/javascript"></script>
+    <script src="http://code.jquery.com/ui/1.11.3/jquery-ui.js"></script>
+    <script src="/scripts/AgilityJS/jquery.flexslider-min.js" type="text/javascript"></script>
+    <script src="/scripts/AgilityJS/jquery.cslider.js" type="text/javascript"></script>
+    <script src="/scripts/AgilityJS/moment.js" type="text/javascript"></script>
+    <script src="/scripts/AgilityJS/bootstrap-datetimepicker.min.js" type="text/javascript"></script>
+    <script src="/scripts/AgilityJS/resonsive-tables.js" type="text/javascript"></script>
+
+    <script src="/scripts/AgilityJS/toggles.min.js"></script>
+    <!-- DateTimePicker script(New) -->
+    <!-- Locale language script for Swedish DatePicker -->
+    <script src="/scripts/AgilityJS/jquery.refineslide.min.js" type="text/javascript"></script>
+    <script src="/scripts/AgilityJS/bootstrap.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        function ClearSession() {
+            var url = '/umbraco/Surface/LoginSurface/ClearSessionOnLogout';
+            $.post(url, {clearSessionData: true},
+                function (data) {
+                });
+        };
+
+        function ClearTempDataOnLangSwitch() {
+            var url = '/umbraco/Surface/LoginSurface/ClearTempDataOnLangSwitch';
+            $.post(url, {clearSessionData: true},
+                function (data) {
+                });
+        };
+
+        function noBack() {
+            window.history.forward();
+        }
+
+        $(document).ready(function () {
+            /*
+            $('#wrapper').on('mouseleave', 'ul', function (e) {
+                var menu = document.getElementById(e.currentTarget.id);
+                if (menu.style.display == 'block') {
+                    menu.style.display = 'none';
+                }
+            });
+            */
+            $("#langswitch").mouseleave(function () {
+                var menu = document.getElementById('langswitch');
+                if (menu.style.display == 'block') {
+                    menu.style.display = 'none';
+                }
+            });
+            //$('#test').click(function () {
+
+            //    $('#leftNav').toggleClass('position-zero');
+            //});
+        });
+        /*
+        function show_menu(id) {
+            var menu = document.getElementById(id);
+            if (menu.style.display == 'block') {
+                menu.style.display = 'none';
+            } else {
+                menu.style.display = 'block';
+            }
+        }
+        */
+
+        // RESPONSIVE TABLES
+        $(function () {
+            $('.table').ngResponsiveTables({
+                smallPaddingCharNo: 13,
+                mediumPaddingCharNo: 18,
+                largePaddingCharNo: 30
+            });
+        });
+
+    </script>
+    <style>
+        .pointer {
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body onpageshow="if (event.persisted) noBack();" onunload="">
+<!-- WRAPPER -->
+<div id="wrapper">
+    <!--Header Section Starts Here-->
+    <section id="header-section">
+        <div class="container" id="header-container">
+            <ul class="header-links pull-right">
+                <li class="dropdown pull-right">
+                    <button aria-expanded="false" aria-haspopup="true" class="dropdown-toggle header-symbol" data-placement="left"
+                            data-toggle="dropdown" id="dropdownMenu" role="button">
+                        <span class="glyphicon glyphicon-globe"></span>
+                    </button>
+
+
+                    <ul aria-labelledby="dropdownMenu" class=" dropdown-menu dropdown-menu-right">
+                        <li>
+                            <a href="/" onclick="ClearTempDataOnLangSwitch();" style="color: #000000 !important;">&nbsp;Swedish</a>
+                        </li>
+                        <li>
+                            <a href="/english/" onclick="ClearTempDataOnLangSwitch();"
+                               style="color: #000000 !important;">&nbsp;English</a>
+                        </li>
+                    </ul>
+                </li>
+
+
+                <li>
+                    <a href="http://agilityklubben.se/" target="_blank">SAGIK</a> <span style="color: #FFFFFF;">|</span>
+                </li>
+
+                <li>
+                    <a href="/logga-in/">LOGGA IN</a>
+                </li>
+            </ul>
+            <div class="row">
+                <div class="col-xs-5">
+                    <a href="/">
+                        <img alt="agida_loga_underrubrik_300x100.png" class="img-responsive"
+                             src="/media/1059/agida_underrubrik_300x100.png"/>
+                    </a>
+                </div>
+
+                <button class="menu-toggle" onclick="ToggleMenu()"/>
+            </div>
+            <a class="pull-right" href="mailto:support@agida.se">support@agida.se</a>
+        </div>
+    </section>
+    <!--Header Section Ends Here-->
+    <!-- PRIMARY MENU -->
+    <section class="container align_center" id="menu-collapsed">
+        <ul class="primary-menu">
+            <li class="menu-item">
+                <a href="/hem/">Hem</a>
+            </li>
+            <li class="menu-item menu-item-has-children">
+                <a href="/taevlingar/">T&#228;vlingar</a>
+                <button class="sub-menu-toggle">
+                    <span class="visually-hidden">Toggle sub-menu</span>
+                </button>
+                <ul class="sub-menu">
+                </ul>
+            </li>
+            <li class="menu-item menu-item-has-children">
+                <a href="/resultat/">Resultat</a>
+                <button class="sub-menu-toggle">
+                    <span class="visually-hidden">Toggle sub-menu</span>
+                </button>
+                <ul class="sub-menu">
+                    <li class="menu-item">
+                        <a href="/resultat/banskisser/">Banskisser</a>
+                    </li>
+                    <li class="menu-item">
+                        <a href="/resultat/sm-kvallista/">SM-kvallista</a>
+                    </li>
+                    <li class="menu-item">
+                        <a href="/resultat/&#229;rets-agilityhund/">&#197;rets Agilityhund</a>
+                    </li>
+                    <li class="menu-item">
+                        <a href="/resultat/&#229;rets-agilitylag/">&#197;rets agilitylag</a>
+                    </li>
+                    <li class="menu-item">
+                        <a href="/resultat/soek-hund/">S&#246;k Hund</a>
+                    </li>
+                </ul>
+            </li>
+            <li class="menu-item menu-item-has-children">
+                <a href="/hjaelp/">Hj&#228;lp</a>
+                <button class="sub-menu-toggle">
+                    <span class="visually-hidden">Toggle sub-menu</span>
+                </button>
+                <ul class="sub-menu">
+                    <li class="menu-item">
+                        <a href="/hjaelp/kontakt/">Kontakt</a>
+                    </li>
+                </ul>
+            </li>
+
+        </ul>
+    </section><!-- /PRIMARY MENU -->
+    <!-- NOTIFICATION MODAL -->
+    <div aria-hidden="true" aria-labelledby="myModalLabel" class="modal fade" data-target=".bs-example-modal-sm" id="notification"
+         role="dialog" tabindex="-1">
+        <div class="modal-dialog modal-datagrid">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button class="close-icon" data-dismiss="modal" id="cls" type="button"><span aria-hidden="true">&times;</span><span
+                            class="sr-only">St&#228;ng</span></button>
+                    <h4 class="modal-title" id="myModalLabel"><i class="fa fa-bell-o"></i>Meddelanden</h4>
+                </div>
+                <div class="modal-body">
+                    <ul class="list-group">
+                    </ul>
+                </div>
+                <div class="modal-footer">
+                    <button class=" btn btn-primary close-button" data-dismiss="modal" type="button">St&#228;ng</button>
+                </div>
+            </div>
+        </div>
+    </div><!-- /NOTIFICATION MODAL -->
+    <!-- CONTENT CONTAINER -->
+    <div class="content-container container" id="content-container" style="padding-top:30px;">
+
+
+        <div class="row">
+            <div class="col-md-12">
+                <div class="widget validation-panel" style="display: none">
+                    <div class="widget-head">
+                        <div class="pull-left">Felmeddelande</div>
+                        <div class="widget-icons pull-right">
+                            <a class="wminimize" href="#">
+                                <i class="fa fa-chevron-up"></i>
+                            </a>
+                            <a class="wclose" href="#"><i class="fa fa-times"></i></a>
+                        </div>
+                        <div class="clearfix"></div>
+                    </div>
+                    <div class="widget-content" style="display: block">
+                        <div class="alert alert-danger">
+                            <ul>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <form action="/resultat/spel-resultat/" enctype="multipart/form-data" method="post">
+            <div class="form-content">
+                <div class="alert-success alert clearfix" style="display: none">
+                    <i class="icon-check-sign pull-left"></i>
+                    <p class="pull-left">Registrering &#228;r klar </p>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <h3>GMBKs h&#246;stdr&#246;m </h3>
+                    </div>
+                    <div class="col-md-5 col-sm-5">
+
+                        <div class="form-group">
+                            <label for="T_vlingsledare">T&#228;vlingsledare</label> :
+                            Elin Fahlgren,kari fredriksson,Emelie Arlevik
+                        </div>
+                        <div class="form-group">
+                            <label for="Domare">Domare</label> :
+                            Viktoria Lundh,P&#228;r Tangfelt
+                        </div>
+                        <div class="form-group">
+                            <label for="Anm_lda">Anm&#228;lda</label> :
+                            259
+                        </div>
+                    </div>
+                    <div class="col-md-5 col-sm-5">
+                        <div class="form-group">
+                            <label for="Arrang_r">Arrang&#246;r</label> :
+                            G&#246;teborg M&#246;lndal BK
+                        </div>
+                        <div class="form-group">
+                            <label for="Plats">Plats</label> :
+                            Solhem
+                        </div>
+                        <div class="form-group">
+                            <label for="Kontaktperson">Kontaktperson</label> :
+
+                        </div>
+                        <div class="form-group">
+                            <label for="Kontakt_e-post">Kontakt e-post</label> :
+
+                        </div>
+                        <div class="form-group">
+                            <label for="Kontakt_telefon">Kontakt telefon</label> :
+
+                        </div>
+                    </div>
+                    <div class="col-md-2 col-sm-2">
+                        <div class="form-group">
+                            <label for="Inbjudan">Inbjudan</label> :
+                            <a href="https://agidablobstorage.blob.core.windows.net/files/20200928230122121_Inbjudan Hostdrommen 2020.pdf"
+                               target="_blank" title="Inbjudan"><i class="fa fa-file-pdf-o edit-color"
+                                                                   style="color:red;"></i></a>
+                        </div>
+                        <div class="form-group">
+                            <label for="PM">PM</label> :
+                            <a href="https://agidablobstorage.blob.core.windows.net/files/20201010195321204_PM Hostdrommen 2020.pdf"
+                               target="_blank" title="PM"><i class="fa fa-file-pdf-o edit-color" style="color:red;"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12 col-sm-12">
+                        <div class="pull-right">
+                            <a class="btn btn-primary"
+                               href="/umbraco/Surface/CompetitionResultSurface/BackToCompetitionPartResult?CompetitionDate=01%2F01%2F0001%2000%3A00%3A00&amp;CompetitionDate1=2020-10-10&amp;MainOrganiserClubId=1447&amp;MainOrganiserName=G%C3%B6teborg%20M%C3%B6lndal%20%20BK&amp;DistrictName=V%C3%A4stra%20G%C3%B6talands%20l%C3%A4n&amp;Address_1=Solhem&amp;LastRegistrationDate1=2020-10-04&amp;CompetitionKey=6355&amp;CompetitionPartKey=6441&amp;CompetitionName=GMBKs%20h%C3%B6stdr%C3%B6m%20&amp;CompetitionPartName=GMBKs%20H%C3%B6stdr%C3%B6m&amp;GameKey=0&amp;TotalRegistrations=259&amp;NoOfRegistrations=0&amp;Steward=Elin%20Fahlgren%2Ckari%20fredriksson%2CEmelie%20Arlevik&amp;Judges=Viktoria%20Lundh%2CP%C3%A4r%20Tangfelt&amp;PmDocumentLink=https%3A%2F%2Fagidablobstorage.blob.core.windows.net%2Ffiles%2F20201010195321204_PM%20Hostdrommen%202020.pdf&amp;InvitationDocumentLink=https%3A%2F%2Fagidablobstorage.blob.core.windows.net%2Ffiles%2F20200928230122121_Inbjudan%20Hostdrommen%202020.pdf&amp;ReferenceTime=59.00&amp;CompetitionParts=System.Collections.Generic.List%601%5BEvryAgility.Models.CompetitionPartTabs%5D" id="Back">Tillbaka</a>
+                        </div>
+                    </div>
+                </div>
+                <br/>
+                <div class="row">
+                    <div class="col-md-12 col-sm-12">
+                        <div class="GameResultList">
+                            <ul class="nav nav-tabs" id="comp_ResultGameslist_Tab" role="tablist">
+                                <!-- Nav tabs -->
+                                <li role="presentation"><a aria-controls="home" data-toggle="tab" href="#6441"
+                                                           role="tab">2020-10-10</a></li>
+                                <li role="presentation"><a aria-controls="home" data-toggle="tab" href="#6442"
+                                                           role="tab">2020-10-11</a></li>
+                            </ul>
+                            <div class="tab-content">
+                                <div class="tab-pane" id="6441" role="tabpanel">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <h3>GMBKs H&#246;stdr&#246;m</h3>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-5">
+                                            <div class="form-group">
+                                                <label for="Ort__Skickas_med_till_SKK_hunddata_">Ort (Skickas med till
+                                                    SKK hunddata)</label> :
+                                                M&#246;lndal
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <div class="form-group">
+                                                <label for="Anm_lda">Anm&#228;lda</label> :
+                                                150
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class=" row">
+                                        <div class="col-md-12">
+                                            <div id="gridContent">
+
+                                                <script type="text/javascript">
+                                                    (function ($) {
+                                                        $.fn.swhgLoad = function (url, containerId, callback) {
+                                                            url = url + (url.indexOf('?') == -1 ? '?' : '&') + '__swhg=' + new Date().getTime();
+
+                                                            $('<div/>').load(url + ' ' + containerId, function (data, status, xhr) {
+                                                                $(containerId).replaceWith($(this).html());
+                                                                if (typeof (callback) === 'function') {
+                                                                    callback.apply(this, arguments);
+                                                                }
+                                                            });
+                                                            return this;
+                                                        }
+
+                                                        $(function () {
+                                                            $('table[data-swhgajax="true"],span[data-swhgajax="true"]').each(function () {
+                                                                var self = $(this);
+                                                                var containerId = '#' + self.data('swhgcontainer');
+                                                                var callback = getFunction(self.data('swhgcallback'));
+
+                                                                $(containerId).parent().delegate(containerId + ' a[data-swhglnk="true"]', 'click', function () {
+                                                                    $(containerId).swhgLoad($(this).attr('href'), containerId, callback);
+                                                                    return false;
+                                                                });
+                                                            })
+                                                        });
+
+                                                        function getFunction(code, argNames) {
+                                                            argNames = argNames || [];
+                                                            var fn = window, parts = (code || "").split(".");
+                                                            while (fn && parts.length) {
+                                                                fn = fn[parts.shift()];
+                                                            }
+                                                            if (typeof (fn) === "function") {
+                                                                return fn;
+                                                            }
+                                                            argNames.push(code);
+                                                            return Function.constructor.apply(null, argNames);
+                                                        }
+                                                    })(jQuery);
+                                                </script>
+                                                <table class="webGrid  alt-table" data-swhgajax="true"
+                                                       data-swhgcallback="" data-swhgcontainer="gridContentGamesList"
+                                                       id="gridContentResultsGameTable">
+                                                    <thead>
+                                                    <tr class="header">
+                                                        <th scope="col">
+                                                        </th>
+                                                        <th scope="col">
+                                                            <a data-swhglnk="true"
+                                                               href="/resultat/spel-resultat/?sort=SizeName&amp;sortdir=ASC">Storlek</a>
+                                                        </th>
+                                                        <th scope="col">
+                                                            <a data-swhglnk="true"
+                                                               href="/resultat/spel-resultat/?sort=Klass&amp;sortdir=ASC">Klass</a>
+                                                        </th>
+                                                        <th scope="col">
+                                                            <a data-swhglnk="true"
+                                                               href="/resultat/spel-resultat/?sort=Anm%c3%a4lda&amp;sortdir=ASC">Anm&#228;lda</a>
+                                                        </th>
+                                                        <th scope="col">
+                                                            <a data-swhglnk="true"
+                                                               href="/resultat/spel-resultat/?sort=Judges&amp;sortdir=ASC">Domare</a>
+                                                        </th>
+                                                        <th scope="col">
+                                                            <a data-swhglnk="true"
+                                                               href="/resultat/spel-resultat/?sort=Not.&amp;sortdir=ASC">Not.</a>
+                                                        </th>
+                                                        <th scope="col">
+                                                            <a data-swhglnk="true"
+                                                               href="/resultat/spel-resultat/?sort=CompetitionKey&amp;sortdir=ASC">Competition
+                                                                Key</a></th>
+                                                        <th scope="col">
+                                                            <a data-swhglnk="true"
+                                                               href="/resultat/spel-resultat/?sort=CompetitionPartKey&amp;sortdir=ASC">CompetitionPart
+                                                                Key</a></th>
+                                                        <th scope="col">
+                                                            <a data-swhglnk="true"
+                                                               href="/resultat/spel-resultat/?sort=GameKey&amp;sortdir=ASC">GameKey</a>
+                                                        </th>
+                                                        <th scope="col">
+                                                            <a data-swhglnk="true"
+                                                               href="/resultat/spel-resultat/?sort=Price&amp;sortdir=ASC">Price</a>
+                                                        </th>
+                                                    </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                    <tr class="odd-row">
+                                                        <td>
+                                                            <a id="navigation,55860" style="cursor:pointer"
+                                                               title="T&#228;vlingslista"><img
+                                                                    src="/media/1034/view_d.png"/></a>
+                                                            <a id="startList|55860|VERIFIERAD|Agility 1|Extra Small|GMBKs h&#246;stdr&#246;m |GMBKs H&#246;stdr&#246;m|A|3|441|441|10-10-2020 00:00:00|G&#246;teborg M&#246;lndal  BK|179|59,00|AGILITY_1"
+                                                               style="cursor:pointer" title="Startlista"><img
+                                                                    src="/media/1036/view_s.png"/></a>
+                                                            <a id="resultList|55860|VERIFIERAD|Agility 1|Extra Small|GMBKs h&#246;stdr&#246;m |GMBKs H&#246;stdr&#246;m|A|3|441|441|10-10-2020 00:00:00|G&#246;teborg M&#246;lndal  BK|179|59,00|AGILITY_1"
+                                                               style="cursor:pointer" title="Resutatlista"><img
+                                                                    src="/media/1035/view_r.png"/></a>
+                                                        </td>
+                                                        <td>Extra Small</td>
+                                                        <td> Agility 1 A</td>
+                                                        <td><span>3 </span></td>
+                                                        <td>P&#228;r Tangfelt</td>
+                                                        <td>
+                                                            <div>
+                                                            </div>
+                                                        </td>
+                                                        <td>6355</td>
+                                                        <td>6441</td>
+                                                        <td>55860</td>
+                                                        <td>70,00</td>
+                                                    </tr>
+                                                    <tr class="even-row">
+                                                        <td>
+                                                            <a id="navigation,56015" style="cursor:pointer"
+                                                               title="T&#228;vlingslista"><img
+                                                                    src="/media/1034/view_d.png"/></a>
+                                                            <a id="startList|56015|VERIFIERAD|Agility 1|Extra Small|GMBKs h&#246;stdr&#246;m |GMBKs H&#246;stdr&#246;m|B|1|441|441|10-10-2020 00:00:00|G&#246;teborg M&#246;lndal  BK|190|65,00|AGILITY_1"
+                                                               style="cursor:pointer" title="Startlista"><img
+                                                                    src="/media/1036/view_s.png"/></a>
+                                                            <a id="resultList|56015|VERIFIERAD|Agility 1|Extra Small|GMBKs h&#246;stdr&#246;m |GMBKs H&#246;stdr&#246;m|B|1|441|441|10-10-2020 00:00:00|G&#246;teborg M&#246;lndal  BK|190|65,00|AGILITY_1"
+                                                               style="cursor:pointer" title="Resutatlista"><img
+                                                                    src="/media/1035/view_r.png"/></a>
+                                                        </td>
+                                                        <td>Extra Small</td>
+                                                        <td> Agility 1 B</td>
+                                                        <td><span>1 </span></td>
+                                                        <td>P&#228;r Tangfelt</td>
+                                                        <td>
+                                                            <div>
+                                                            </div>
+                                                        </td>
+                                                        <td>6355</td>
+                                                        <td>6441</td>
+                                                        <td>56015</td>
+                                                        <td>70,00</td>
+                                                    </tr>
+                                                    <tr class="odd-row">
+                                                        <td>
+                                                            <a id="navigation,55865" style="cursor:pointer"
+                                                               title="T&#228;vlingslista"><img
+                                                                    src="/media/1034/view_d.png"/></a>
+                                                            <a id="startList|55865|VERIFIERAD|Hopp 1|Extra Small|GMBKs h&#246;stdr&#246;m |GMBKs H&#246;stdr&#246;m|A|4|441|441|10-10-2020 00:00:00|G&#246;teborg M&#246;lndal  BK|153|50,00|JUMP_1"
+                                                               style="cursor:pointer" title="Startlista"><img
+                                                                    src="/media/1036/view_s.png"/></a>
+                                                            <a id="resultList|55865|VERIFIERAD|Hopp 1|Extra Small|GMBKs h&#246;stdr&#246;m |GMBKs H&#246;stdr&#246;m|A|4|441|441|10-10-2020 00:00:00|G&#246;teborg M&#246;lndal  BK|153|50,00|JUMP_1"
+                                                               style="cursor:pointer" title="Resutatlista"><img
+                                                                    src="/media/1035/view_r.png"/></a>
+                                                        </td>
+                                                        <td>Extra Small</td>
+                                                        <td> Hopp 1 A</td>
+                                                        <td><span>4 </span></td>
+                                                        <td>P&#228;r Tangfelt</td>
+                                                        <td>
+                                                            <div>
+                                                            </div>
+                                                        </td>
+                                                        <td>6355</td>
+                                                        <td>6441</td>
+                                                        <td>55865</td>
+                                                        <td>70,00</td>
+                                                    </tr>
+                                                    <tr class="even-row">
+                                                        <td>
+                                                            <a id="navigation,55866" style="cursor:pointer"
+                                                               title="T&#228;vlingslista"><img
+                                                                    src="/media/1034/view_d.png"/></a>
+                                                            <a id="startList|55866|VERIFIERAD|Hopp 1|Extra Small|GMBKs h&#246;stdr&#246;m |GMBKs H&#246;stdr&#246;m|B|2|441|441|10-10-2020 00:00:00|G&#246;teborg M&#246;lndal  BK|148|45,00|JUMP_1"
+                                                               style="cursor:pointer" title="Startlista"><img
+                                                                    src="/media/1036/view_s.png"/></a>
+                                                            <a id="resultList|55866|VERIFIERAD|Hopp 1|Extra Small|GMBKs h&#246;stdr&#246;m |GMBKs H&#246;stdr&#246;m|B|2|441|441|10-10-2020 00:00:00|G&#246;teborg M&#246;lndal  BK|148|45,00|JUMP_1"
+                                                               style="cursor:pointer" title="Resutatlista"><img
+                                                                    src="/media/1035/view_r.png"/></a>
+                                                        </td>
+                                                        <td>Extra Small</td>
+                                                        <td> Hopp 1 B</td>
+                                                        <td><span>2 </span></td>
+                                                        <td>P&#228;r Tangfelt</td>
+                                                        <td>
+                                                            <div>
+                                                            </div>
+                                                        </td>
+                                                        <td>6355</td>
+                                                        <td>6441</td>
+                                                        <td>55866</td>
+                                                        <td>70,00</td>
+                                                    </tr>
+                                                    <tr class="odd-row">
+                                                        <td>
+                                                        </td>
+                                                        <td></td>
+                                                        <td></td>
+                                                        <td></td>
+                                                        <td></td>
+                                                        <td>
+                                                            <div>
+                                                            </div>
+                                                        </td>
+                                                        <td>0</td>
+                                                        <td>0</td>
+                                                        <td>0</td>
+                                                        <td></td>
+                                                    </tr>
+                                                    <tr class="even-row">
+                                                        <td>
+                                                            <a id="navigation,55861" style="cursor:pointer"
+                                                               title="T&#228;vlingslista"><img
+                                                                    src="/media/1034/view_d.png"/></a>
+                                                            <a id="startList|55861|VERIFIERAD|Agility 1|Small|GMBKs h&#246;stdr&#246;m |GMBKs H&#246;stdr&#246;m|A|7|441|441|10-10-2020 00:00:00|G&#246;teborg M&#246;lndal  BK|179|59,00|AGILITY_1"
+                                                               style="cursor:pointer" title="Startlista"><img
+                                                                    src="/media/1036/view_s.png"/></a>
+                                                            <a id="resultList|55861|VERIFIERAD|Agility 1|Small|GMBKs h&#246;stdr&#246;m |GMBKs H&#246;stdr&#246;m|A|7|441|441|10-10-2020 00:00:00|G&#246;teborg M&#246;lndal  BK|179|59,00|AGILITY_1"
+                                                               style="cursor:pointer" title="Resutatlista"><img
+                                                                    src="/media/1035/view_r.png"/></a>
+                                                        </td>
+                                                        <td>Small</td>
+                                                        <td> Agility 1 A</td>
+                                                        <td><span>7 </span></td>
+                                                        <td>P&#228;r Tangfelt</td>
+                                                        <td>
+                                                            <div>
+                                                            </div>
+                                                        </td>
+                                                        <td>6355</td>
+                                                        <td>6441</td>
+                                                        <td>55861</td>
+                                                        <td>70,00</td>
+                                                    </tr>
+                                                    <tr class="odd-row">
+                                                        <td>
+                                                            <a id="navigation,56016" style="cursor:pointer"
+                                                               title="T&#228;vlingslista"><img
+                                                                    src="/media/1034/view_d.png"/></a>
+                                                            <a id="startList|56016|VERIFIERAD|Agility 1|Small|GMBKs h&#246;stdr&#246;m |GMBKs H&#246;stdr&#246;m|B|7|441|441|10-10-2020 00:00:00|G&#246;teborg M&#246;lndal  BK|190|65,00|AGILITY_1"
+                                                               style="cursor:pointer" title="Startlista"><img
+                                                                    src="/media/1036/view_s.png"/></a>
+                                                            <a id="resultList|56016|VERIFIERAD|Agility 1|Small|GMBKs h&#246;stdr&#246;m |GMBKs H&#246;stdr&#246;m|B|7|441|441|10-10-2020 00:00:00|G&#246;teborg M&#246;lndal  BK|190|65,00|AGILITY_1"
+                                                               style="cursor:pointer" title="Resutatlista"><img
+                                                                    src="/media/1035/view_r.png"/></a>
+                                                        </td>
+                                                        <td>Small</td>
+                                                        <td> Agility 1 B</td>
+                                                        <td><span>7 </span></td>
+                                                        <td>P&#228;r Tangfelt</td>
+                                                        <td>
+                                                            <div>
+                                                            </div>
+                                                        </td>
+                                                        <td>6355</td>
+                                                        <td>6441</td>
+                                                        <td>56016</td>
+                                                        <td>70,00</td>
+                                                    </tr>
+                                                    <tr class="even-row">
+                                                        <td>
+                                                            <a id="navigation,55867" style="cursor:pointer"
+                                                               title="T&#228;vlingslista"><img
+                                                                    src="/media/1034/view_d.png"/></a>
+                                                            <a id="startList|55867|VERIFIERAD|Hopp 1|Small|GMBKs h&#246;stdr&#246;m |GMBKs H&#246;stdr&#246;m|A|11|441|441|10-10-2020 00:00:00|G&#246;teborg M&#246;lndal  BK|153|50,00|JUMP_1"
+                                                               style="cursor:pointer" title="Startlista"><img
+                                                                    src="/media/1036/view_s.png"/></a>
+                                                            <a id="resultList|55867|VERIFIERAD|Hopp 1|Small|GMBKs h&#246;stdr&#246;m |GMBKs H&#246;stdr&#246;m|A|11|441|441|10-10-2020 00:00:00|G&#246;teborg M&#246;lndal  BK|153|50,00|JUMP_1"
+                                                               style="cursor:pointer" title="Resutatlista"><img
+                                                                    src="/media/1035/view_r.png"/></a>
+                                                        </td>
+                                                        <td>Small</td>
+                                                        <td> Hopp 1 A</td>
+                                                        <td><span>11 </span></td>
+                                                        <td>P&#228;r Tangfelt</td>
+                                                        <td>
+                                                            <div>
+                                                            </div>
+                                                        </td>
+                                                        <td>6355</td>
+                                                        <td>6441</td>
+                                                        <td>55867</td>
+                                                        <td>70,00</td>
+                                                    </tr>
+                                                    <tr class="odd-row">
+                                                        <td>
+                                                            <a id="navigation,55868" style="cursor:pointer"
+                                                               title="T&#228;vlingslista"><img
+                                                                    src="/media/1034/view_d.png"/></a>
+                                                            <a id="startList|55868|VERIFIERAD|Hopp 1|Small|GMBKs h&#246;stdr&#246;m |GMBKs H&#246;stdr&#246;m|B|11|441|441|10-10-2020 00:00:00|G&#246;teborg M&#246;lndal  BK|148|45,00|JUMP_1"
+                                                               style="cursor:pointer" title="Startlista"><img
+                                                                    src="/media/1036/view_s.png"/></a>
+                                                            <a id="resultList|55868|VERIFIERAD|Hopp 1|Small|GMBKs h&#246;stdr&#246;m |GMBKs H&#246;stdr&#246;m|B|11|441|441|10-10-2020 00:00:00|G&#246;teborg M&#246;lndal  BK|148|45,00|JUMP_1"
+                                                               style="cursor:pointer" title="Resutatlista"><img
+                                                                    src="/media/1035/view_r.png"/></a>
+                                                        </td>
+                                                        <td>Small</td>
+                                                        <td> Hopp 1 B</td>
+                                                        <td><span>11 </span></td>
+                                                        <td>P&#228;r Tangfelt</td>
+                                                        <td>
+                                                            <div>
+                                                            </div>
+                                                        </td>
+                                                        <td>6355</td>
+                                                        <td>6441</td>
+                                                        <td>55868</td>
+                                                        <td>70,00</td>
+                                                    </tr>
+                                                    <tr class="even-row">
+                                                        <td>
+                                                        </td>
+                                                        <td></td>
+                                                        <td></td>
+                                                        <td></td>
+                                                        <td></td>
+                                                        <td>
+                                                            <div>
+                                                            </div>
+                                                        </td>
+                                                        <td>0</td>
+                                                        <td>0</td>
+                                                        <td>0</td>
+                                                        <td></td>
+                                                    </tr>
+                                                    <tr class="odd-row">
+                                                        <td>
+                                                            <a id="navigation,55862" style="cursor:pointer"
+                                                               title="T&#228;vlingslista"><img
+                                                                    src="/media/1034/view_d.png"/></a>
+                                                            <a id="startList|55862|VERIFIERAD|Agility 1|Medium|GMBKs h&#246;stdr&#246;m |GMBKs H&#246;stdr&#246;m|A|8|441|441|10-10-2020 00:00:00|G&#246;teborg M&#246;lndal  BK|179|59,00|AGILITY_1"
+                                                               style="cursor:pointer" title="Startlista"><img
+                                                                    src="/media/1036/view_s.png"/></a>
+                                                            <a id="resultList|55862|VERIFIERAD|Agility 1|Medium|GMBKs h&#246;stdr&#246;m |GMBKs H&#246;stdr&#246;m|A|8|441|441|10-10-2020 00:00:00|G&#246;teborg M&#246;lndal  BK|179|59,00|AGILITY_1"
+                                                               style="cursor:pointer" title="Resutatlista"><img
+                                                                    src="/media/1035/view_r.png"/></a>
+                                                        </td>
+                                                        <td>Medium</td>
+                                                        <td> Agility 1 A</td>
+                                                        <td><span>8 </span></td>
+                                                        <td>P&#228;r Tangfelt</td>
+                                                        <td>
+                                                            <div>
+                                                            </div>
+                                                        </td>
+                                                        <td>6355</td>
+                                                        <td>6441</td>
+                                                        <td>55862</td>
+                                                        <td>70,00</td>
+                                                    </tr>
+                                                    <tr class="even-row">
+                                                        <td>
+                                                            <a id="navigation,56017" style="cursor:pointer"
+                                                               title="T&#228;vlingslista"><img
+                                                                    src="/media/1034/view_d.png"/></a>
+                                                            <a id="startList|56017|VERIFIERAD|Agility 1|Medium|GMBKs h&#246;stdr&#246;m |GMBKs H&#246;stdr&#246;m|B|8|441|441|10-10-2020 00:00:00|G&#246;teborg M&#246;lndal  BK|190|65,00|AGILITY_1"
+                                                               style="cursor:pointer" title="Startlista"><img
+                                                                    src="/media/1036/view_s.png"/></a>
+                                                            <a id="resultList|56017|VERIFIERAD|Agility 1|Medium|GMBKs h&#246;stdr&#246;m |GMBKs H&#246;stdr&#246;m|B|8|441|441|10-10-2020 00:00:00|G&#246;teborg M&#246;lndal  BK|190|65,00|AGILITY_1"
+                                                               style="cursor:pointer" title="Resutatlista"><img
+                                                                    src="/media/1035/view_r.png"/></a>
+                                                        </td>
+                                                        <td>Medium</td>
+                                                        <td> Agility 1 B</td>
+                                                        <td><span>8 </span></td>
+                                                        <td>P&#228;r Tangfelt</td>
+                                                        <td>
+                                                            <div>
+                                                            </div>
+                                                        </td>
+                                                        <td>6355</td>
+                                                        <td>6441</td>
+                                                        <td>56017</td>
+                                                        <td>70,00</td>
+                                                    </tr>
+                                                    <tr class="odd-row">
+                                                        <td>
+                                                            <a id="navigation,55869" style="cursor:pointer"
+                                                               title="T&#228;vlingslista"><img
+                                                                    src="/media/1034/view_d.png"/></a>
+                                                            <a id="startList|55869|VERIFIERAD|Hopp 1|Medium|GMBKs h&#246;stdr&#246;m |GMBKs H&#246;stdr&#246;m|A|13|441|441|10-10-2020 00:00:00|G&#246;teborg M&#246;lndal  BK|153|50,00|JUMP_1"
+                                                               style="cursor:pointer" title="Startlista"><img
+                                                                    src="/media/1036/view_s.png"/></a>
+                                                            <a id="resultList|55869|VERIFIERAD|Hopp 1|Medium|GMBKs h&#246;stdr&#246;m |GMBKs H&#246;stdr&#246;m|A|13|441|441|10-10-2020 00:00:00|G&#246;teborg M&#246;lndal  BK|153|50,00|JUMP_1"
+                                                               style="cursor:pointer" title="Resutatlista"><img
+                                                                    src="/media/1035/view_r.png"/></a>
+                                                        </td>
+                                                        <td>Medium</td>
+                                                        <td> Hopp 1 A</td>
+                                                        <td><span>13 </span></td>
+                                                        <td>P&#228;r Tangfelt</td>
+                                                        <td>
+                                                            <div>
+                                                            </div>
+                                                        </td>
+                                                        <td>6355</td>
+                                                        <td>6441</td>
+                                                        <td>55869</td>
+                                                        <td>70,00</td>
+                                                    </tr>
+                                                    <tr class="even-row">
+                                                        <td>
+                                                            <a id="navigation,55870" style="cursor:pointer"
+                                                               title="T&#228;vlingslista"><img
+                                                                    src="/media/1034/view_d.png"/></a>
+                                                            <a id="startList|55870|VERIFIERAD|Hopp 1|Medium|GMBKs h&#246;stdr&#246;m |GMBKs H&#246;stdr&#246;m|B|13|441|441|10-10-2020 00:00:00|G&#246;teborg M&#246;lndal  BK|148|45,00|JUMP_1"
+                                                               style="cursor:pointer" title="Startlista"><img
+                                                                    src="/media/1036/view_s.png"/></a>
+                                                            <a id="resultList|55870|VERIFIERAD|Hopp 1|Medium|GMBKs h&#246;stdr&#246;m |GMBKs H&#246;stdr&#246;m|B|13|441|441|10-10-2020 00:00:00|G&#246;teborg M&#246;lndal  BK|148|45,00|JUMP_1"
+                                                               style="cursor:pointer" title="Resutatlista"><img
+                                                                    src="/media/1035/view_r.png"/></a>
+                                                        </td>
+                                                        <td>Medium</td>
+                                                        <td> Hopp 1 B</td>
+                                                        <td><span>13 </span></td>
+                                                        <td>P&#228;r Tangfelt</td>
+                                                        <td>
+                                                            <div>
+                                                            </div>
+                                                        </td>
+                                                        <td>6355</td>
+                                                        <td>6441</td>
+                                                        <td>55870</td>
+                                                        <td>70,00</td>
+                                                    </tr>
+                                                    <tr class="odd-row">
+                                                        <td>
+                                                        </td>
+                                                        <td></td>
+                                                        <td></td>
+                                                        <td></td>
+                                                        <td></td>
+                                                        <td>
+                                                            <div>
+                                                            </div>
+                                                        </td>
+                                                        <td>0</td>
+                                                        <td>0</td>
+                                                        <td>0</td>
+                                                        <td></td>
+                                                    </tr>
+                                                    <tr class="even-row">
+                                                        <td>
+                                                            <a id="navigation,55863" style="cursor:pointer"
+                                                               title="T&#228;vlingslista"><img
+                                                                    src="/media/1034/view_d.png"/></a>
+                                                            <a id="startList|55863|VERIFIERAD|Agility 1|Large|GMBKs h&#246;stdr&#246;m |GMBKs H&#246;stdr&#246;m|A|4|71|441|10-10-2020 00:00:00|G&#246;teborg M&#246;lndal  BK|190|65,00|AGILITY_1"
+                                                               style="cursor:pointer" title="Startlista"><img
+                                                                    src="/media/1036/view_s.png"/></a>
+                                                            <a id="resultList|55863|VERIFIERAD|Agility 1|Large|GMBKs h&#246;stdr&#246;m |GMBKs H&#246;stdr&#246;m|A|4|71|441|10-10-2020 00:00:00|G&#246;teborg M&#246;lndal  BK|190|65,00|AGILITY_1"
+                                                               style="cursor:pointer" title="Resutatlista"><img
+                                                                    src="/media/1035/view_r.png"/></a>
+                                                        </td>
+                                                        <td>Large</td>
+                                                        <td> Agility 1 A</td>
+                                                        <td><span>4 </span></td>
+                                                        <td>Viktoria Lundh</td>
+                                                        <td>
+                                                            <div>
+                                                            </div>
+                                                        </td>
+                                                        <td>6355</td>
+                                                        <td>6441</td>
+                                                        <td>55863</td>
+                                                        <td>70,00</td>
+                                                    </tr>
+                                                    <tr class="odd-row">
+                                                        <td>
+                                                            <a id="navigation,56018" style="cursor:pointer"
+                                                               title="T&#228;vlingslista"><img
+                                                                    src="/media/1034/view_d.png"/></a>
+                                                            <a id="startList|56018|VERIFIERAD|Agility 1|Large|GMBKs h&#246;stdr&#246;m |GMBKs H&#246;stdr&#246;m|B|4|71|441|10-10-2020 00:00:00|G&#246;teborg M&#246;lndal  BK|179|59,00|AGILITY_1"
+                                                               style="cursor:pointer" title="Startlista"><img
+                                                                    src="/media/1036/view_s.png"/></a>
+                                                            <a id="resultList|56018|VERIFIERAD|Agility 1|Large|GMBKs h&#246;stdr&#246;m |GMBKs H&#246;stdr&#246;m|B|4|71|441|10-10-2020 00:00:00|G&#246;teborg M&#246;lndal  BK|179|59,00|AGILITY_1"
+                                                               style="cursor:pointer" title="Resutatlista"><img
+                                                                    src="/media/1035/view_r.png"/></a>
+                                                        </td>
+                                                        <td>Large</td>
+                                                        <td> Agility 1 B</td>
+                                                        <td><span>4 </span></td>
+                                                        <td>Viktoria Lundh</td>
+                                                        <td>
+                                                            <div>
+                                                            </div>
+                                                        </td>
+                                                        <td>6355</td>
+                                                        <td>6441</td>
+                                                        <td>56018</td>
+                                                        <td>70,00</td>
+                                                    </tr>
+                                                    <tr class="even-row">
+                                                        <td>
+                                                            <a id="navigation,55871" style="cursor:pointer"
+                                                               title="T&#228;vlingslista"><img
+                                                                    src="/media/1034/view_d.png"/></a>
+                                                            <a id="startList|55871|VERIFIERAD|Hopp 1|Large|GMBKs h&#246;stdr&#246;m |GMBKs H&#246;stdr&#246;m|A|5|71|441|10-10-2020 00:00:00|G&#246;teborg M&#246;lndal  BK|148|45,00|JUMP_1"
+                                                               style="cursor:pointer" title="Startlista"><img
+                                                                    src="/media/1036/view_s.png"/></a>
+                                                            <a id="resultList|55871|VERIFIERAD|Hopp 1|Large|GMBKs h&#246;stdr&#246;m |GMBKs H&#246;stdr&#246;m|A|5|71|441|10-10-2020 00:00:00|G&#246;teborg M&#246;lndal  BK|148|45,00|JUMP_1"
+                                                               style="cursor:pointer" title="Resutatlista"><img
+                                                                    src="/media/1035/view_r.png"/></a>
+                                                        </td>
+                                                        <td>Large</td>
+                                                        <td> Hopp 1 A</td>
+                                                        <td><span>5 </span></td>
+                                                        <td>Viktoria Lundh</td>
+                                                        <td>
+                                                            <div>
+                                                            </div>
+                                                        </td>
+                                                        <td>6355</td>
+                                                        <td>6441</td>
+                                                        <td>55871</td>
+                                                        <td>70,00</td>
+                                                    </tr>
+                                                    <tr class="odd-row">
+                                                        <td>
+                                                            <a id="navigation,55872" style="cursor:pointer"
+                                                               title="T&#228;vlingslista"><img
+                                                                    src="/media/1034/view_d.png"/></a>
+                                                            <a id="startList|55872|VERIFIERAD|Hopp 1|Large|GMBKs h&#246;stdr&#246;m |GMBKs H&#246;stdr&#246;m|B|5|71|441|10-10-2020 00:00:00|G&#246;teborg M&#246;lndal  BK|153|50,00|JUMP_1"
+                                                               style="cursor:pointer" title="Startlista"><img
+                                                                    src="/media/1036/view_s.png"/></a>
+                                                            <a id="resultList|55872|VERIFIERAD|Hopp 1|Large|GMBKs h&#246;stdr&#246;m |GMBKs H&#246;stdr&#246;m|B|5|71|441|10-10-2020 00:00:00|G&#246;teborg M&#246;lndal  BK|153|50,00|JUMP_1"
+                                                               style="cursor:pointer" title="Resutatlista"><img
+                                                                    src="/media/1035/view_r.png"/></a>
+                                                        </td>
+                                                        <td>Large</td>
+                                                        <td> Hopp 1 B</td>
+                                                        <td><span>5 </span></td>
+                                                        <td>Viktoria Lundh</td>
+                                                        <td>
+                                                            <div>
+                                                            </div>
+                                                        </td>
+                                                        <td>6355</td>
+                                                        <td>6441</td>
+                                                        <td>55872</td>
+                                                        <td>70,00</td>
+                                                    </tr>
+                                                    <tr class="even-row">
+                                                        <td>
+                                                        </td>
+                                                        <td></td>
+                                                        <td></td>
+                                                        <td></td>
+                                                        <td></td>
+                                                        <td>
+                                                            <div>
+                                                            </div>
+                                                        </td>
+                                                        <td>0</td>
+                                                        <td>0</td>
+                                                        <td>0</td>
+                                                        <td></td>
+                                                    </tr>
+                                                    <tr class="odd-row">
+                                                        <td>
+                                                            <a id="navigation,55864" style="cursor:pointer"
+                                                               title="T&#228;vlingslista"><img
+                                                                    src="/media/1034/view_d.png"/></a>
+                                                            <a id="startList|55864|VERIFIERAD|Agility 1|Extra Large|GMBKs h&#246;stdr&#246;m |GMBKs H&#246;stdr&#246;m|A|9|441|441|10-10-2020 00:00:00|G&#246;teborg M&#246;lndal  BK|190|65,00|AGILITY_1"
+                                                               style="cursor:pointer" title="Startlista"><img
+                                                                    src="/media/1036/view_s.png"/></a>
+                                                            <a id="resultList|55864|VERIFIERAD|Agility 1|Extra Large|GMBKs h&#246;stdr&#246;m |GMBKs H&#246;stdr&#246;m|A|9|441|441|10-10-2020 00:00:00|G&#246;teborg M&#246;lndal  BK|190|65,00|AGILITY_1"
+                                                               style="cursor:pointer" title="Resutatlista"><img
+                                                                    src="/media/1035/view_r.png"/></a>
+                                                        </td>
+                                                        <td>Extra Large</td>
+                                                        <td> Agility 1 A</td>
+                                                        <td><span>9 </span></td>
+                                                        <td>P&#228;r Tangfelt</td>
+                                                        <td>
+                                                            <div>
+                                                            </div>
+                                                        </td>
+                                                        <td>6355</td>
+                                                        <td>6441</td>
+                                                        <td>55864</td>
+                                                        <td>70,00</td>
+                                                    </tr>
+                                                    <tr class="even-row">
+                                                        <td>
+                                                            <a id="navigation,56019" style="cursor:pointer"
+                                                               title="T&#228;vlingslista"><img
+                                                                    src="/media/1034/view_d.png"/></a>
+                                                            <a id="startList|56019|VERIFIERAD|Agility 1|Extra Large|GMBKs h&#246;stdr&#246;m |GMBKs H&#246;stdr&#246;m|B|9|441|441|10-10-2020 00:00:00|G&#246;teborg M&#246;lndal  BK|179|59,00|AGILITY_1"
+                                                               style="cursor:pointer" title="Startlista"><img
+                                                                    src="/media/1036/view_s.png"/></a>
+                                                            <a id="resultList|56019|VERIFIERAD|Agility 1|Extra Large|GMBKs h&#246;stdr&#246;m |GMBKs H&#246;stdr&#246;m|B|9|441|441|10-10-2020 00:00:00|G&#246;teborg M&#246;lndal  BK|179|59,00|AGILITY_1"
+                                                               style="cursor:pointer" title="Resutatlista"><img
+                                                                    src="/media/1035/view_r.png"/></a>
+                                                        </td>
+                                                        <td>Extra Large</td>
+                                                        <td> Agility 1 B</td>
+                                                        <td><span>9 </span></td>
+                                                        <td>P&#228;r Tangfelt</td>
+                                                        <td>
+                                                            <div>
+                                                            </div>
+                                                        </td>
+                                                        <td>6355</td>
+                                                        <td>6441</td>
+                                                        <td>56019</td>
+                                                        <td>70,00</td>
+                                                    </tr>
+                                                    <tr class="odd-row">
+                                                        <td>
+                                                            <a id="navigation,55873" style="cursor:pointer"
+                                                               title="T&#228;vlingslista"><img
+                                                                    src="/media/1034/view_d.png"/></a>
+                                                            <a id="startList|55873|VERIFIERAD|Hopp 1|Extra Large|GMBKs h&#246;stdr&#246;m |GMBKs H&#246;stdr&#246;m|A|13|441|441|10-10-2020 00:00:00|G&#246;teborg M&#246;lndal  BK|148|45,00|JUMP_1"
+                                                               style="cursor:pointer" title="Startlista"><img
+                                                                    src="/media/1036/view_s.png"/></a>
+                                                            <a id="resultList|55873|VERIFIERAD|Hopp 1|Extra Large|GMBKs h&#246;stdr&#246;m |GMBKs H&#246;stdr&#246;m|A|13|441|441|10-10-2020 00:00:00|G&#246;teborg M&#246;lndal  BK|148|45,00|JUMP_1"
+                                                               style="cursor:pointer" title="Resutatlista"><img
+                                                                    src="/media/1035/view_r.png"/></a>
+                                                        </td>
+                                                        <td>Extra Large</td>
+                                                        <td> Hopp 1 A</td>
+                                                        <td><span>13 </span></td>
+                                                        <td>P&#228;r Tangfelt</td>
+                                                        <td>
+                                                            <div>
+                                                            </div>
+                                                        </td>
+                                                        <td>6355</td>
+                                                        <td>6441</td>
+                                                        <td>55873</td>
+                                                        <td>70,00</td>
+                                                    </tr>
+                                                    <tr class="even-row">
+                                                        <td>
+                                                            <a id="navigation,55874" style="cursor:pointer"
+                                                               title="T&#228;vlingslista"><img
+                                                                    src="/media/1034/view_d.png"/></a>
+                                                            <a id="startList|55874|VERIFIERAD|Hopp 1|Extra Large|GMBKs h&#246;stdr&#246;m |GMBKs H&#246;stdr&#246;m|B|13|441|441|10-10-2020 00:00:00|G&#246;teborg M&#246;lndal  BK|153|50,00|JUMP_1"
+                                                               style="cursor:pointer" title="Startlista"><img
+                                                                    src="/media/1036/view_s.png"/></a>
+                                                            <a id="resultList|55874|VERIFIERAD|Hopp 1|Extra Large|GMBKs h&#246;stdr&#246;m |GMBKs H&#246;stdr&#246;m|B|13|441|441|10-10-2020 00:00:00|G&#246;teborg M&#246;lndal  BK|153|50,00|JUMP_1"
+                                                               style="cursor:pointer" title="Resutatlista"><img
+                                                                    src="/media/1035/view_r.png"/></a>
+                                                        </td>
+                                                        <td>Extra Large</td>
+                                                        <td> Hopp 1 B</td>
+                                                        <td><span>13 </span></td>
+                                                        <td>P&#228;r Tangfelt</td>
+                                                        <td>
+                                                            <div>
+                                                            </div>
+                                                        </td>
+                                                        <td>6355</td>
+                                                        <td>6441</td>
+                                                        <td>55874</td>
+                                                        <td>70,00</td>
+                                                    </tr>
+                                                    <tr class="odd-row">
+                                                        <td>
+                                                        </td>
+                                                        <td></td>
+                                                        <td></td>
+                                                        <td></td>
+                                                        <td></td>
+                                                        <td>
+                                                            <div>
+                                                            </div>
+                                                        </td>
+                                                        <td>0</td>
+                                                        <td>0</td>
+                                                        <td>0</td>
+                                                        <td></td>
+                                                    </tr>
+                                                    </tbody>
+                                                </table>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="tab-pane" id="6442" role="tabpanel">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <h3>GMBKs H&#246;stdr&#246;m</h3>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-5">
+                                            <div class="form-group">
+                                                <label for="Ort__Skickas_med_till_SKK_hunddata_">Ort (Skickas med till
+                                                    SKK hunddata)</label> :
+                                                M&#246;lndal
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <div class="form-group">
+                                                <label for="Anm_lda">Anm&#228;lda</label> :
+                                                109
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class=" row">
+                                        <div class="col-md-12">
+                                            <div id="gridContent">
+
+                                                <table class="webGrid  alt-table" data-swhgajax="true"
+                                                       data-swhgcallback="" data-swhgcontainer="gridContentGamesList"
+                                                       id="gridContentResultsGameTable">
+                                                    <thead>
+                                                    <tr class="header">
+                                                        <th scope="col">
+                                                        </th>
+                                                        <th scope="col">
+                                                            <a data-swhglnk="true"
+                                                               href="/resultat/spel-resultat/?sort=SizeName&amp;sortdir=ASC">Storlek</a>
+                                                        </th>
+                                                        <th scope="col">
+                                                            <a data-swhglnk="true"
+                                                               href="/resultat/spel-resultat/?sort=Klass&amp;sortdir=ASC">Klass</a>
+                                                        </th>
+                                                        <th scope="col">
+                                                            <a data-swhglnk="true"
+                                                               href="/resultat/spel-resultat/?sort=Anm%c3%a4lda&amp;sortdir=ASC">Anm&#228;lda</a>
+                                                        </th>
+                                                        <th scope="col">
+                                                            <a data-swhglnk="true"
+                                                               href="/resultat/spel-resultat/?sort=Judges&amp;sortdir=ASC">Domare</a>
+                                                        </th>
+                                                        <th scope="col">
+                                                            <a data-swhglnk="true"
+                                                               href="/resultat/spel-resultat/?sort=Not.&amp;sortdir=ASC">Not.</a>
+                                                        </th>
+                                                        <th scope="col">
+                                                            <a data-swhglnk="true"
+                                                               href="/resultat/spel-resultat/?sort=CompetitionKey&amp;sortdir=ASC">Competition
+                                                                Key</a></th>
+                                                        <th scope="col">
+                                                            <a data-swhglnk="true"
+                                                               href="/resultat/spel-resultat/?sort=CompetitionPartKey&amp;sortdir=ASC">CompetitionPart
+                                                                Key</a></th>
+                                                        <th scope="col">
+                                                            <a data-swhglnk="true"
+                                                               href="/resultat/spel-resultat/?sort=GameKey&amp;sortdir=ASC">GameKey</a>
+                                                        </th>
+                                                        <th scope="col">
+                                                            <a data-swhglnk="true"
+                                                               href="/resultat/spel-resultat/?sort=Price&amp;sortdir=ASC">Price</a>
+                                                        </th>
+                                                    </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                    <tr class="odd-row">
+                                                        <td>
+                                                            <a id="navigation,55880" style="cursor:pointer"
+                                                               title="T&#228;vlingslista"><img
+                                                                    src="/media/1034/view_d.png"/></a>
+                                                            <a id="startList|55880|VERIFIERAD|Agility 1|Extra Small|GMBKs h&#246;stdr&#246;m |GMBKs H&#246;stdr&#246;m|A|0|441|441|11-10-2020 00:00:00|G&#246;teborg M&#246;lndal  BK|||AGILITY_1"
+                                                               style="cursor:pointer" title="Startlista"><img
+                                                                    src="/media/1036/view_s.png"/></a>
+                                                            <a id="resultList|55880|VERIFIERAD|Agility 1|Extra Small|GMBKs h&#246;stdr&#246;m |GMBKs H&#246;stdr&#246;m|A|0|441|441|11-10-2020 00:00:00|G&#246;teborg M&#246;lndal  BK|||AGILITY_1"
+                                                               style="cursor:pointer" title="Resutatlista"><img
+                                                                    src="/media/1035/view_r.png"/></a>
+                                                        </td>
+                                                        <td>Extra Small</td>
+                                                        <td> Agility 1 A</td>
+                                                        <td></td>
+                                                        <td>P&#228;r Tangfelt</td>
+                                                        <td>
+                                                            <div>
+                                                            </div>
+                                                        </td>
+                                                        <td>6355</td>
+                                                        <td>6442</td>
+                                                        <td>55880</td>
+                                                        <td>70,00</td>
+                                                    </tr>
+                                                    <tr class="even-row">
+                                                        <td>
+                                                            <a id="navigation,55881" style="cursor:pointer"
+                                                               title="T&#228;vlingslista"><img
+                                                                    src="/media/1034/view_d.png"/></a>
+                                                            <a id="startList|55881|VERIFIERAD|Agility 1|Extra Small|GMBKs h&#246;stdr&#246;m |GMBKs H&#246;stdr&#246;m|B|0|441|441|11-10-2020 00:00:00|G&#246;teborg M&#246;lndal  BK|||AGILITY_1"
+                                                               style="cursor:pointer" title="Startlista"><img
+                                                                    src="/media/1036/view_s.png"/></a>
+                                                            <a id="resultList|55881|VERIFIERAD|Agility 1|Extra Small|GMBKs h&#246;stdr&#246;m |GMBKs H&#246;stdr&#246;m|B|0|441|441|11-10-2020 00:00:00|G&#246;teborg M&#246;lndal  BK|||AGILITY_1"
+                                                               style="cursor:pointer" title="Resutatlista"><img
+                                                                    src="/media/1035/view_r.png"/></a>
+                                                        </td>
+                                                        <td>Extra Small</td>
+                                                        <td> Agility 1 B</td>
+                                                        <td></td>
+                                                        <td>P&#228;r Tangfelt</td>
+                                                        <td>
+                                                            <div>
+                                                            </div>
+                                                        </td>
+                                                        <td>6355</td>
+                                                        <td>6442</td>
+                                                        <td>55881</td>
+                                                        <td>70,00</td>
+                                                    </tr>
+                                                    <tr class="odd-row">
+                                                        <td>
+                                                            <a id="navigation,55875" style="cursor:pointer"
+                                                               title="T&#228;vlingslista"><img
+                                                                    src="/media/1034/view_d.png"/></a>
+                                                            <a id="startList|55875|VERIFIERAD|Hopp 1|Extra Small|GMBKs h&#246;stdr&#246;m |GMBKs H&#246;stdr&#246;m|A|0|441|441|11-10-2020 00:00:00|G&#246;teborg M&#246;lndal  BK|||JUMP_1"
+                                                               style="cursor:pointer" title="Startlista"><img
+                                                                    src="/media/1036/view_s.png"/></a>
+                                                            <a id="resultList|55875|VERIFIERAD|Hopp 1|Extra Small|GMBKs h&#246;stdr&#246;m |GMBKs H&#246;stdr&#246;m|A|0|441|441|11-10-2020 00:00:00|G&#246;teborg M&#246;lndal  BK|||JUMP_1"
+                                                               style="cursor:pointer" title="Resutatlista"><img
+                                                                    src="/media/1035/view_r.png"/></a>
+                                                        </td>
+                                                        <td>Extra Small</td>
+                                                        <td> Hopp 1 A</td>
+                                                        <td></td>
+                                                        <td>P&#228;r Tangfelt</td>
+                                                        <td>
+                                                            <div>
+                                                            </div>
+                                                        </td>
+                                                        <td>6355</td>
+                                                        <td>6442</td>
+                                                        <td>55875</td>
+                                                        <td>70,00</td>
+                                                    </tr>
+                                                    <tr class="even-row">
+                                                        <td>
+                                                            <a id="navigation,56020" style="cursor:pointer"
+                                                               title="T&#228;vlingslista"><img
+                                                                    src="/media/1034/view_d.png"/></a>
+                                                            <a id="startList|56020|VERIFIERAD|Hopp 1|Extra Small|GMBKs h&#246;stdr&#246;m |GMBKs H&#246;stdr&#246;m|B|0|441|441|11-10-2020 00:00:00|G&#246;teborg M&#246;lndal  BK|||JUMP_1"
+                                                               style="cursor:pointer" title="Startlista"><img
+                                                                    src="/media/1036/view_s.png"/></a>
+                                                            <a id="resultList|56020|VERIFIERAD|Hopp 1|Extra Small|GMBKs h&#246;stdr&#246;m |GMBKs H&#246;stdr&#246;m|B|0|441|441|11-10-2020 00:00:00|G&#246;teborg M&#246;lndal  BK|||JUMP_1"
+                                                               style="cursor:pointer" title="Resutatlista"><img
+                                                                    src="/media/1035/view_r.png"/></a>
+                                                        </td>
+                                                        <td>Extra Small</td>
+                                                        <td> Hopp 1 B</td>
+                                                        <td></td>
+                                                        <td>P&#228;r Tangfelt</td>
+                                                        <td>
+                                                            <div>
+                                                            </div>
+                                                        </td>
+                                                        <td>6355</td>
+                                                        <td>6442</td>
+                                                        <td>56020</td>
+                                                        <td>70,00</td>
+                                                    </tr>
+                                                    <tr class="odd-row">
+                                                        <td>
+                                                        </td>
+                                                        <td></td>
+                                                        <td></td>
+                                                        <td></td>
+                                                        <td></td>
+                                                        <td>
+                                                            <div>
+                                                            </div>
+                                                        </td>
+                                                        <td>0</td>
+                                                        <td>0</td>
+                                                        <td>0</td>
+                                                        <td></td>
+                                                    </tr>
+                                                    <tr class="even-row">
+                                                        <td>
+                                                            <a id="navigation,55882" style="cursor:pointer"
+                                                               title="T&#228;vlingslista"><img
+                                                                    src="/media/1034/view_d.png"/></a>
+                                                            <a id="startList|55882|VERIFIERAD|Agility 1|Small|GMBKs h&#246;stdr&#246;m |GMBKs H&#246;stdr&#246;m|A|6|441|441|11-10-2020 00:00:00|G&#246;teborg M&#246;lndal  BK|151|50,00|AGILITY_1"
+                                                               style="cursor:pointer" title="Startlista"><img
+                                                                    src="/media/1036/view_s.png"/></a>
+                                                            <a id="resultList|55882|VERIFIERAD|Agility 1|Small|GMBKs h&#246;stdr&#246;m |GMBKs H&#246;stdr&#246;m|A|6|441|441|11-10-2020 00:00:00|G&#246;teborg M&#246;lndal  BK|151|50,00|AGILITY_1"
+                                                               style="cursor:pointer" title="Resutatlista"><img
+                                                                    src="/media/1035/view_r.png"/></a>
+                                                        </td>
+                                                        <td>Small</td>
+                                                        <td> Agility 1 A</td>
+                                                        <td><span>6 </span></td>
+                                                        <td>P&#228;r Tangfelt</td>
+                                                        <td>
+                                                            <div>
+                                                            </div>
+                                                        </td>
+                                                        <td>6355</td>
+                                                        <td>6442</td>
+                                                        <td>55882</td>
+                                                        <td>70,00</td>
+                                                    </tr>
+                                                    <tr class="odd-row">
+                                                        <td>
+                                                            <a id="navigation,55883" style="cursor:pointer"
+                                                               title="T&#228;vlingslista"><img
+                                                                    src="/media/1034/view_d.png"/></a>
+                                                            <a id="startList|55883|VERIFIERAD|Agility 1|Small|GMBKs h&#246;stdr&#246;m |GMBKs H&#246;stdr&#246;m|B|5|441|441|11-10-2020 00:00:00|G&#246;teborg M&#246;lndal  BK|164|55,00|AGILITY_1"
+                                                               style="cursor:pointer" title="Startlista"><img
+                                                                    src="/media/1036/view_s.png"/></a>
+                                                            <a id="resultList|55883|VERIFIERAD|Agility 1|Small|GMBKs h&#246;stdr&#246;m |GMBKs H&#246;stdr&#246;m|B|5|441|441|11-10-2020 00:00:00|G&#246;teborg M&#246;lndal  BK|164|55,00|AGILITY_1"
+                                                               style="cursor:pointer" title="Resutatlista"><img
+                                                                    src="/media/1035/view_r.png"/></a>
+                                                        </td>
+                                                        <td>Small</td>
+                                                        <td> Agility 1 B</td>
+                                                        <td><span>5 </span></td>
+                                                        <td>P&#228;r Tangfelt</td>
+                                                        <td>
+                                                            <div>
+                                                            </div>
+                                                        </td>
+                                                        <td>6355</td>
+                                                        <td>6442</td>
+                                                        <td>55883</td>
+                                                        <td>70,00</td>
+                                                    </tr>
+                                                    <tr class="even-row">
+                                                        <td>
+                                                            <a id="navigation,55876" style="cursor:pointer"
+                                                               title="T&#228;vlingslista"><img
+                                                                    src="/media/1034/view_d.png"/></a>
+                                                            <a id="startList|55876|VERIFIERAD|Hopp 1|Small|GMBKs h&#246;stdr&#246;m |GMBKs H&#246;stdr&#246;m|A|7|441|441|11-10-2020 00:00:00|G&#246;teborg M&#246;lndal  BK|142|42,00|JUMP_1"
+                                                               style="cursor:pointer" title="Startlista"><img
+                                                                    src="/media/1036/view_s.png"/></a>
+                                                            <a id="resultList|55876|VERIFIERAD|Hopp 1|Small|GMBKs h&#246;stdr&#246;m |GMBKs H&#246;stdr&#246;m|A|7|441|441|11-10-2020 00:00:00|G&#246;teborg M&#246;lndal  BK|142|42,00|JUMP_1"
+                                                               style="cursor:pointer" title="Resutatlista"><img
+                                                                    src="/media/1035/view_r.png"/></a>
+                                                        </td>
+                                                        <td>Small</td>
+                                                        <td> Hopp 1 A</td>
+                                                        <td><span>7 </span></td>
+                                                        <td>P&#228;r Tangfelt</td>
+                                                        <td>
+                                                            <div>
+                                                            </div>
+                                                        </td>
+                                                        <td>6355</td>
+                                                        <td>6442</td>
+                                                        <td>55876</td>
+                                                        <td>70,00</td>
+                                                    </tr>
+                                                    <tr class="odd-row">
+                                                        <td>
+                                                            <a id="navigation,56021" style="cursor:pointer"
+                                                               title="T&#228;vlingslista"><img
+                                                                    src="/media/1034/view_d.png"/></a>
+                                                            <a id="startList|56021|VERIFIERAD|Hopp 1|Small|GMBKs h&#246;stdr&#246;m |GMBKs H&#246;stdr&#246;m|B|7|441|441|11-10-2020 00:00:00|G&#246;teborg M&#246;lndal  BK|145|42,00|JUMP_1"
+                                                               style="cursor:pointer" title="Startlista"><img
+                                                                    src="/media/1036/view_s.png"/></a>
+                                                            <a id="resultList|56021|VERIFIERAD|Hopp 1|Small|GMBKs h&#246;stdr&#246;m |GMBKs H&#246;stdr&#246;m|B|7|441|441|11-10-2020 00:00:00|G&#246;teborg M&#246;lndal  BK|145|42,00|JUMP_1"
+                                                               style="cursor:pointer" title="Resutatlista"><img
+                                                                    src="/media/1035/view_r.png"/></a>
+                                                        </td>
+                                                        <td>Small</td>
+                                                        <td> Hopp 1 B</td>
+                                                        <td><span>7 </span></td>
+                                                        <td>P&#228;r Tangfelt</td>
+                                                        <td>
+                                                            <div>
+                                                            </div>
+                                                        </td>
+                                                        <td>6355</td>
+                                                        <td>6442</td>
+                                                        <td>56021</td>
+                                                        <td>70,00</td>
+                                                    </tr>
+                                                    <tr class="even-row">
+                                                        <td>
+                                                        </td>
+                                                        <td></td>
+                                                        <td></td>
+                                                        <td></td>
+                                                        <td></td>
+                                                        <td>
+                                                            <div>
+                                                            </div>
+                                                        </td>
+                                                        <td>0</td>
+                                                        <td>0</td>
+                                                        <td>0</td>
+                                                        <td></td>
+                                                    </tr>
+                                                    <tr class="odd-row">
+                                                        <td>
+                                                            <a id="navigation,55884" style="cursor:pointer"
+                                                               title="T&#228;vlingslista"><img
+                                                                    src="/media/1034/view_d.png"/></a>
+                                                            <a id="startList|55884|VERIFIERAD|Agility 1|Medium|GMBKs h&#246;stdr&#246;m |GMBKs H&#246;stdr&#246;m|A|6|441|441|11-10-2020 00:00:00|G&#246;teborg M&#246;lndal  BK|151|50,00|AGILITY_1"
+                                                               style="cursor:pointer" title="Startlista"><img
+                                                                    src="/media/1036/view_s.png"/></a>
+                                                            <a id="resultList|55884|VERIFIERAD|Agility 1|Medium|GMBKs h&#246;stdr&#246;m |GMBKs H&#246;stdr&#246;m|A|6|441|441|11-10-2020 00:00:00|G&#246;teborg M&#246;lndal  BK|151|50,00|AGILITY_1"
+                                                               style="cursor:pointer" title="Resutatlista"><img
+                                                                    src="/media/1035/view_r.png"/></a>
+                                                        </td>
+                                                        <td>Medium</td>
+                                                        <td> Agility 1 A</td>
+                                                        <td><span>6 </span></td>
+                                                        <td>P&#228;r Tangfelt</td>
+                                                        <td>
+                                                            <div>
+                                                            </div>
+                                                        </td>
+                                                        <td>6355</td>
+                                                        <td>6442</td>
+                                                        <td>55884</td>
+                                                        <td>70,00</td>
+                                                    </tr>
+                                                    <tr class="even-row">
+                                                        <td>
+                                                            <a id="navigation,55885" style="cursor:pointer"
+                                                               title="T&#228;vlingslista"><img
+                                                                    src="/media/1034/view_d.png"/></a>
+                                                            <a id="startList|55885|VERIFIERAD|Agility 1|Medium|GMBKs h&#246;stdr&#246;m |GMBKs H&#246;stdr&#246;m|B|6|441|441|11-10-2020 00:00:00|G&#246;teborg M&#246;lndal  BK|164|55,00|AGILITY_1"
+                                                               style="cursor:pointer" title="Startlista"><img
+                                                                    src="/media/1036/view_s.png"/></a>
+                                                            <a id="resultList|55885|VERIFIERAD|Agility 1|Medium|GMBKs h&#246;stdr&#246;m |GMBKs H&#246;stdr&#246;m|B|6|441|441|11-10-2020 00:00:00|G&#246;teborg M&#246;lndal  BK|164|55,00|AGILITY_1"
+                                                               style="cursor:pointer" title="Resutatlista"><img
+                                                                    src="/media/1035/view_r.png"/></a>
+                                                        </td>
+                                                        <td>Medium</td>
+                                                        <td> Agility 1 B</td>
+                                                        <td><span>6 </span></td>
+                                                        <td>P&#228;r Tangfelt</td>
+                                                        <td>
+                                                            <div>
+                                                            </div>
+                                                        </td>
+                                                        <td>6355</td>
+                                                        <td>6442</td>
+                                                        <td>55885</td>
+                                                        <td>70,00</td>
+                                                    </tr>
+                                                    <tr class="odd-row">
+                                                        <td>
+                                                            <a id="navigation,55877" style="cursor:pointer"
+                                                               title="T&#228;vlingslista"><img
+                                                                    src="/media/1034/view_d.png"/></a>
+                                                            <a id="startList|55877|VERIFIERAD|Hopp 1|Medium|GMBKs h&#246;stdr&#246;m |GMBKs H&#246;stdr&#246;m|A|7|441|441|11-10-2020 00:00:00|G&#246;teborg M&#246;lndal  BK|142|42,00|JUMP_1"
+                                                               style="cursor:pointer" title="Startlista"><img
+                                                                    src="/media/1036/view_s.png"/></a>
+                                                            <a id="resultList|55877|VERIFIERAD|Hopp 1|Medium|GMBKs h&#246;stdr&#246;m |GMBKs H&#246;stdr&#246;m|A|7|441|441|11-10-2020 00:00:00|G&#246;teborg M&#246;lndal  BK|142|42,00|JUMP_1"
+                                                               style="cursor:pointer" title="Resutatlista"><img
+                                                                    src="/media/1035/view_r.png"/></a>
+                                                        </td>
+                                                        <td>Medium</td>
+                                                        <td> Hopp 1 A</td>
+                                                        <td><span>7 </span></td>
+                                                        <td>P&#228;r Tangfelt</td>
+                                                        <td>
+                                                            <div>
+                                                            </div>
+                                                        </td>
+                                                        <td>6355</td>
+                                                        <td>6442</td>
+                                                        <td>55877</td>
+                                                        <td>70,00</td>
+                                                    </tr>
+                                                    <tr class="even-row">
+                                                        <td>
+                                                            <a id="navigation,56022" style="cursor:pointer"
+                                                               title="T&#228;vlingslista"><img
+                                                                    src="/media/1034/view_d.png"/></a>
+                                                            <a id="startList|56022|VERIFIERAD|Hopp 1|Medium|GMBKs h&#246;stdr&#246;m |GMBKs H&#246;stdr&#246;m|B|7|441|441|11-10-2020 00:00:00|G&#246;teborg M&#246;lndal  BK|145|42,00|JUMP_1"
+                                                               style="cursor:pointer" title="Startlista"><img
+                                                                    src="/media/1036/view_s.png"/></a>
+                                                            <a id="resultList|56022|VERIFIERAD|Hopp 1|Medium|GMBKs h&#246;stdr&#246;m |GMBKs H&#246;stdr&#246;m|B|7|441|441|11-10-2020 00:00:00|G&#246;teborg M&#246;lndal  BK|145|42,00|JUMP_1"
+                                                               style="cursor:pointer" title="Resutatlista"><img
+                                                                    src="/media/1035/view_r.png"/></a>
+                                                        </td>
+                                                        <td>Medium</td>
+                                                        <td> Hopp 1 B</td>
+                                                        <td><span>7 </span></td>
+                                                        <td>P&#228;r Tangfelt</td>
+                                                        <td>
+                                                            <div>
+                                                            </div>
+                                                        </td>
+                                                        <td>6355</td>
+                                                        <td>6442</td>
+                                                        <td>56022</td>
+                                                        <td>70,00</td>
+                                                    </tr>
+                                                    <tr class="odd-row">
+                                                        <td>
+                                                        </td>
+                                                        <td></td>
+                                                        <td></td>
+                                                        <td></td>
+                                                        <td></td>
+                                                        <td>
+                                                            <div>
+                                                            </div>
+                                                        </td>
+                                                        <td>0</td>
+                                                        <td>0</td>
+                                                        <td>0</td>
+                                                        <td></td>
+                                                    </tr>
+                                                    <tr class="even-row">
+                                                        <td>
+                                                            <a id="navigation,55886" style="cursor:pointer"
+                                                               title="T&#228;vlingslista"><img
+                                                                    src="/media/1034/view_d.png"/></a>
+                                                            <a id="startList|55886|VERIFIERAD|Agility 1|Large|GMBKs h&#246;stdr&#246;m |GMBKs H&#246;stdr&#246;m|A|4|71|441|11-10-2020 00:00:00|G&#246;teborg M&#246;lndal  BK|164|55,00|AGILITY_1"
+                                                               style="cursor:pointer" title="Startlista"><img
+                                                                    src="/media/1036/view_s.png"/></a>
+                                                            <a id="resultList|55886|VERIFIERAD|Agility 1|Large|GMBKs h&#246;stdr&#246;m |GMBKs H&#246;stdr&#246;m|A|4|71|441|11-10-2020 00:00:00|G&#246;teborg M&#246;lndal  BK|164|55,00|AGILITY_1"
+                                                               style="cursor:pointer" title="Resutatlista"><img
+                                                                    src="/media/1035/view_r.png"/></a>
+                                                        </td>
+                                                        <td>Large</td>
+                                                        <td> Agility 1 A</td>
+                                                        <td><span>4 </span></td>
+                                                        <td>Viktoria Lundh</td>
+                                                        <td>
+                                                            <div>
+                                                            </div>
+                                                        </td>
+                                                        <td>6355</td>
+                                                        <td>6442</td>
+                                                        <td>55886</td>
+                                                        <td>70,00</td>
+                                                    </tr>
+                                                    <tr class="odd-row">
+                                                        <td>
+                                                            <a id="navigation,55887" style="cursor:pointer"
+                                                               title="T&#228;vlingslista"><img
+                                                                    src="/media/1034/view_d.png"/></a>
+                                                            <a id="startList|55887|VERIFIERAD|Agility 1|Large|GMBKs h&#246;stdr&#246;m |GMBKs H&#246;stdr&#246;m|B|4|71|441|11-10-2020 00:00:00|G&#246;teborg M&#246;lndal  BK|151|50,00|AGILITY_1"
+                                                               style="cursor:pointer" title="Startlista"><img
+                                                                    src="/media/1036/view_s.png"/></a>
+                                                            <a id="resultList|55887|VERIFIERAD|Agility 1|Large|GMBKs h&#246;stdr&#246;m |GMBKs H&#246;stdr&#246;m|B|4|71|441|11-10-2020 00:00:00|G&#246;teborg M&#246;lndal  BK|151|50,00|AGILITY_1"
+                                                               style="cursor:pointer" title="Resutatlista"><img
+                                                                    src="/media/1035/view_r.png"/></a>
+                                                        </td>
+                                                        <td>Large</td>
+                                                        <td> Agility 1 B</td>
+                                                        <td><span>4 </span></td>
+                                                        <td>Viktoria Lundh</td>
+                                                        <td>
+                                                            <div>
+                                                            </div>
+                                                        </td>
+                                                        <td>6355</td>
+                                                        <td>6442</td>
+                                                        <td>55887</td>
+                                                        <td>70,00</td>
+                                                    </tr>
+                                                    <tr class="even-row">
+                                                        <td>
+                                                            <a id="navigation,55878" style="cursor:pointer"
+                                                               title="T&#228;vlingslista"><img
+                                                                    src="/media/1034/view_d.png"/></a>
+                                                            <a id="startList|55878|VERIFIERAD|Hopp 1|Large|GMBKs h&#246;stdr&#246;m |GMBKs H&#246;stdr&#246;m|A|6|71|441|11-10-2020 00:00:00|G&#246;teborg M&#246;lndal  BK|145|42,00|JUMP_1"
+                                                               style="cursor:pointer" title="Startlista"><img
+                                                                    src="/media/1036/view_s.png"/></a>
+                                                            <a id="resultList|55878|VERIFIERAD|Hopp 1|Large|GMBKs h&#246;stdr&#246;m |GMBKs H&#246;stdr&#246;m|A|6|71|441|11-10-2020 00:00:00|G&#246;teborg M&#246;lndal  BK|145|42,00|JUMP_1"
+                                                               style="cursor:pointer" title="Resutatlista"><img
+                                                                    src="/media/1035/view_r.png"/></a>
+                                                        </td>
+                                                        <td>Large</td>
+                                                        <td> Hopp 1 A</td>
+                                                        <td><span>6 </span></td>
+                                                        <td>Viktoria Lundh</td>
+                                                        <td>
+                                                            <div>
+                                                            </div>
+                                                        </td>
+                                                        <td>6355</td>
+                                                        <td>6442</td>
+                                                        <td>55878</td>
+                                                        <td>70,00</td>
+                                                    </tr>
+                                                    <tr class="odd-row">
+                                                        <td>
+                                                            <a id="navigation,56023" style="cursor:pointer"
+                                                               title="T&#228;vlingslista"><img
+                                                                    src="/media/1034/view_d.png"/></a>
+                                                            <a id="startList|56023|VERIFIERAD|Hopp 1|Large|GMBKs h&#246;stdr&#246;m |GMBKs H&#246;stdr&#246;m|B|6|71|441|11-10-2020 00:00:00|G&#246;teborg M&#246;lndal  BK|143|42,00|JUMP_1"
+                                                               style="cursor:pointer" title="Startlista"><img
+                                                                    src="/media/1036/view_s.png"/></a>
+                                                            <a id="resultList|56023|VERIFIERAD|Hopp 1|Large|GMBKs h&#246;stdr&#246;m |GMBKs H&#246;stdr&#246;m|B|6|71|441|11-10-2020 00:00:00|G&#246;teborg M&#246;lndal  BK|143|42,00|JUMP_1"
+                                                               style="cursor:pointer" title="Resutatlista"><img
+                                                                    src="/media/1035/view_r.png"/></a>
+                                                        </td>
+                                                        <td>Large</td>
+                                                        <td> Hopp 1 B</td>
+                                                        <td><span>6 </span></td>
+                                                        <td>Viktoria Lundh</td>
+                                                        <td>
+                                                            <div>
+                                                            </div>
+                                                        </td>
+                                                        <td>6355</td>
+                                                        <td>6442</td>
+                                                        <td>56023</td>
+                                                        <td>70,00</td>
+                                                    </tr>
+                                                    <tr class="even-row">
+                                                        <td>
+                                                        </td>
+                                                        <td></td>
+                                                        <td></td>
+                                                        <td></td>
+                                                        <td></td>
+                                                        <td>
+                                                            <div>
+                                                            </div>
+                                                        </td>
+                                                        <td>0</td>
+                                                        <td>0</td>
+                                                        <td>0</td>
+                                                        <td></td>
+                                                    </tr>
+                                                    <tr class="odd-row">
+                                                        <td>
+                                                            <a id="navigation,55888" style="cursor:pointer"
+                                                               title="T&#228;vlingslista"><img
+                                                                    src="/media/1034/view_d.png"/></a>
+                                                            <a id="startList|55888|VERIFIERAD|Agility 1|Extra Large|GMBKs h&#246;stdr&#246;m |GMBKs H&#246;stdr&#246;m|A|9|441|441|11-10-2020 00:00:00|G&#246;teborg M&#246;lndal  BK|164|55,00|AGILITY_1"
+                                                               style="cursor:pointer" title="Startlista"><img
+                                                                    src="/media/1036/view_s.png"/></a>
+                                                            <a id="resultList|55888|VERIFIERAD|Agility 1|Extra Large|GMBKs h&#246;stdr&#246;m |GMBKs H&#246;stdr&#246;m|A|9|441|441|11-10-2020 00:00:00|G&#246;teborg M&#246;lndal  BK|164|55,00|AGILITY_1"
+                                                               style="cursor:pointer" title="Resutatlista"><img
+                                                                    src="/media/1035/view_r.png"/></a>
+                                                        </td>
+                                                        <td>Extra Large</td>
+                                                        <td> Agility 1 A</td>
+                                                        <td><span>9 </span></td>
+                                                        <td>P&#228;r Tangfelt</td>
+                                                        <td>
+                                                            <div>
+                                                            </div>
+                                                        </td>
+                                                        <td>6355</td>
+                                                        <td>6442</td>
+                                                        <td>55888</td>
+                                                        <td>70,00</td>
+                                                    </tr>
+                                                    <tr class="even-row">
+                                                        <td>
+                                                            <a id="navigation,55889" style="cursor:pointer"
+                                                               title="T&#228;vlingslista"><img
+                                                                    src="/media/1034/view_d.png"/></a>
+                                                            <a id="startList|55889|VERIFIERAD|Agility 1|Extra Large|GMBKs h&#246;stdr&#246;m |GMBKs H&#246;stdr&#246;m|B|9|441|441|11-10-2020 00:00:00|G&#246;teborg M&#246;lndal  BK|151|50,00|AGILITY_1"
+                                                               style="cursor:pointer" title="Startlista"><img
+                                                                    src="/media/1036/view_s.png"/></a>
+                                                            <a id="resultList|55889|VERIFIERAD|Agility 1|Extra Large|GMBKs h&#246;stdr&#246;m |GMBKs H&#246;stdr&#246;m|B|9|441|441|11-10-2020 00:00:00|G&#246;teborg M&#246;lndal  BK|151|50,00|AGILITY_1"
+                                                               style="cursor:pointer" title="Resutatlista"><img
+                                                                    src="/media/1035/view_r.png"/></a>
+                                                        </td>
+                                                        <td>Extra Large</td>
+                                                        <td> Agility 1 B</td>
+                                                        <td><span>9 </span></td>
+                                                        <td>P&#228;r Tangfelt</td>
+                                                        <td>
+                                                            <div>
+                                                            </div>
+                                                        </td>
+                                                        <td>6355</td>
+                                                        <td>6442</td>
+                                                        <td>55889</td>
+                                                        <td>70,00</td>
+                                                    </tr>
+                                                    <tr class="odd-row">
+                                                        <td>
+                                                            <a id="navigation,55879" style="cursor:pointer"
+                                                               title="T&#228;vlingslista"><img
+                                                                    src="/media/1034/view_d.png"/></a>
+                                                            <a id="startList|55879|VERIFIERAD|Hopp 1|Extra Large|GMBKs h&#246;stdr&#246;m |GMBKs H&#246;stdr&#246;m|A|10|441|441|11-10-2020 00:00:00|G&#246;teborg M&#246;lndal  BK|145|42,00|JUMP_1"
+                                                               style="cursor:pointer" title="Startlista"><img
+                                                                    src="/media/1036/view_s.png"/></a>
+                                                            <a id="resultList|55879|VERIFIERAD|Hopp 1|Extra Large|GMBKs h&#246;stdr&#246;m |GMBKs H&#246;stdr&#246;m|A|10|441|441|11-10-2020 00:00:00|G&#246;teborg M&#246;lndal  BK|145|42,00|JUMP_1"
+                                                               style="cursor:pointer" title="Resutatlista"><img
+                                                                    src="/media/1035/view_r.png"/></a>
+                                                        </td>
+                                                        <td>Extra Large</td>
+                                                        <td> Hopp 1 A</td>
+                                                        <td><span>10 </span></td>
+                                                        <td>P&#228;r Tangfelt</td>
+                                                        <td>
+                                                            <div>
+                                                            </div>
+                                                        </td>
+                                                        <td>6355</td>
+                                                        <td>6442</td>
+                                                        <td>55879</td>
+                                                        <td>70,00</td>
+                                                    </tr>
+                                                    <tr class="even-row">
+                                                        <td>
+                                                            <a id="navigation,56024" style="cursor:pointer"
+                                                               title="T&#228;vlingslista"><img
+                                                                    src="/media/1034/view_d.png"/></a>
+                                                            <a id="startList|56024|VERIFIERAD|Hopp 1|Extra Large|GMBKs h&#246;stdr&#246;m |GMBKs H&#246;stdr&#246;m|B|10|441|441|11-10-2020 00:00:00|G&#246;teborg M&#246;lndal  BK|143|42,00|JUMP_1"
+                                                               style="cursor:pointer" title="Startlista"><img
+                                                                    src="/media/1036/view_s.png"/></a>
+                                                            <a id="resultList|56024|VERIFIERAD|Hopp 1|Extra Large|GMBKs h&#246;stdr&#246;m |GMBKs H&#246;stdr&#246;m|B|10|441|441|11-10-2020 00:00:00|G&#246;teborg M&#246;lndal  BK|143|42,00|JUMP_1"
+                                                               style="cursor:pointer" title="Resutatlista"><img
+                                                                    src="/media/1035/view_r.png"/></a>
+                                                        </td>
+                                                        <td>Extra Large</td>
+                                                        <td> Hopp 1 B</td>
+                                                        <td><span>10 </span></td>
+                                                        <td>P&#228;r Tangfelt</td>
+                                                        <td>
+                                                            <div>
+                                                            </div>
+                                                        </td>
+                                                        <td>6355</td>
+                                                        <td>6442</td>
+                                                        <td>56024</td>
+                                                        <td>70,00</td>
+                                                    </tr>
+                                                    <tr class="odd-row">
+                                                        <td>
+                                                        </td>
+                                                        <td></td>
+                                                        <td></td>
+                                                        <td></td>
+                                                        <td></td>
+                                                        <td>
+                                                            <div>
+                                                            </div>
+                                                        </td>
+                                                        <td>0</td>
+                                                        <td>0</td>
+                                                        <td>0</td>
+                                                        <td></td>
+                                                    </tr>
+                                                    </tbody>
+                                                </table>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <input id="GameKey" name="GameKey" type="hidden" value="0"/>
+                        <input id="CompetitionKey" name="CompetitionKey" type="hidden" value="6355"/>
+                        <input id="CompetitionPartKey" name="CompetitionPartKey" type="hidden" value="6441"/>
+                        <input id="Price" name="Price" type="hidden" value=""/>
+                        <input id="GameStatusCode" name="GameStatusCode" type="hidden" value=""/>
+                        <input id="ClassName" name="ClassName" type="hidden" value=""/>
+                        <input id="SizeName" name="SizeName" type="hidden" value=""/>
+                        <input id="CompetitionName" name="CompetitionName" type="hidden" value="GMBKs höstdröm "/>
+                        <input id="CompetitionPartName" name="CompetitionPartName" type="hidden"
+                               value="GMBKs Höstdröm"/>
+                        <input id="GameChar" name="GameChar" type="hidden" value=""/>
+                        <input id="NoOfRegistrations" name="NoOfRegistrations" type="hidden" value="0"/>
+                        <input id="JudgeStaffKey" name="JudgeStaffKey" type="hidden" value=""/>
+                        <input id="ConstructorStaffKey" name="ConstructorStaffKey" type="hidden" value=""/>
+                        <input id="CompetitionDate" name="CompetitionDate" type="hidden" value="01-01-0001 00:00:00"/>
+                        <input id="MainOrganiserName" name="MainOrganiserName" type="hidden"
+                               value="Göteborg Mölndal  BK"/>
+                        <input id="CourseLength" name="CourseLength" type="hidden" value=""/>
+                        <input id="ReferenceTime" name="ReferenceTime" type="hidden" value="59,00"/>
+                        <input id="ClassCode" name="ClassCode" type="hidden" value=""/>
+                        <input id="PageValue" name="PageValue" type="hidden" value=""/>
+                        <input id="secondGameKey" name="secondGameKey" type="hidden" value=""/>
+                        <input id="oldGameKey" name="oldGameKey" type="hidden" value=""/>
+                        <input id="thirdGameKey" name="thirdGameKey" type="hidden" value=""/>
+                        <button class="btn btn-primary" id="send" name="action" type="submit" value="NextPage"></button>
+                        <button class="btn btn-primary" id="view" name="action" type="submit" value="ViewList"></button>
+                        <button class="btn btn-primary" id="TeamView" name="action" type="submit"
+                                value="TeamViewList"></button>
+                    </div>
+                </div>
+            </div>
+            <input name='ufprt' type='hidden'
+                   value='C965D6A049087720DEE696CA46E43C89951959D6E0B3F9A3E79EA8061EB386E9BE2568B7B8289A6FAF1A0009C339445CB4ABFB4AE1AF8C5498D828CF462C50EC2024F81A662976541AB5295415325BC3EAA7770193FF09B51972A85F2A2B6A540C539BB90606DAC9EFED702C26D73F093617F0EB8A4A1AFF9383E7D44B3EB4F1B7694BFD76C523242C6E65985120295F23FAF4458F0784CD617D096524B103136CC523B811228F43EFFB9CD1B73750EA1BC6078B4C4B59C8B9D3A187D73DAA8D7AE31FE45D3623983CDF0BC33AE6852A'/>
+        </form>
+        <script type="text/javascript">
+            $(document).ready(function () {
+                $('#send').hide();
+                $("#view").hide();
+                $("#TeamView").hide();
+                // Make first tab as active
+                $('li[role="presentation"]:first').addClass("active");
+                $('div[role="tabpanel"]:first').addClass("active");
+
+                $('a[data-toggle="tab"]').on('show.bs.tab', function (e) {
+                    localStorage.setItem('activeTab', $(e.target).attr('href'));
+                });
+
+                $('.tab-pane').each(function () {
+                    $('#' + this.id + ' table tr:last').remove();
+                });
+
+                $("#gridContentResultsGameTable > tbody > tr").each(function () {
+                    var gameKey = $(this).children("td").eq(8).text();
+                    if (gameKey == 0) {
+                        $(this).addClass("row-seperator");
+                    }
+                });
+
+            });
+
+            $(window).load(function () {
+                var activeTab = localStorage.getItem('activeTab');
+                if (activeTab) {
+                    $('#comp_ResultGameslist_Tab a[href="' + activeTab + '"]').tab('show');
+                }
+            });
+
+            var gameKey = "";
+            var gameStatusCode = "";
+            $("button.button-style").each(function () {
+                $(this).click(function () {
+                    var comkey = $(this).parents("tr").children("td").eq(6);
+                    var compartkey = $(this).parents("tr").children("td").eq(7);
+                    gameKey = $(this).parents("tr").children("td").eq(8);
+                    var price = $(this).parents("tr").children("td").eq(9);
+                    $("#GameKey").val(gameKey.text());
+                    $("#CompetitionKey").val(comkey.text());
+                    $("#CompetitionPartKey").val(compartkey.text());
+                    $("#Price").val(price.text());
+                });
+            });
+
+            $(document).on("click", "a[id^=navigation]", function () {
+                gameKey = this.id.split(',')[1];
+                $('#GameKey').val(gameKey);
+                $('#send').trigger("click");
+            });
+
+            $(document).on("click", "button[id^=FirstCombinedResult]", function () {
+                $("form").attr("target", "_self");
+                key = this.id.split(',')[1]; // second game
+                var oldGameKey = "";
+                var previousRow = $(this).closest('tr').prev('tr');
+                oldGameKey = previousRow.children("td").eq(8).text(); // first game
+                $("#secondGameKey").val(key); // second
+                $("#oldGameKey").val(oldGameKey); // first
+            });
+
+            $(document).on("click", "button[id^=TeamFirstCombinedResult]", function () {
+                $("form").attr("target", "_self");
+                key = this.id.split(',')[1]; // second game
+                var oldGameKey = "";
+                var previousRow = $(this).closest('tr').prev('tr');
+                oldGameKey = previousRow.children("td").eq(8).text(); // first game
+                $("#secondGameKey").val(key); // second
+                $("#oldGameKey").val(oldGameKey); // first
+            });
+
+            $(document).on("click", "button[id^=SecondCombinedResult]", function () {
+                $("form").attr("target", "_self");
+                key = this.id.split(',')[1]; // third game
+                var oldGameKey = "";
+                var thirdGameKey = "";
+                var previousRow = $(this).closest('tr').prev('tr');
+                var beforePreviousRow = previousRow.closest('tr').prev('tr');
+                oldGameKey = previousRow.children("td").eq(8).text(); // second game
+                thirdGameKey = beforePreviousRow.children("td").eq(8).text(); // first game
+                $("#secondGameKey").val(oldGameKey); //second
+                $("#oldGameKey").val(thirdGameKey); //first
+                $("#thirdGameKey").val(key); // third
+
+            });
+
+            //Combine live result
+            $(document).on("click", "button[id^=FirstCombinedLiveResult]", function () {
+                key = this.id.split(',')[1]; // second game
+                var oldGameKey = "";
+                var previousRow = $(this).closest('tr').prev('tr');
+                oldGameKey = previousRow.children("td").eq(8).text(); // first game
+                $("#secondGameKey").val(key); // second
+                $("#oldGameKey").val(oldGameKey); // first
+                $("#thirdGameKey").val(""); // third
+                gameKey = $(this).parents("tr").children("td").eq(8);
+                $("#GameKey").val(gameKey.text());
+                $("#ClassCode").val(this.id.split(',')[2]);
+                $("#MainOrganiserName").val(this.id.split(',')[3]);
+                $("form").attr("target", "_blank");
+            });
+
+            $(document).on("click", "button[id^=SecondCombinedLiveResult]", function () {
+                key = this.id.split(',')[1]; // third game
+                var oldGameKey = "";
+                var thirdGameKey = "";
+                var previousRow = $(this).closest('tr').prev('tr');
+                var beforePreviousRow = previousRow.closest('tr').prev('tr');
+                oldGameKey = previousRow.children("td").eq(8).text(); // second game
+                thirdGameKey = beforePreviousRow.children("td").eq(8).text(); // first game
+                $("#secondGameKey").val(oldGameKey); //second
+                $("#oldGameKey").val(thirdGameKey); //first
+                $("#thirdGameKey").val(key); // third
+                gameKey = $(this).parents("tr").children("td").eq(8);
+                $("#GameKey").val(gameKey.text());
+                $("#ClassCode").val(this.id.split(',')[2]);
+                $("#MainOrganiserName").val(this.id.split(',')[3]);
+                $("form").attr("target", "_blank");
+            });
+            //End Combine live result
+            $(document).on("click", "button[id^=TeamSecondCombinedResult]", function () {
+                $("form").attr("target", "_self");
+                key = this.id.split(',')[1]; // third game
+                var oldGameKey = "";
+                var thirdGameKey = "";
+                var previousRow = $(this).closest('tr').prev('tr');
+                var beforePreviousRow = previousRow.closest('tr').prev('tr');
+                oldGameKey = previousRow.children("td").eq(8).text(); // second game
+                thirdGameKey = beforePreviousRow.children("td").eq(8).text(); // first game
+                $("#secondGameKey").val(oldGameKey); // second
+                $("#oldGameKey").val(thirdGameKey); // first
+                $("#thirdGameKey").val(key); // third
+            });
+
+            var className = "";
+            var sizeName = "";
+            var competitionName = "";
+            var competitionPartName = "";
+            var gameChar = "";
+            var noOfRegistrations = "";
+            var judgeStaffKey = "";
+            var constructorStaffKey = "";
+            var competitionDate = "";
+            var clubName = "";
+            var courseLenght = "";
+            var refrenceTime = "";
+            var pagevalue = "";
+            var classCode = "";
+            $(document).on("click", "a[id^=startList]", function () {
+                pagevalue = "StartList";
+                gameKey = this.id.split('|')[1];
+                gameStatusCode = this.id.split('|')[2];
+                className = this.id.split('|')[3];
+                sizeName = this.id.split('|')[4];
+                competitionName = this.id.split('|')[5];
+                competitionPartName = this.id.split('|')[6];
+                gameChar = this.id.split('|')[7];
+                noOfRegistrations = this.id.split('|')[8];
+                judgeStaffKey = this.id.split('|')[9];
+                constructorStaffKey = this.id.split('|')[10];
+                competitionDate = this.id.split('|')[11];
+                clubName = this.id.split('|')[12];
+                courseLenght = this.id.split('|')[13];
+                refrenceTime = this.id.split('|')[14];
+                classCode = this.id.split('|')[15];
+                $('#GameKey').val(gameKey);
+                $('#GameStatusCode').val(gameStatusCode);
+                $('#ClassName').val(className);
+                $('#SizeName').val(sizeName);
+                $('#CompetitionName').val(competitionName);
+                $('#CompetitionPartName').val(competitionPartName);
+                $('#GameChar').val(gameChar);
+                $('#NoOfRegistrations').val(noOfRegistrations);
+                $('#JudgeStaffKey').val(judgeStaffKey);
+                $('#ConstructorStaffKey').val(constructorStaffKey);
+                $('#CompetitionDate').val(competitionDate);
+                $('#MainOrganiserName').val(clubName);
+                $('#CourseLength').val(courseLenght);
+                $('#ReferenceTime').val(refrenceTime);
+                $('#PageValue').val(pagevalue);
+                $('#ClassCode').val(classCode);
+                $('#view').trigger("click");
+            });
+
+            $(document).on("click", "a[id^=resultList]", function () {
+                pagevalue = "ResultList";
+                gameKey = this.id.split('|')[1];
+                gameStatusCode = this.id.split('|')[2];
+                className = this.id.split('|')[3];
+                sizeName = this.id.split('|')[4];
+                competitionName = this.id.split('|')[5];
+                competitionPartName = this.id.split('|')[6];
+                gameChar = this.id.split('|')[7];
+                noOfRegistrations = this.id.split('|')[8];
+                judgeStaffKey = this.id.split('|')[9];
+                constructorStaffKey = this.id.split('|')[10];
+                competitionDate = this.id.split('|')[11];
+                clubName = this.id.split('|')[12];
+                courseLenght = this.id.split('|')[13];
+                refrenceTime = this.id.split('|')[14];
+                classCode = this.id.split('|')[15];
+                $('#GameKey').val(gameKey);
+                $('#GameStatusCode').val(gameStatusCode);
+                $('#ClassName').val(className);
+                $('#SizeName').val(sizeName);
+                $('#CompetitionName').val(competitionName);
+                $('#CompetitionPartName').val(competitionPartName);
+                $('#NoOfRegistrations').val(noOfRegistrations);
+                $('#JudgeStaffKey').val(judgeStaffKey);
+                $('#ConstructorStaffKey').val(constructorStaffKey);
+                $('#CompetitionDate').val(competitionDate);
+                $('#MainOrganiserName').val(clubName);
+                $('#CourseLength').val(courseLenght);
+                $('#ReferenceTime').val(refrenceTime);
+                $('#PageValue').val(pagevalue);
+                $('#ClassCode').val(classCode);
+                $('#view').trigger("click");
+            });
+
+            $(document).on("click", "a[id^=TeamStartList]", function () {
+                pagevalue = this.id.split('|')[0];
+                gameKey = this.id.split('|')[1];
+                gameStatusCode = this.id.split('|')[2];
+                className = this.id.split('|')[3];
+                sizeName = this.id.split('|')[4];
+                competitionName = this.id.split('|')[5];
+                competitionPartName = this.id.split('|')[6];
+                gameChar = this.id.split('|')[7];
+                noOfRegistrations = this.id.split('|')[8];
+                judgeStaffKey = this.id.split('|')[9];
+                constructorStaffKey = this.id.split('|')[10];
+                competitionDate = this.id.split('|')[11];
+                clubName = this.id.split('|')[12];
+                courseLenght = this.id.split('|')[13];
+                refrenceTime = this.id.split('|')[14];
+                classCode = this.id.split('|')[15];
+                $('#GameKey').val(gameKey);
+                $('#GameStatusCode').val(gameStatusCode);
+                $('#ClassName').val(className);
+                $('#SizeName').val(sizeName);
+                $('#CompetitionName').val(competitionName);
+                $('#CompetitionPartName').val(competitionPartName);
+                $('#NoOfRegistrations').val(noOfRegistrations);
+                $('#JudgeStaffKey').val(judgeStaffKey);
+                $('#ConstructorStaffKey').val(constructorStaffKey);
+                $('#CompetitionDate').val(competitionDate);
+                $('#MainOrganiserName').val(clubName);
+                $('#CourseLength').val(courseLenght);
+                $('#ReferenceTime').val(refrenceTime);
+                $('#PageValue').val(pagevalue);
+                $('#ClassCode').val(classCode);
+                $('#TeamView').trigger("click");
+            });
+
+            $(document).on("click", "a[id^=TeamResultList]", function () {
+                pagevalue = this.id.split('|')[0];
+                gameKey = this.id.split('|')[1];
+                gameStatusCode = this.id.split('|')[2];
+                className = this.id.split('|')[3];
+                sizeName = this.id.split('|')[4];
+                competitionName = this.id.split('|')[5];
+                competitionPartName = this.id.split('|')[6];
+                gameChar = this.id.split('|')[7];
+                noOfRegistrations = this.id.split('|')[8];
+                judgeStaffKey = this.id.split('|')[9];
+                constructorStaffKey = this.id.split('|')[10];
+                competitionDate = this.id.split('|')[11];
+                clubName = this.id.split('|')[12];
+                courseLenght = this.id.split('|')[13];
+                refrenceTime = this.id.split('|')[14];
+                classCode = this.id.split('|')[15];
+                $('#GameKey').val(gameKey);
+                $('#GameStatusCode').val(gameStatusCode);
+                $('#ClassName').val(className);
+                $('#SizeName').val(sizeName);
+                $('#CompetitionName').val(competitionName);
+                $('#CompetitionPartName').val(competitionPartName);
+                $('#NoOfRegistrations').val(noOfRegistrations);
+                $('#JudgeStaffKey').val(judgeStaffKey);
+                $('#ConstructorStaffKey').val(constructorStaffKey);
+                $('#CompetitionDate').val(competitionDate);
+                $('#MainOrganiserName').val(clubName);
+                $('#CourseLength').val(courseLenght);
+                $('#ReferenceTime').val(refrenceTime);
+                $('#PageValue').val(pagevalue);
+                $('#ClassCode').val(classCode);
+                $('#TeamView').trigger("click");
+            });
+        </script>
+    </div> <!-- /CONTENT CONTAINER -->
+    <!-- COMMERSIAL SECTION -->
+    <div id="commercial-slot">
+    </div> <!-- /COMMERSIAL SECTION -->
+
+</div><!-- /WRAPPER -->
+<!-- FOOTER -->
+<section id="footer-section">
+    <div class="container" id="footer-container">
+        <div class="row">
+            <div class="col-md-6">
+                <h3>Kontakt</h3>
+                <hr/>
+                <p><strong>Adress:</strong><br/> Svenska Agilityklubben<br/> c/o Lundin<br/> Hasselvägen 17<br/> 691 44
+                    Karlskoga</p>
+                <p><strong>Telefon:</strong><br/> Ewa Lundin, SAgiKs kansli<br/> 073-523 15 11<br/> mån-fre 10-17</p>
+                <p><strong>E-post:</strong><br/> <a href="mailto:kansli@sagik.se">kansli@sagik.se</a></p></div>
+            <div class="col-md-6">
+                <h3>Svenska Agilityklubben</h3>
+                <hr>
+                <p>Svenska Agilityklubben är en verksamhetsklubb under SKK med ansvar för agility. Som huvudman för
+                    agility ansvarar SAgiK för regelverk och central administration av utbildnings- och
+                    tävlingsverksamhet i agility inom hela SKK-organisationen.</p>
+                <p><img alt=""
+                        src="/media/1044/sagik_logo_white.png?width=295&amp;height=131" style="width: 295px; height: 131px;"></p></div>
+        </div>
+    </div>
+    <div class="container">
+        <hr/>
+        <p>© 2016 Svenska Agilityklubben. Alla rättigheter förbehållna om ej annat anges. <span>|</span> <a href="#"> Om
+            Cookies</a> <span>|</span> <a href="https://sisyfosdigital.se/" target="_blank">Webbsajt av Sisyfos
+            Digital</a></p></div>
+</section> <!-- /FOOTER -->
+
+<script>
+    function ToggleMenu() {
+        var obj = document.getElementById("menu-collapsed");
+        if (obj.style.display == "block")
+            obj.style.display = "none";
+        else
+            obj.style.display = "block";
+        $('.menu-toggle').toggleClass('menu-toggle-close');
+    };
+</script>
+
+<script src="/scripts/AgilityJS/ui.js" type="text/javascript"></script>
+
+</body>
+</html>
+
+<script type="text/javascript">
+    function noBack() {
+        window.history.forward();
+    }
+
+    //Disable all open Inspect Element like //Right Click //F12 //Ctrl + Shift + I //Ctrl + Shift + J //Ctrl + U
+    //document.onkeydown = function (e) {
+    //    if (event.keyCode == 123) {
+    //        return false;
+    //    }
+    //    if (e.ctrlKey && e.shiftKey && e.keyCode == 'I'.charCodeAt(0)) {
+    //        return false;
+    //    }
+    //    if (e.ctrlKey && e.shiftKey && e.keyCode == 'J'.charCodeAt(0)) {
+    //        return false;
+    //    }
+    //    if (e.ctrlKey && e.keyCode == 'U'.charCodeAt(0)) {
+    //        return false;
+    //    }
+    //}
+</script>
+<script src="/scripts/AgilityJS/custom.js?Version=1.0.0"></script>

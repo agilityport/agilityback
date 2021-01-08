@@ -1,0 +1,572 @@
+<html>
+<head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-132831071-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+
+        gtag('js', new Date());
+
+        gtag('config', 'UA-132831071-1');
+    </script>
+
+
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+    <title>AGIDA – AgilityData</title>
+    <link href="/css/EvryAgilitycss/bootstrap.min.css" rel="stylesheet"/>
+    <link href="/css/EvryAgilitycss/bootstrap-extra.css" rel="stylesheet"/>
+    <link href="/css/EvryAgilityCss/slider.css" rel="stylesheet"/>
+    <link href="/css/EvryAgilityCss/refineslide.css" rel="stylesheet"/>
+    <link href="/css/EvryAgilityCss/widgets.css" rel="stylesheet"/>
+    <link href="/css/EvryAgilityCss/bootstrap-datetimepicker.css" rel="stylesheet"/>
+    <link href="/css/EvryAgilitycss/jquery-ui.min.css" rel="stylesheet"/>
+    <link href="/css/EvryAgilityCss/font-awesome.css" rel="stylesheet"/>
+    <link href="/css/EvryAgilityCss/application-common.css?Version=1.0.11" rel="stylesheet"/>
+    <link href="/css/toggles.css" rel="stylesheet"/>
+    <!-- Fonts -->
+    <link href='https://fonts.googleapis.com/css?family=Roboto:400,500,100,100italic,300,300italic,400italic,500italic,700,700italic,900,900italic'
+          rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic,900italic,900'
+          rel='stylesheet' type='text/css'>
+
+    <script src="/scripts/AgilityJS/jquery-1.10.2.js" type="text/javascript"></script>
+    <script src="http://code.jquery.com/ui/1.11.3/jquery-ui.js"></script>
+    <script src="/scripts/AgilityJS/jquery.flexslider-min.js" type="text/javascript"></script>
+    <script src="/scripts/AgilityJS/jquery.cslider.js" type="text/javascript"></script>
+    <script src="/scripts/AgilityJS/moment.js" type="text/javascript"></script>
+    <script src="/scripts/AgilityJS/bootstrap-datetimepicker.min.js" type="text/javascript"></script>
+    <script src="/scripts/AgilityJS/resonsive-tables.js" type="text/javascript"></script>
+
+    <script src="/scripts/AgilityJS/toggles.min.js"></script>
+    <!-- DateTimePicker script(New) -->
+    <!-- Locale language script for Swedish DatePicker -->
+    <script src="/scripts/AgilityJS/jquery.refineslide.min.js" type="text/javascript"></script>
+    <script src="/scripts/AgilityJS/bootstrap.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        function ClearSession() {
+            var url = '/umbraco/Surface/LoginSurface/ClearSessionOnLogout';
+            $.post(url, {clearSessionData: true},
+                function (data) {
+                });
+        };
+
+        function ClearTempDataOnLangSwitch() {
+            var url = '/umbraco/Surface/LoginSurface/ClearTempDataOnLangSwitch';
+            $.post(url, {clearSessionData: true},
+                function (data) {
+                });
+        };
+
+        function noBack() {
+            window.history.forward();
+        }
+
+        $(document).ready(function () {
+            /*
+            $('#wrapper').on('mouseleave', 'ul', function (e) {
+                var menu = document.getElementById(e.currentTarget.id);
+                if (menu.style.display == 'block') {
+                    menu.style.display = 'none';
+                }
+            });
+            */
+            $("#langswitch").mouseleave(function () {
+                var menu = document.getElementById('langswitch');
+                if (menu.style.display == 'block') {
+                    menu.style.display = 'none';
+                }
+            });
+            //$('#test').click(function () {
+
+            //    $('#leftNav').toggleClass('position-zero');
+            //});
+        });
+        /*
+        function show_menu(id) {
+            var menu = document.getElementById(id);
+            if (menu.style.display == 'block') {
+                menu.style.display = 'none';
+            } else {
+                menu.style.display = 'block';
+            }
+        }
+        */
+
+        // RESPONSIVE TABLES
+        $(function () {
+            $('.table').ngResponsiveTables({
+                smallPaddingCharNo: 13,
+                mediumPaddingCharNo: 18,
+                largePaddingCharNo: 30
+            });
+        });
+
+    </script>
+    <style>
+        .pointer {
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body onpageshow="if (event.persisted) noBack();" onunload="">
+<!-- WRAPPER -->
+<div id="wrapper">
+    <!--Header Section Starts Here-->
+    <section id="header-section">
+        <div class="container" id="header-container">
+            <ul class="header-links pull-right">
+                <li class="dropdown pull-right">
+                    <button aria-expanded="false" aria-haspopup="true" class="dropdown-toggle header-symbol" data-placement="left"
+                            data-toggle="dropdown" id="dropdownMenu" role="button">
+                        <span class="glyphicon glyphicon-globe"></span>
+                    </button>
+
+
+                    <ul aria-labelledby="dropdownMenu" class=" dropdown-menu dropdown-menu-right">
+                        <li>
+                            <a href="/" onclick="ClearTempDataOnLangSwitch();" style="color: #000000 !important;">&nbsp;Swedish</a>
+                        </li>
+                        <li>
+                            <a href="/english/" onclick="ClearTempDataOnLangSwitch();"
+                               style="color: #000000 !important;">&nbsp;English</a>
+                        </li>
+                    </ul>
+                </li>
+
+
+                <li>
+                    <a href="http://agilityklubben.se/" target="_blank">SAGIK</a> <span style="color: #FFFFFF;">|</span>
+                </li>
+
+                <li>
+                    <a href="/logga-in/">LOGGA IN</a>
+                </li>
+            </ul>
+            <div class="row">
+                <div class="col-xs-5">
+                    <a href="/">
+                        <img alt="agida_loga_underrubrik_300x100.png" class="img-responsive"
+                             src="/media/1059/agida_underrubrik_300x100.png"/>
+                    </a>
+                </div>
+
+                <button class="menu-toggle" onclick="ToggleMenu()"/>
+            </div>
+            <a class="pull-right" href="mailto:support@agida.se">support@agida.se</a>
+        </div>
+    </section>
+    <!--Header Section Ends Here-->
+    <!-- PRIMARY MENU -->
+    <section class="container align_center" id="menu-collapsed">
+        <ul class="primary-menu">
+            <li class="menu-item">
+                <a href="/hem/">Hem</a>
+            </li>
+            <li class="menu-item menu-item-has-children">
+                <a href="/taevlingar/">T&#228;vlingar</a>
+                <button class="sub-menu-toggle">
+                    <span class="visually-hidden">Toggle sub-menu</span>
+                </button>
+                <ul class="sub-menu">
+                </ul>
+            </li>
+            <li class="menu-item menu-item-has-children">
+                <a href="/resultat/">Resultat</a>
+                <button class="sub-menu-toggle">
+                    <span class="visually-hidden">Toggle sub-menu</span>
+                </button>
+                <ul class="sub-menu">
+                    <li class="menu-item">
+                        <a href="/resultat/banskisser/">Banskisser</a>
+                    </li>
+                    <li class="menu-item">
+                        <a href="/resultat/sm-kvallista/">SM-kvallista</a>
+                    </li>
+                    <li class="menu-item">
+                        <a href="/resultat/&#229;rets-agilityhund/">&#197;rets Agilityhund</a>
+                    </li>
+                    <li class="menu-item">
+                        <a href="/resultat/&#229;rets-agilitylag/">&#197;rets agilitylag</a>
+                    </li>
+                    <li class="menu-item">
+                        <a href="/resultat/soek-hund/">S&#246;k Hund</a>
+                    </li>
+                </ul>
+            </li>
+            <li class="menu-item menu-item-has-children">
+                <a href="/hjaelp/">Hj&#228;lp</a>
+                <button class="sub-menu-toggle">
+                    <span class="visually-hidden">Toggle sub-menu</span>
+                </button>
+                <ul class="sub-menu">
+                    <li class="menu-item">
+                        <a href="/hjaelp/kontakt/">Kontakt</a>
+                    </li>
+                </ul>
+            </li>
+
+        </ul>
+    </section><!-- /PRIMARY MENU -->
+    <!-- NOTIFICATION MODAL -->
+    <div aria-hidden="true" aria-labelledby="myModalLabel" class="modal fade" data-target=".bs-example-modal-sm" id="notification"
+         role="dialog" tabindex="-1">
+        <div class="modal-dialog modal-datagrid">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button class="close-icon" data-dismiss="modal" id="cls" type="button"><span aria-hidden="true">&times;</span><span
+                            class="sr-only">St&#228;ng</span></button>
+                    <h4 class="modal-title" id="myModalLabel"><i class="fa fa-bell-o"></i>Meddelanden</h4>
+                </div>
+                <div class="modal-body">
+                    <ul class="list-group">
+                    </ul>
+                </div>
+                <div class="modal-footer">
+                    <button class=" btn btn-primary close-button" data-dismiss="modal" type="button">St&#228;ng</button>
+                </div>
+            </div>
+        </div>
+    </div><!-- /NOTIFICATION MODAL -->
+    <!-- CONTENT CONTAINER -->
+    <div class="content-container container" id="content-container" style="padding-top:30px;">
+
+
+        <div class="row">
+            <div class="col-md-12">
+                <div class="widget validation-panel" style="display: none">
+                    <div class="widget-head">
+                        <div class="pull-left">Felmeddelande</div>
+                        <div class="widget-icons pull-right">
+                            <a class="wminimize" href="#">
+                                <i class="fa fa-chevron-up"></i>
+                            </a>
+                            <a class="wclose" href="#"><i class="fa fa-times"></i></a>
+                        </div>
+                        <div class="clearfix"></div>
+                    </div>
+                    <div class="widget-content" style="display: block">
+                        <div class="alert alert-danger">
+                            <ul>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="form-content">
+            <div class="row">
+                <div class="col-md-12">
+                    <h3>Resutatlista</h3>
+                    <h3>G&#246;teborg M&#246;lndal BK, GMBKs h&#246;stdr&#246;m - GMBKs H&#246;stdr&#246;m, 2020-10-11,
+                        Agility 1 - Small </h3>
+                </div>
+                <div class="col-md-6 col-sm-12">
+                    <div class="form-group">
+                        <label for="Domare">Domare</label> :
+                        P&#228;r Tangfelt
+                    </div>
+                    <div class="form-group">
+                        <label for="Bankonstrukt_r">Bankonstrukt&#246;r</label> :
+                        P&#228;r Tangfelt
+                    </div>
+                </div>
+                <div class="col-md-6 col-sm-12">
+                    <div class="form-group">
+                        <label for="Referenstid_och_Banl_ngd_">Referenstid och Banl&#228;ngd </label> :
+                        50,00 sek, 151 m
+                    </div>
+                    <div class="form-group">
+                        <label for="Startande">Startande</label> :
+                        6
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="pull-right">
+                        <a class="btn btn-primary" href="/umbraco/Surface/CompetitionResultSurface/BackToGamesListPage"
+                           id="Back">Tillbaka</a>
+                    </div>
+                    <br/><br/>
+
+                    <div id="gridContent">
+                        <script type="text/javascript">
+                            (function ($) {
+                                $.fn.swhgLoad = function (url, containerId, callback) {
+                                    url = url + (url.indexOf('?') == -1 ? '?' : '&') + '__swhg=' + new Date().getTime();
+
+                                    $('<div/>').load(url + ' ' + containerId, function (data, status, xhr) {
+                                        $(containerId).replaceWith($(this).html());
+                                        if (typeof (callback) === 'function') {
+                                            callback.apply(this, arguments);
+                                        }
+                                    });
+                                    return this;
+                                }
+
+                                $(function () {
+                                    $('table[data-swhgajax="true"],span[data-swhgajax="true"]').each(function () {
+                                        var self = $(this);
+                                        var containerId = '#' + self.data('swhgcontainer');
+                                        var callback = getFunction(self.data('swhgcallback'));
+
+                                        $(containerId).parent().delegate(containerId + ' a[data-swhglnk="true"]', 'click', function () {
+                                            $(containerId).swhgLoad($(this).attr('href'), containerId, callback);
+                                            return false;
+                                        });
+                                    })
+                                });
+
+                                function getFunction(code, argNames) {
+                                    argNames = argNames || [];
+                                    var fn = window, parts = (code || "").split(".");
+                                    while (fn && parts.length) {
+                                        fn = fn[parts.shift()];
+                                    }
+                                    if (typeof (fn) === "function") {
+                                        return fn;
+                                    }
+                                    argNames.push(code);
+                                    return Function.constructor.apply(null, argNames);
+                                }
+                            })(jQuery);
+                        </script>
+                        <table class="webGrid  alt-table" data-swhgajax="true" data-swhgcallback=""
+                               data-swhgcontainer="gridContentResultList" id="gridContentResultsResultsTable">
+                            <thead>
+                            <tr class="header">
+                                <th scope="col">
+                                    <a data-swhglnk="true"
+                                       href="/resultat/start-och-resultatlistan/?sort=Pl&amp;sortdir=ASC">Pl</a></th>
+                                <th scope="col">
+                                    <a data-swhglnk="true"
+                                       href="/resultat/start-och-resultatlistan/?sort=HandlerShortName&amp;sortdir=ASC">F&#246;rare</a>
+                                </th>
+                                <th scope="col">
+                                    <a data-swhglnk="true"
+                                       href="/resultat/start-och-resultatlistan/?sort=Hund&amp;sortdir=ASC">Hund</a>
+                                </th>
+                                <th scope="col">
+                                    <a data-swhglnk="true"
+                                       href="/resultat/start-och-resultatlistan/?sort=BreedName&amp;sortdir=ASC">Ras</a>
+                                </th>
+                                <th scope="col">
+                                    <a data-swhglnk="true"
+                                       href="/resultat/start-och-resultatlistan/?sort=ClubName&amp;sortdir=ASC">Klubb</a>
+                                </th>
+                                <th scope="col">
+                                    <a data-swhglnk="true"
+                                       href="/resultat/start-och-resultatlistan/?sort=TotalFault&amp;sortdir=ASC">Fel</a>
+                                </th>
+                                <th scope="col">
+                                    <a data-swhglnk="true"
+                                       href="/resultat/start-och-resultatlistan/?sort=Tid&amp;sortdir=ASC">Tid</a></th>
+                                <th scope="col">
+                                    <a data-swhglnk="true"
+                                       href="/resultat/start-och-resultatlistan/?sort=Merit&amp;sortdir=ASC">Merit</a>
+                                </th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr class="odd-row">
+                                <td>
+                                    1
+                                </td>
+                                <td>Mona Thorsen</td>
+                                <td>
+                                    <a href="/umbraco/Surface/CompetitionResultSurface/RedirectToDogResultPage?regNo=SE33832%2F2018&amp;pageName=Start%20och%20resultatlistan">Yoyo</a>
+                                </td>
+                                <td>Shetland Sheepdog</td>
+                                <td>G&#246;teborg M&#246;lndal BK</td>
+                                <td>0,00</td>
+                                <td>
+                                    29,38
+                                </td>
+                                <td>
+                                    <img src="/media/1038/stick.png" style="height:20px;width:20px;"/>
+                                </td>
+                            </tr>
+                            <tr class="even-row">
+                                <td>
+                                    2
+                                </td>
+                                <td>Ulrika Str&#246;mmer</td>
+                                <td>
+                                    <a href="/umbraco/Surface/CompetitionResultSurface/RedirectToDogResultPage?regNo=SE46474%2F2019&amp;pageName=Start%20och%20resultatlistan">Leia</a>
+                                </td>
+                                <td>Tysk Spets/ Mittelspitz</td>
+                                <td>Sv Klein och Mittelspitzk</td>
+                                <td>0,00</td>
+                                <td>
+                                    29,94
+                                </td>
+                                <td>
+                                </td>
+                            </tr>
+                            <tr class="odd-row">
+                                <td>
+                                    3
+                                </td>
+                                <td>Sofia Wing&#229;rd</td>
+                                <td>
+                                    <a href="/umbraco/Surface/CompetitionResultSurface/RedirectToDogResultPage?regNo=TAVLIC008613&amp;pageName=Start%20och%20resultatlistan">Mollie</a>
+                                </td>
+                                <td>Ej Stambokf&#246;rd I Skk</td>
+                                <td>Uddevalla BK</td>
+                                <td>0,00</td>
+                                <td>
+                                    30,81
+                                </td>
+                                <td>
+                                </td>
+                            </tr>
+                            <tr class="even-row">
+                                <td>
+                                    4
+                                </td>
+                                <td>Jane Bj&#246;rk</td>
+                                <td>
+                                    <a href="/umbraco/Surface/CompetitionResultSurface/RedirectToDogResultPage?regNo=SE22075%2F2017&amp;pageName=Start%20och%20resultatlistan">Zigge</a>
+                                </td>
+                                <td>Pudel, Dv&#228;rg</td>
+                                <td>G&#246;teborg M&#246;lndal BK</td>
+                                <td>10,00</td>
+                                <td>
+                                    37,23
+                                </td>
+                                <td>
+                                </td>
+                            </tr>
+                            <tr class="odd-row">
+                                <td>
+                                    <span> - </span>
+                                </td>
+                                <td>Diana Nilssone</td>
+                                <td>
+                                    <a href="/umbraco/Surface/CompetitionResultSurface/RedirectToDogResultPage?regNo=SE60194%2F2017&amp;pageName=Start%20och%20resultatlistan">Fjodor</a>
+                                </td>
+                                <td>Pudel, Dv&#228;rg</td>
+                                <td>Lysekil BK</td>
+                                <td>0,00</td>
+                                <td>
+                                    Disk
+                                </td>
+                                <td>
+                                </td>
+                            </tr>
+                            <tr class="even-row">
+                                <td>
+                                    <span> - </span>
+                                </td>
+                                <td>Marie Poldahl</td>
+                                <td>
+                                    <a href="/umbraco/Surface/CompetitionResultSurface/RedirectToDogResultPage?regNo=SE10471%2F2019&amp;pageName=Start%20och%20resultatlistan">Dancer</a>
+                                </td>
+                                <td>Parson Russell Terrier</td>
+                                <td>Svenska Terrierklubben</td>
+                                <td>0,00</td>
+                                <td>
+                                    Disk
+                                </td>
+                                <td>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+
+                    </div>
+                    <div class="pull-right">
+                        <a class="btn btn-primary" href="/umbraco/Surface/CompetitionResultSurface/BackToGamesListPage"
+                           id="Back">Tillbaka</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script type="text/javascript">
+            $(document).ready(function () {
+                $("#gridContentResultsStartListTable > tbody > tr").each(function () {
+                    var regStatusCode = $(this).children("td").eq(5).text();
+                    if (regStatusCode == "CANCELED" || regStatusCode == "CREDIT") {
+                        $(this).addClass('strikeout');
+                    }
+                });
+            });
+        </script>
+    </div> <!-- /CONTENT CONTAINER -->
+    <!-- COMMERSIAL SECTION -->
+    <div id="commercial-slot">
+    </div> <!-- /COMMERSIAL SECTION -->
+
+</div><!-- /WRAPPER -->
+<!-- FOOTER -->
+<section id="footer-section">
+    <div class="container" id="footer-container">
+        <div class="row">
+            <div class="col-md-6">
+                <h3>Kontakt</h3>
+                <hr/>
+                <p><strong>Adress:</strong><br/> Svenska Agilityklubben<br/> c/o Lundin<br/> Hasselvägen 17<br/> 691 44
+                    Karlskoga</p>
+                <p><strong>Telefon:</strong><br/> Ewa Lundin, SAgiKs kansli<br/> 073-523 15 11<br/> mån-fre 10-17</p>
+                <p><strong>E-post:</strong><br/> <a href="mailto:kansli@sagik.se">kansli@sagik.se</a></p></div>
+            <div class="col-md-6">
+                <h3>Svenska Agilityklubben</h3>
+                <hr>
+                <p>Svenska Agilityklubben är en verksamhetsklubb under SKK med ansvar för agility. Som huvudman för
+                    agility ansvarar SAgiK för regelverk och central administration av utbildnings- och
+                    tävlingsverksamhet i agility inom hela SKK-organisationen.</p>
+                <p><img alt=""
+                        src="/media/1044/sagik_logo_white.png?width=295&amp;height=131" style="width: 295px; height: 131px;"></p></div>
+        </div>
+    </div>
+    <div class="container">
+        <hr/>
+        <p>© 2016 Svenska Agilityklubben. Alla rättigheter förbehållna om ej annat anges. <span>|</span> <a href="#"> Om
+            Cookies</a> <span>|</span> <a href="https://sisyfosdigital.se/" target="_blank">Webbsajt av Sisyfos
+            Digital</a></p></div>
+</section> <!-- /FOOTER -->
+
+<script>
+    function ToggleMenu() {
+        var obj = document.getElementById("menu-collapsed");
+        if (obj.style.display == "block")
+            obj.style.display = "none";
+        else
+            obj.style.display = "block";
+        $('.menu-toggle').toggleClass('menu-toggle-close');
+    };
+</script>
+
+<script src="/scripts/AgilityJS/ui.js" type="text/javascript"></script>
+
+</body>
+</html>
+
+<script type="text/javascript">
+    function noBack() {
+        window.history.forward();
+    }
+
+    //Disable all open Inspect Element like //Right Click //F12 //Ctrl + Shift + I //Ctrl + Shift + J //Ctrl + U
+    //document.onkeydown = function (e) {
+    //    if (event.keyCode == 123) {
+    //        return false;
+    //    }
+    //    if (e.ctrlKey && e.shiftKey && e.keyCode == 'I'.charCodeAt(0)) {
+    //        return false;
+    //    }
+    //    if (e.ctrlKey && e.shiftKey && e.keyCode == 'J'.charCodeAt(0)) {
+    //        return false;
+    //    }
+    //    if (e.ctrlKey && e.keyCode == 'U'.charCodeAt(0)) {
+    //        return false;
+    //    }
+    //}
+</script>
+<script src="/scripts/AgilityJS/custom.js?Version=1.0.0"></script>

@@ -1,0 +1,1476 @@
+<html>
+<head> <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-132831071-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+
+        gtag('js', new Date());
+
+        gtag('config', 'UA-132831071-1');
+    </script>
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+    <title>AGIDA – AgilityData</title>
+    <link href="/css/EvryAgilitycss/bootstrap.min.css" rel="stylesheet">
+    <link href="/css/EvryAgilitycss/bootstrap-extra.css" rel="stylesheet">
+    <link href="/css/EvryAgilityCss/slider.css" rel="stylesheet">
+    <link href="/css/EvryAgilityCss/refineslide.css" rel="stylesheet">
+    <link href="/css/EvryAgilityCss/widgets.css" rel="stylesheet">
+    <link href="/css/EvryAgilityCss/bootstrap-datetimepicker.css" rel="stylesheet">
+    <link href="/css/EvryAgilitycss/jquery-ui.min.css" rel="stylesheet">
+    <link href="/css/EvryAgilityCss/font-awesome.css" rel="stylesheet">
+    <link href="/css/EvryAgilityCss/application-common.css?Version=1.0.11" rel="stylesheet">
+    <link href="/css/toggles.css" rel="stylesheet"> <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,500,100,100italic,300,300italic,400italic,500italic,700,700italic,900,900italic"
+          rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic,900italic,900"
+          rel="stylesheet" type="text/css">
+    <script src="/scripts/AgilityJS/jquery-1.10.2.js" type="text/javascript"></script>
+    <script src="http://code.jquery.com/ui/1.11.3/jquery-ui.js"></script>
+    <script src="/scripts/AgilityJS/jquery.flexslider-min.js" type="text/javascript"></script>
+    <script src="/scripts/AgilityJS/jquery.cslider.js" type="text/javascript"></script>
+    <script src="/scripts/AgilityJS/moment.js" type="text/javascript"></script>
+    <script src="/scripts/AgilityJS/bootstrap-datetimepicker.min.js" type="text/javascript"></script>
+    <script src="/scripts/AgilityJS/resonsive-tables.js" type="text/javascript"></script>
+    <script src="/scripts/AgilityJS/toggles.min.js"></script> <!-- DateTimePicker script(New) -->
+    <!-- Locale language script for Swedish DatePicker -->
+    <script src="/scripts/AgilityJS/jquery.refineslide.min.js" type="text/javascript"></script>
+    <script src="/scripts/AgilityJS/bootstrap.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        function ClearSession() {
+            var url = '/umbraco/Surface/LoginSurface/ClearSessionOnLogout';
+            $.post(url, {clearSessionData: true},
+                function (data) {
+                });
+        };
+
+        function ClearTempDataOnLangSwitch() {
+            var url = '/umbraco/Surface/LoginSurface/ClearTempDataOnLangSwitch';
+            $.post(url, {clearSessionData: true},
+                function (data) {
+                });
+        };
+
+        function noBack() {
+            window.history.forward();
+        }
+
+        $(document).ready(function () {
+            /*
+            $('#wrapper').on('mouseleave', 'ul', function (e) {
+                var menu = document.getElementById(e.currentTarget.id);
+                if (menu.style.display == 'block') {
+                    menu.style.display = 'none';
+                }
+            });
+            */
+            $("#langswitch").mouseleave(function () {
+                var menu = document.getElementById('langswitch');
+                if (menu.style.display == 'block') {
+                    menu.style.display = 'none';
+                }
+            });
+            //$('#test').click(function () {
+
+            //    $('#leftNav').toggleClass('position-zero');
+            //});
+        });
+        /*
+        function show_menu(id) {
+            var menu = document.getElementById(id);
+            if (menu.style.display == 'block') {
+                menu.style.display = 'none';
+            } else {
+                menu.style.display = 'block';
+            }
+        }
+        */
+
+        // RESPONSIVE TABLES
+        $(function () {
+            $('.table').ngResponsiveTables({
+                smallPaddingCharNo: 13,
+                mediumPaddingCharNo: 18,
+                largePaddingCharNo: 30
+            });
+        });
+
+    </script>
+    <style>
+        .pointer {
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body onpageshow="if (event.persisted) noBack();" onunload=""> <!-- WRAPPER -->
+<div id="wrapper"> <!--Header Section Starts Here-->
+    <section id="header-section">
+        <div class="container" id="header-container">
+            <ul class="header-links pull-right">
+                <li class="dropdown pull-right">
+                    <button aria-expanded="false" aria-haspopup="true" class="dropdown-toggle header-symbol" data-placement="left"
+                            data-toggle="dropdown" id="dropdownMenu" role="button"><span
+                            class="glyphicon glyphicon-globe"></span></button>
+                    <ul aria-labelledby="dropdownMenu" class=" dropdown-menu dropdown-menu-right">
+                        <li><a href="/" onclick="ClearTempDataOnLangSwitch();" style="color: #000000 !important;">&nbsp;Swedish</a>
+                        </li>
+                        <li><a href="/english/" onclick="ClearTempDataOnLangSwitch();"
+                               style="color: #000000 !important;">&nbsp;English</a></li>
+                    </ul>
+                </li>
+                <li><a href="http://agilityklubben.se/" target="_blank">SAGIK</a> <span style="color: #FFFFFF;">|</span>
+                </li>
+                <li><a href="/logga-in/">LOGGA IN</a></li>
+            </ul>
+            <div class="row">
+                <div class="col-xs-5"><a href="/"> <img alt="agida_loga_underrubrik_300x100.png"
+                                                        class="img-responsive"
+                                                        src="/media/1059/agida_underrubrik_300x100.png"> </a>
+                </div>
+                <button class="menu-toggle" onclick="ToggleMenu()"></button>
+            </div>
+            <a class="pull-right" href="mailto:support@agida.se">support@agida.se</a>
+        </div>
+    </section> <!--Header Section Ends Here--> <!-- PRIMARY MENU -->
+    <section class="container align_center" id="menu-collapsed">
+        <ul class="primary-menu">
+            <li class="menu-item"><a href="/hem/">Hem</a></li>
+            <li class="menu-item menu-item-has-children"><a href="/taevlingar/">Tävlingar</a>
+                <button class="sub-menu-toggle"><span class="visually-hidden">Toggle sub-menu</span></button>
+                <ul class="sub-menu">
+                </ul>
+            </li>
+            <li class="menu-item menu-item-has-children"><a href="/resultat/">Resultat</a>
+                <button class="sub-menu-toggle"><span class="visually-hidden">Toggle sub-menu</span></button>
+                <ul class="sub-menu">
+                    <li class="menu-item"><a href="/resultat/banskisser/">Banskisser</a></li>
+                    <li class="menu-item"><a href="/resultat/sm-kvallista/">SM-kvallista</a></li>
+                    <li class="menu-item"><a href="/resultat/årets-agilityhund/">Årets Agilityhund</a></li>
+                    <li class="menu-item"><a href="/resultat/årets-agilitylag/">Årets agilitylag</a></li>
+                    <li class="menu-item"><a href="/resultat/soek-hund/">Sök Hund</a></li>
+                </ul>
+            </li>
+            <li class="menu-item menu-item-has-children"><a href="/hjaelp/">Hjälp</a>
+                <button class="sub-menu-toggle"><span class="visually-hidden">Toggle sub-menu</span></button>
+                <ul class="sub-menu">
+                    <li class="menu-item"><a href="/hjaelp/kontakt/">Kontakt</a></li>
+                </ul>
+            </li>
+        </ul>
+    </section><!-- /PRIMARY MENU --> <!-- NOTIFICATION MODAL -->
+    <div aria-hidden="true" aria-labelledby="myModalLabel" class="modal fade" data-target=".bs-example-modal-sm" id="notification"
+         role="dialog" tabindex="-1">
+        <div class="modal-dialog modal-datagrid">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button class="close-icon" data-dismiss="modal" id="cls" type="button"><span
+                            aria-hidden="true">×</span><span class="sr-only">Stäng</span></button>
+                    <h4 class="modal-title" id="myModalLabel"><i class="fa fa-bell-o"></i>Meddelanden</h4>
+                </div>
+                <div class="modal-body">
+                    <ul class="list-group">
+                    </ul>
+                </div>
+                <div class="modal-footer">
+                    <button class=" btn btn-primary close-button" data-dismiss="modal" type="button">Stäng</button>
+                </div>
+            </div>
+        </div>
+    </div><!-- /NOTIFICATION MODAL --> <!-- CONTENT CONTAINER -->
+    <div class="content-container container" id="content-container" style="padding-top:30px;">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="widget validation-panel" style="display: none">
+                    <div class="widget-head">
+                        <div class="pull-left">
+                            Felmeddelande
+                        </div>
+                        <div class="widget-icons pull-right"><a class="wminimize" href="#"> <i
+                                class="fa fa-chevron-up"></i> </a> <a class="wclose" href="#"><i
+                                class="fa fa-times"></i></a>
+                        </div>
+                        <div class="clearfix"></div>
+                    </div>
+                    <div class="widget-content" style="display: block">
+                        <div class="alert alert-danger">
+                            <ul>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <form action="/taevlingar/lopplista/" enctype="multipart/form-data" method="post">
+            <div class="form-content">
+                <div class="alert-success alert clearfix" style="display: none"><i
+                        class="icon-check-sign pull-left"></i>
+                    <p class="pull-left">Registrering är klar </p>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <h3>NUTROLIN ARENA STRIKES BACK - TRIPPEL KL 3</h3>
+                    </div>
+                    <div class="col-md-5 col-sm-5">
+                        <div class="form-group"><label for="Sista_anm_lningsdag">Sista anmälningsdag</label> :
+                            2020-12-20
+                        </div>
+                        <div class="form-group"><label for="T_vlingsledare">Tävlingsledare</label> :
+                        </div>
+                        <div class="form-group"><label for="Domare">Domare</label> : Hugo Santos
+                        </div>
+                        <div class="form-group"><label for="Anm_lda">Anmälda</label> : 0
+                        </div>
+                    </div>
+                    <div class="col-md-5 col-sm-5">
+                        <div class="form-group"><label for="Arrang_r">Arrangör</label> : Nutrolin Arena
+                        </div>
+                        <div class="form-group"><label for="Plats">Plats</label> : Ellbovägen 50
+                        </div>
+                        <div class="form-group"><label for="Kontaktperson">Kontaktperson</label> : Jouni Orenius
+                        </div>
+                        <div class="form-group"><label for="Kontakt_e-post">Kontakt e-post</label> :
+                            jouni@oreniusemanuelsson.se
+                        </div>
+                        <div class="form-group"><label for="Kontakt_telefon">Kontakt telefon</label> : +46760366251
+                        </div>
+                    </div>
+                    <div class="col-md-2 col-sm-2">
+                        <div class="form-group"><label for="Inbjudan">Inbjudan</label> : <a
+                                href="https://agidablobstorage.blob.core.windows.net/files/20201103140728277_Wao-5.pdf"
+                                target="_blank" title="Inbjudan"><i class="fa fa-file-pdf-o edit-color"
+                                                                    style="color:red;"></i></a>
+                        </div>
+                        <div class="form-group"><label for="PM">PM</label> : <i class="fa fa-file-pdf-o edit-color"
+                                                                                title="Filen laddades inte upp"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12 col-sm-12">
+                        <div class="pull-right"><a
+                                class="btn btn-primary"
+                                href="/umbraco/Surface/CompetitionSurface/BackToCompetitionParts?CompetitionDate=01%2F01%2F0001%2000%3A00%3A00&amp;CompetitionDate1=2021-01-02&amp;MainOrganiserClubId=Nutrolin&amp;MainOrganiserName=Nutrolin%20Arena%20&amp;DistrictName=Sk%C3%A5ne%20l%C3%A4n&amp;Address_1=Ellbov%C3%A4gen%2050%20&amp;LastRegistrationDate1=2020-12-20&amp;CompetitionKey=6437&amp;CompetitionPartKey=6516&amp;CompetitionName=NUTROLIN%20ARENA%20STRIKES%20BACK%20-%20TRIPPEL%20KL%203&amp;CompetitionPartName=DAG%201%20-%203x%20AG&amp;GameKey=0&amp;TotalRegistrations=0&amp;NoOfRegistrations=0&amp;Judges=Hugo%20Santos&amp;InvitationDocumentLink=https%3A%2F%2Fagidablobstorage.blob.core.windows.net%2Ffiles%2F20201103140728277_Wao-5.pdf&amp;ContactName=Jouni%20Orenius%20&amp;ContactEmail=jouni%40oreniusemanuelsson.se&amp;ContactPhoneNo=%2B46760366251&amp;CompetitionParts=System.Collections.Generic.List%601%5BEvryAgility.Models.CompetitionPartTabs%5D" id="Back">Tillbaka</a>
+                        </div>
+                    </div>
+                </div>
+                <br>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="gameslist">
+                            <ul class="nav nav-tabs" id="comp_Gameslist_Tab" role="tablist"> <!-- Nav tabs -->
+                                <li role="presentation"><a aria-controls="home" data-toggle="tab" href="#6516"
+                                                           role="tab">2021-01-02</a></li>
+                                <li role="presentation"><a aria-controls="home" data-toggle="tab" href="#6517"
+                                                           role="tab">2021-01-03</a></li>
+                            </ul>
+                            <div class="tab-content">
+                                <div class="tab-pane" id="6516" role="tabpanel">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <h3>DAG 1 - 3x AG</h3>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-5">
+                                            <div class="form-group"><label for="Ort__Skickas_med_till_SKK_hunddata_">Ort
+                                                (Skickas med till SKK hunddata)</label> : Kävlinge
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <div class="form-group"><label for="Status">Status</label> <span>:</span>
+                                                Ansökt
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <div class="form-group"><label for="Anm_lda">Anmälda</label> : 0
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div id="gridContent">
+                                                <script type="text/javascript">
+                                                    (function ($) {
+                                                        $.fn.swhgLoad = function (url, containerId, callback) {
+                                                            url = url + (url.indexOf('?') == -1 ? '?' : '&') + '__swhg=' + new Date().getTime();
+
+                                                            $('<div/>').load(url + ' ' + containerId, function (data, status, xhr) {
+                                                                $(containerId).replaceWith($(this).html());
+                                                                if (typeof (callback) === 'function') {
+                                                                    callback.apply(this, arguments);
+                                                                }
+                                                            });
+                                                            return this;
+                                                        }
+
+                                                        $(function () {
+                                                            $('table[data-swhgajax="true"],span[data-swhgajax="true"]').each(function () {
+                                                                var self = $(this);
+                                                                var containerId = '#' + self.data('swhgcontainer');
+                                                                var callback = getFunction(self.data('swhgcallback'));
+
+                                                                $(containerId).parent().delegate(containerId + ' a[data-swhglnk="true"]', 'click', function () {
+                                                                    $(containerId).swhgLoad($(this).attr('href'), containerId, callback);
+                                                                    return false;
+                                                                });
+                                                            })
+                                                        });
+
+                                                        function getFunction(code, argNames) {
+                                                            argNames = argNames || [];
+                                                            var fn = window, parts = (code || "").split(".");
+                                                            while (fn && parts.length) {
+                                                                fn = fn[parts.shift()];
+                                                            }
+                                                            if (typeof (fn) === "function") {
+                                                                return fn;
+                                                            }
+                                                            argNames.push(code);
+                                                            return Function.constructor.apply(null, argNames);
+                                                        }
+                                                    })(jQuery);
+                                                </script>
+                                                <table class="webGrid alt-table" data-swhgajax="true"
+                                                       data-swhgcallback="" data-swhgcontainer="gridContentGamesList"
+                                                       id="gridContentCompetitionsGameTable">
+                                                    <thead>
+                                                    <tr class="header">
+                                                        <th scope="col"></th>
+                                                        <th scope="col"><a data-swhglnk="true"
+                                                                           href="/taevlingar/lopplista/?sort=SizeName&amp;sortdir=ASC">Storlek</a>
+                                                        </th>
+                                                        <th scope="col"><a data-swhglnk="true"
+                                                                           href="/taevlingar/lopplista/?sort=Klass&amp;sortdir=ASC">Klass</a>
+                                                        </th>
+                                                        <th scope="col"> Anmälda</th>
+                                                        <th scope="col"> Domare</th>
+                                                        <th scope="col"> Not.</th>
+                                                        <th scope="col"><a data-swhglnk="true"
+                                                                           href="/taevlingar/lopplista/?sort=Pris&amp;sortdir=ASC">Pris</a>
+                                                        </th>
+                                                        <th scope="col"><a data-swhglnk="true"
+                                                                           href="/taevlingar/lopplista/?sort=CompetitionKey&amp;sortdir=ASC">Competition
+                                                            Key</a></th>
+                                                        <th scope="col"><a data-swhglnk="true"
+                                                                           href="/taevlingar/lopplista/?sort=CompetitionPartKey&amp;sortdir=ASC">CompetitionPart
+                                                            Key</a></th>
+                                                        <th scope="col"><a data-swhglnk="true"
+                                                                           href="/taevlingar/lopplista/?sort=GameKey&amp;sortdir=ASC">GameKey</a>
+                                                        </th>
+                                                        <th scope="col"><a data-swhglnk="true"
+                                                                           href="/taevlingar/lopplista/?sort=Price&amp;sortdir=ASC">Price</a>
+                                                        </th>
+                                                    </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                    <tr class="odd-row">
+                                                        <td></td>
+                                                        <td>Extra Small</td>
+                                                        <td> Agility 3 A</td>
+                                                        <td></td>
+                                                        <td></td>
+                                                        <td>
+                                                            <div>
+                                                            </div>
+                                                        </td>
+                                                        <td>95&nbsp;kr</td>
+                                                        <td>6437</td>
+                                                        <td>6516</td>
+                                                        <td>56971</td>
+                                                        <td>95,00</td>
+                                                    </tr>
+                                                    <tr class="even-row">
+                                                        <td></td>
+                                                        <td>Extra Small</td>
+                                                        <td> Agility 3 B</td>
+                                                        <td></td>
+                                                        <td></td>
+                                                        <td>
+                                                            <div>
+                                                            </div>
+                                                        </td>
+                                                        <td>95&nbsp;kr</td>
+                                                        <td>6437</td>
+                                                        <td>6516</td>
+                                                        <td>56972</td>
+                                                        <td>95,00</td>
+                                                    </tr>
+                                                    <tr class="odd-row">
+                                                        <td></td>
+                                                        <td>Extra Small</td>
+                                                        <td> Agility 3 C</td>
+                                                        <td></td>
+                                                        <td></td>
+                                                        <td>
+                                                            <div>
+                                                            </div>
+                                                        </td>
+                                                        <td>95&nbsp;kr</td>
+                                                        <td>6437</td>
+                                                        <td>6516</td>
+                                                        <td>56973</td>
+                                                        <td>95,00</td>
+                                                    </tr>
+                                                    <tr class="even-row">
+                                                        <td></td>
+                                                        <td></td>
+                                                        <td></td>
+                                                        <td></td>
+                                                        <td></td>
+                                                        <td>
+                                                            <div>
+                                                            </div>
+                                                        </td>
+                                                        <td></td>
+                                                        <td>0</td>
+                                                        <td>0</td>
+                                                        <td>0</td>
+                                                        <td></td>
+                                                    </tr>
+                                                    <tr class="odd-row">
+                                                        <td></td>
+                                                        <td>Small</td>
+                                                        <td> Agility 3 A</td>
+                                                        <td></td>
+                                                        <td></td>
+                                                        <td>
+                                                            <div>
+                                                            </div>
+                                                        </td>
+                                                        <td>95&nbsp;kr</td>
+                                                        <td>6437</td>
+                                                        <td>6516</td>
+                                                        <td>56974</td>
+                                                        <td>95,00</td>
+                                                    </tr>
+                                                    <tr class="even-row">
+                                                        <td></td>
+                                                        <td>Small</td>
+                                                        <td> Agility 3 B</td>
+                                                        <td></td>
+                                                        <td></td>
+                                                        <td>
+                                                            <div>
+                                                            </div>
+                                                        </td>
+                                                        <td>95&nbsp;kr</td>
+                                                        <td>6437</td>
+                                                        <td>6516</td>
+                                                        <td>56975</td>
+                                                        <td>95,00</td>
+                                                    </tr>
+                                                    <tr class="odd-row">
+                                                        <td></td>
+                                                        <td>Small</td>
+                                                        <td> Agility 3 C</td>
+                                                        <td></td>
+                                                        <td></td>
+                                                        <td>
+                                                            <div>
+                                                            </div>
+                                                        </td>
+                                                        <td>95&nbsp;kr</td>
+                                                        <td>6437</td>
+                                                        <td>6516</td>
+                                                        <td>56976</td>
+                                                        <td>95,00</td>
+                                                    </tr>
+                                                    <tr class="even-row">
+                                                        <td></td>
+                                                        <td></td>
+                                                        <td></td>
+                                                        <td></td>
+                                                        <td></td>
+                                                        <td>
+                                                            <div>
+                                                            </div>
+                                                        </td>
+                                                        <td></td>
+                                                        <td>0</td>
+                                                        <td>0</td>
+                                                        <td>0</td>
+                                                        <td></td>
+                                                    </tr>
+                                                    <tr class="odd-row">
+                                                        <td></td>
+                                                        <td>Medium</td>
+                                                        <td> Agility 3 A</td>
+                                                        <td></td>
+                                                        <td></td>
+                                                        <td>
+                                                            <div>
+                                                            </div>
+                                                        </td>
+                                                        <td>95&nbsp;kr</td>
+                                                        <td>6437</td>
+                                                        <td>6516</td>
+                                                        <td>56977</td>
+                                                        <td>95,00</td>
+                                                    </tr>
+                                                    <tr class="even-row">
+                                                        <td></td>
+                                                        <td>Medium</td>
+                                                        <td> Agility 3 B</td>
+                                                        <td></td>
+                                                        <td></td>
+                                                        <td>
+                                                            <div>
+                                                            </div>
+                                                        </td>
+                                                        <td>95&nbsp;kr</td>
+                                                        <td>6437</td>
+                                                        <td>6516</td>
+                                                        <td>56978</td>
+                                                        <td>95,00</td>
+                                                    </tr>
+                                                    <tr class="odd-row">
+                                                        <td></td>
+                                                        <td>Medium</td>
+                                                        <td> Agility 3 C</td>
+                                                        <td></td>
+                                                        <td></td>
+                                                        <td>
+                                                            <div>
+                                                            </div>
+                                                        </td>
+                                                        <td>95&nbsp;kr</td>
+                                                        <td>6437</td>
+                                                        <td>6516</td>
+                                                        <td>56979</td>
+                                                        <td>95,00</td>
+                                                    </tr>
+                                                    <tr class="even-row">
+                                                        <td></td>
+                                                        <td></td>
+                                                        <td></td>
+                                                        <td></td>
+                                                        <td></td>
+                                                        <td>
+                                                            <div>
+                                                            </div>
+                                                        </td>
+                                                        <td></td>
+                                                        <td>0</td>
+                                                        <td>0</td>
+                                                        <td>0</td>
+                                                        <td></td>
+                                                    </tr>
+                                                    <tr class="odd-row">
+                                                        <td></td>
+                                                        <td>Large</td>
+                                                        <td> Agility 3 A</td>
+                                                        <td></td>
+                                                        <td></td>
+                                                        <td>
+                                                            <div>
+                                                            </div>
+                                                        </td>
+                                                        <td>95&nbsp;kr</td>
+                                                        <td>6437</td>
+                                                        <td>6516</td>
+                                                        <td>56980</td>
+                                                        <td>95,00</td>
+                                                    </tr>
+                                                    <tr class="even-row">
+                                                        <td></td>
+                                                        <td>Large</td>
+                                                        <td> Agility 3 B</td>
+                                                        <td></td>
+                                                        <td></td>
+                                                        <td>
+                                                            <div>
+                                                            </div>
+                                                        </td>
+                                                        <td>95&nbsp;kr</td>
+                                                        <td>6437</td>
+                                                        <td>6516</td>
+                                                        <td>56981</td>
+                                                        <td>95,00</td>
+                                                    </tr>
+                                                    <tr class="odd-row">
+                                                        <td></td>
+                                                        <td>Large</td>
+                                                        <td> Agility 3 C</td>
+                                                        <td></td>
+                                                        <td></td>
+                                                        <td>
+                                                            <div>
+                                                            </div>
+                                                        </td>
+                                                        <td>95&nbsp;kr</td>
+                                                        <td>6437</td>
+                                                        <td>6516</td>
+                                                        <td>56982</td>
+                                                        <td>95,00</td>
+                                                    </tr>
+                                                    <tr class="even-row">
+                                                        <td></td>
+                                                        <td></td>
+                                                        <td></td>
+                                                        <td></td>
+                                                        <td></td>
+                                                        <td>
+                                                            <div>
+                                                            </div>
+                                                        </td>
+                                                        <td></td>
+                                                        <td>0</td>
+                                                        <td>0</td>
+                                                        <td>0</td>
+                                                        <td></td>
+                                                    </tr>
+                                                    <tr class="odd-row">
+                                                        <td></td>
+                                                        <td>Extra Large</td>
+                                                        <td> Agility 3 A</td>
+                                                        <td></td>
+                                                        <td></td>
+                                                        <td>
+                                                            <div>
+                                                            </div>
+                                                        </td>
+                                                        <td>95&nbsp;kr</td>
+                                                        <td>6437</td>
+                                                        <td>6516</td>
+                                                        <td>56983</td>
+                                                        <td>95,00</td>
+                                                    </tr>
+                                                    <tr class="even-row">
+                                                        <td></td>
+                                                        <td>Extra Large</td>
+                                                        <td> Agility 3 B</td>
+                                                        <td></td>
+                                                        <td></td>
+                                                        <td>
+                                                            <div>
+                                                            </div>
+                                                        </td>
+                                                        <td>95&nbsp;kr</td>
+                                                        <td>6437</td>
+                                                        <td>6516</td>
+                                                        <td>56984</td>
+                                                        <td>95,00</td>
+                                                    </tr>
+                                                    <tr class="odd-row">
+                                                        <td></td>
+                                                        <td>Extra Large</td>
+                                                        <td> Agility 3 C</td>
+                                                        <td></td>
+                                                        <td></td>
+                                                        <td>
+                                                            <div>
+                                                            </div>
+                                                        </td>
+                                                        <td>95&nbsp;kr</td>
+                                                        <td>6437</td>
+                                                        <td>6516</td>
+                                                        <td>56985</td>
+                                                        <td>95,00</td>
+                                                    </tr>
+                                                    <tr class="even-row">
+                                                        <td></td>
+                                                        <td></td>
+                                                        <td></td>
+                                                        <td></td>
+                                                        <td></td>
+                                                        <td>
+                                                            <div>
+                                                            </div>
+                                                        </td>
+                                                        <td></td>
+                                                        <td>0</td>
+                                                        <td>0</td>
+                                                        <td>0</td>
+                                                        <td></td>
+                                                    </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="tab-pane" id="6517" role="tabpanel">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <h3>DAG 2 - 3x hopp</h3>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-5">
+                                            <div class="form-group"><label for="Ort__Skickas_med_till_SKK_hunddata_">Ort
+                                                (Skickas med till SKK hunddata)</label> : Kävlinge
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <div class="form-group"><label for="Status">Status</label> <span>:</span>
+                                                Ansökt
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <div class="form-group"><label for="Anm_lda">Anmälda</label> : 0
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div id="gridContent">
+                                                <table class="webGrid alt-table" data-swhgajax="true"
+                                                       data-swhgcallback="" data-swhgcontainer="gridContentGamesList"
+                                                       id="gridContentCompetitionsGameTable">
+                                                    <thead>
+                                                    <tr class="header">
+                                                        <th scope="col"></th>
+                                                        <th scope="col"><a data-swhglnk="true"
+                                                                           href="/taevlingar/lopplista/?sort=SizeName&amp;sortdir=ASC">Storlek</a>
+                                                        </th>
+                                                        <th scope="col"><a data-swhglnk="true"
+                                                                           href="/taevlingar/lopplista/?sort=Klass&amp;sortdir=ASC">Klass</a>
+                                                        </th>
+                                                        <th scope="col"> Anmälda</th>
+                                                        <th scope="col"> Domare</th>
+                                                        <th scope="col"> Not.</th>
+                                                        <th scope="col"><a data-swhglnk="true"
+                                                                           href="/taevlingar/lopplista/?sort=Pris&amp;sortdir=ASC">Pris</a>
+                                                        </th>
+                                                        <th scope="col"><a data-swhglnk="true"
+                                                                           href="/taevlingar/lopplista/?sort=CompetitionKey&amp;sortdir=ASC">Competition
+                                                            Key</a></th>
+                                                        <th scope="col"><a data-swhglnk="true"
+                                                                           href="/taevlingar/lopplista/?sort=CompetitionPartKey&amp;sortdir=ASC">CompetitionPart
+                                                            Key</a></th>
+                                                        <th scope="col"><a data-swhglnk="true"
+                                                                           href="/taevlingar/lopplista/?sort=GameKey&amp;sortdir=ASC">GameKey</a>
+                                                        </th>
+                                                        <th scope="col"><a data-swhglnk="true"
+                                                                           href="/taevlingar/lopplista/?sort=Price&amp;sortdir=ASC">Price</a>
+                                                        </th>
+                                                    </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                    <tr class="odd-row">
+                                                        <td></td>
+                                                        <td>Extra Small</td>
+                                                        <td> Hopp 3 A</td>
+                                                        <td></td>
+                                                        <td></td>
+                                                        <td>
+                                                            <div>
+                                                            </div>
+                                                        </td>
+                                                        <td>95&nbsp;kr</td>
+                                                        <td>6437</td>
+                                                        <td>6517</td>
+                                                        <td>56986</td>
+                                                        <td>95,00</td>
+                                                    </tr>
+                                                    <tr class="even-row">
+                                                        <td></td>
+                                                        <td>Extra Small</td>
+                                                        <td> Hopp 3 B</td>
+                                                        <td></td>
+                                                        <td></td>
+                                                        <td>
+                                                            <div>
+                                                            </div>
+                                                        </td>
+                                                        <td>95&nbsp;kr</td>
+                                                        <td>6437</td>
+                                                        <td>6517</td>
+                                                        <td>56987</td>
+                                                        <td>95,00</td>
+                                                    </tr>
+                                                    <tr class="odd-row">
+                                                        <td></td>
+                                                        <td>Extra Small</td>
+                                                        <td> Hopp 3 C</td>
+                                                        <td></td>
+                                                        <td></td>
+                                                        <td>
+                                                            <div>
+                                                            </div>
+                                                        </td>
+                                                        <td>95&nbsp;kr</td>
+                                                        <td>6437</td>
+                                                        <td>6517</td>
+                                                        <td>56988</td>
+                                                        <td>95,00</td>
+                                                    </tr>
+                                                    <tr class="even-row">
+                                                        <td></td>
+                                                        <td></td>
+                                                        <td></td>
+                                                        <td></td>
+                                                        <td></td>
+                                                        <td>
+                                                            <div>
+                                                            </div>
+                                                        </td>
+                                                        <td></td>
+                                                        <td>0</td>
+                                                        <td>0</td>
+                                                        <td>0</td>
+                                                        <td></td>
+                                                    </tr>
+                                                    <tr class="odd-row">
+                                                        <td></td>
+                                                        <td>Small</td>
+                                                        <td> Hopp 3 A</td>
+                                                        <td></td>
+                                                        <td></td>
+                                                        <td>
+                                                            <div>
+                                                            </div>
+                                                        </td>
+                                                        <td>95&nbsp;kr</td>
+                                                        <td>6437</td>
+                                                        <td>6517</td>
+                                                        <td>56989</td>
+                                                        <td>95,00</td>
+                                                    </tr>
+                                                    <tr class="even-row">
+                                                        <td></td>
+                                                        <td>Small</td>
+                                                        <td> Hopp 3 B</td>
+                                                        <td></td>
+                                                        <td></td>
+                                                        <td>
+                                                            <div>
+                                                            </div>
+                                                        </td>
+                                                        <td>95&nbsp;kr</td>
+                                                        <td>6437</td>
+                                                        <td>6517</td>
+                                                        <td>56990</td>
+                                                        <td>95,00</td>
+                                                    </tr>
+                                                    <tr class="odd-row">
+                                                        <td></td>
+                                                        <td>Small</td>
+                                                        <td> Hopp 3 C</td>
+                                                        <td></td>
+                                                        <td></td>
+                                                        <td>
+                                                            <div>
+                                                            </div>
+                                                        </td>
+                                                        <td>95&nbsp;kr</td>
+                                                        <td>6437</td>
+                                                        <td>6517</td>
+                                                        <td>56991</td>
+                                                        <td>95,00</td>
+                                                    </tr>
+                                                    <tr class="even-row">
+                                                        <td></td>
+                                                        <td></td>
+                                                        <td></td>
+                                                        <td></td>
+                                                        <td></td>
+                                                        <td>
+                                                            <div>
+                                                            </div>
+                                                        </td>
+                                                        <td></td>
+                                                        <td>0</td>
+                                                        <td>0</td>
+                                                        <td>0</td>
+                                                        <td></td>
+                                                    </tr>
+                                                    <tr class="odd-row">
+                                                        <td></td>
+                                                        <td>Medium</td>
+                                                        <td> Hopp 3 A</td>
+                                                        <td></td>
+                                                        <td></td>
+                                                        <td>
+                                                            <div>
+                                                            </div>
+                                                        </td>
+                                                        <td>95&nbsp;kr</td>
+                                                        <td>6437</td>
+                                                        <td>6517</td>
+                                                        <td>56992</td>
+                                                        <td>95,00</td>
+                                                    </tr>
+                                                    <tr class="even-row">
+                                                        <td></td>
+                                                        <td>Medium</td>
+                                                        <td> Hopp 3 B</td>
+                                                        <td></td>
+                                                        <td></td>
+                                                        <td>
+                                                            <div>
+                                                            </div>
+                                                        </td>
+                                                        <td>95&nbsp;kr</td>
+                                                        <td>6437</td>
+                                                        <td>6517</td>
+                                                        <td>56993</td>
+                                                        <td>95,00</td>
+                                                    </tr>
+                                                    <tr class="odd-row">
+                                                        <td></td>
+                                                        <td>Medium</td>
+                                                        <td> Hopp 3 C</td>
+                                                        <td></td>
+                                                        <td></td>
+                                                        <td>
+                                                            <div>
+                                                            </div>
+                                                        </td>
+                                                        <td>95&nbsp;kr</td>
+                                                        <td>6437</td>
+                                                        <td>6517</td>
+                                                        <td>56994</td>
+                                                        <td>95,00</td>
+                                                    </tr>
+                                                    <tr class="even-row">
+                                                        <td></td>
+                                                        <td></td>
+                                                        <td></td>
+                                                        <td></td>
+                                                        <td></td>
+                                                        <td>
+                                                            <div>
+                                                            </div>
+                                                        </td>
+                                                        <td></td>
+                                                        <td>0</td>
+                                                        <td>0</td>
+                                                        <td>0</td>
+                                                        <td></td>
+                                                    </tr>
+                                                    <tr class="odd-row">
+                                                        <td></td>
+                                                        <td>Large</td>
+                                                        <td> Hopp 3 A</td>
+                                                        <td></td>
+                                                        <td></td>
+                                                        <td>
+                                                            <div>
+                                                            </div>
+                                                        </td>
+                                                        <td>95&nbsp;kr</td>
+                                                        <td>6437</td>
+                                                        <td>6517</td>
+                                                        <td>56995</td>
+                                                        <td>95,00</td>
+                                                    </tr>
+                                                    <tr class="even-row">
+                                                        <td></td>
+                                                        <td>Large</td>
+                                                        <td> Hopp 3 B</td>
+                                                        <td></td>
+                                                        <td></td>
+                                                        <td>
+                                                            <div>
+                                                            </div>
+                                                        </td>
+                                                        <td>95&nbsp;kr</td>
+                                                        <td>6437</td>
+                                                        <td>6517</td>
+                                                        <td>56996</td>
+                                                        <td>95,00</td>
+                                                    </tr>
+                                                    <tr class="odd-row">
+                                                        <td></td>
+                                                        <td>Large</td>
+                                                        <td> Hopp 3 C</td>
+                                                        <td></td>
+                                                        <td></td>
+                                                        <td>
+                                                            <div>
+                                                            </div>
+                                                        </td>
+                                                        <td>95&nbsp;kr</td>
+                                                        <td>6437</td>
+                                                        <td>6517</td>
+                                                        <td>56997</td>
+                                                        <td>95,00</td>
+                                                    </tr>
+                                                    <tr class="even-row">
+                                                        <td></td>
+                                                        <td></td>
+                                                        <td></td>
+                                                        <td></td>
+                                                        <td></td>
+                                                        <td>
+                                                            <div>
+                                                            </div>
+                                                        </td>
+                                                        <td></td>
+                                                        <td>0</td>
+                                                        <td>0</td>
+                                                        <td>0</td>
+                                                        <td></td>
+                                                    </tr>
+                                                    <tr class="odd-row">
+                                                        <td></td>
+                                                        <td>Extra Large</td>
+                                                        <td> Hopp 3 A</td>
+                                                        <td></td>
+                                                        <td></td>
+                                                        <td>
+                                                            <div>
+                                                            </div>
+                                                        </td>
+                                                        <td>95&nbsp;kr</td>
+                                                        <td>6437</td>
+                                                        <td>6517</td>
+                                                        <td>56998</td>
+                                                        <td>95,00</td>
+                                                    </tr>
+                                                    <tr class="even-row">
+                                                        <td></td>
+                                                        <td>Extra Large</td>
+                                                        <td> Hopp 3 B</td>
+                                                        <td></td>
+                                                        <td></td>
+                                                        <td>
+                                                            <div>
+                                                            </div>
+                                                        </td>
+                                                        <td>95&nbsp;kr</td>
+                                                        <td>6437</td>
+                                                        <td>6517</td>
+                                                        <td>56999</td>
+                                                        <td>95,00</td>
+                                                    </tr>
+                                                    <tr class="odd-row">
+                                                        <td></td>
+                                                        <td>Extra Large</td>
+                                                        <td> Hopp 3 C</td>
+                                                        <td></td>
+                                                        <td></td>
+                                                        <td>
+                                                            <div>
+                                                            </div>
+                                                        </td>
+                                                        <td>95&nbsp;kr</td>
+                                                        <td>6437</td>
+                                                        <td>6517</td>
+                                                        <td>57000</td>
+                                                        <td>95,00</td>
+                                                    </tr>
+                                                    <tr class="even-row">
+                                                        <td></td>
+                                                        <td></td>
+                                                        <td></td>
+                                                        <td></td>
+                                                        <td></td>
+                                                        <td>
+                                                            <div>
+                                                            </div>
+                                                        </td>
+                                                        <td></td>
+                                                        <td>0</td>
+                                                        <td>0</td>
+                                                        <td>0</td>
+                                                        <td></td>
+                                                    </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <input id="GameKey" name="GameKey" type="hidden" value="0">
+                        <input id="CompetitionKey" name="CompetitionKey" type="hidden" value="6437">
+                        <input id="CompetitionPartKey" name="CompetitionPartKey" type="hidden" value="6516">
+                        <input id="Price" name="Price" type="hidden" value="">
+                        <input id="GameStatusCode" name="GameStatusCode" type="hidden" value="">
+                        <input id="ClassName" name="ClassName" type="hidden" value="">
+                        <input id="SizeName" name="SizeName" type="hidden" value="">
+                        <input id="CompetitionName" name="CompetitionName" type="hidden"
+                               value="NUTROLIN ARENA STRIKES BACK - TRIPPEL KL 3">
+                        <input id="CompetitionPartName" name="CompetitionPartName" type="hidden" value="DAG 1 - 3x AG">
+                        <input id="GameChar" name="GameChar" type="hidden" value="">
+                        <input id="NoOfRegistrations" name="NoOfRegistrations" type="hidden" value="0">
+                        <input id="JudgeStaffKey" name="JudgeStaffKey" type="hidden" value="">
+                        <input id="ConstructorStaffKey" name="ConstructorStaffKey" type="hidden" value="">
+                        <input id="CompetitionDate" name="CompetitionDate" type="hidden" value="01-01-0001 00:00:00">
+                        <input id="MainOrganiserName" name="MainOrganiserName" type="hidden" value="Nutrolin Arena ">
+                        <input id="CourseLength" name="CourseLength" type="hidden" value="">
+                        <input id="ReferenceTime" name="ReferenceTime" type="hidden" value="">
+                        <input id="ClassCode" name="ClassCode" type="hidden" value="">
+                        <input id="PageValue" name="PageValue" type="hidden" value="">
+                        <input id="firstGameKey" name="firstGameKey" type="hidden" value="">
+                        <input id="oldGameKey" name="oldGameKey" type="hidden" value="">
+                        <input id="thirdGameKey" name="thirdGameKey" type="hidden" value="">
+                        <button class="btn btn-primary" id="send" name="action" type="submit" value="NextPage"></button>
+                        <button class="btn" id="save" name="action" type="submit" value="Save"></button>
+                        <button class="btn" id="TeamSave" name="action" type="submit" value="TeamSave"></button>
+                        <button class="btn btn-primary" id="view" name="action" type="submit" value="ViewList"></button>
+                        <button class="btn btn-primary" id="TeamView" name="action" type="submit"
+                                value="TeamViewList"></button>
+                    </div>
+                </div>
+            </div>
+            <div class="form-content">
+            </div>
+            <div class="form-content">
+            </div>
+            <input name="ufprt" type="hidden"
+                   value="F62363169DF279AEE4166DD3971FC1B0676902106BD7D5C2E8D93E9ACA354F0296B0B982A876065FF3B8E8BEF709952E8EA474CEB3A47E59178900DB171764E6B97E6A3DD7EA27AB8385E3B998A9DF4716F165EA6D33BC11E62036407A26C9C4F07A2268BFFCDF4A7B3EFE6076AACF1C44E554DEC12C4F0479814D827865E93196E4C3A8B5D8761EC14EC8B4529A5F608DBC892A792A6E72BBDCB3E978CC01204909184A535652A9A5FD6F04F8D64A7588E88B99CFB2F87FF760AC2FD6CCD387">
+        </form>
+        <script type="text/javascript">
+            var gameKeyColumn = 9,
+                CompetitionKeyColumn = 7,
+                CompetitionPartKeyColumn = 8,
+                priceColumn = 10;
+
+            $(document).ready(function () {
+                $('#send').hide();
+                $("#save").hide();
+                $("#view").hide();
+                $("#TeamView").hide();
+                $("#TeamSave").hide();
+                // Make first tab as active
+                $('li[role="presentation"]:first').addClass("active");
+                $('div[role="tabpanel"]:first').addClass("active");
+
+                $('a[data-toggle="tab"]').on('show.bs.tab', function (e) {
+                    localStorage.setItem('activeTab', $(e.target).attr('href'));
+                });
+                $('.tab-pane').each(function () {
+                    $('#' + this.id + ' table tr:last').remove();
+                });
+
+                $("#gridContentCompetitionsGameTable > tbody > tr").each(function () {
+                    var gameKey = $(this).children("td").eq(gameKeyColumn).text();
+                    if (gameKey == 0) {
+                        $(this).addClass("row-seperator");
+                    }
+                });
+            });
+            var gameKey = "";
+            var gameStatusCode = "";
+            $("button.button-style").each(function () {
+                $(this).click(function () {
+                    var comkey = $(this).parents("tr").children("td").eq(CompetitionKeyColumn);
+                    var compartkey = $(this).parents("tr").children("td").eq(CompetitionPartKeyColumn);
+                    gameKey = $(this).parents("tr").children("td").eq(gameKeyColumn);
+                    var price = $(this).parents("tr").children("td").eq(priceColumn);
+                    $("#GameKey").val(gameKey.text());
+                    $("#CompetitionKey").val(comkey.text());
+                    $("#CompetitionPartKey").val(compartkey.text());
+                    $("#Price").val(price.text());
+                });
+            });
+
+            $(document).on("click", "a[id^=navigation]", function () {
+                gameKey = this.id.split(',')[1];
+                $('#GameKey').val(gameKey);
+                $('#send').trigger("click");
+            });
+
+            $(document).on("click", "button[id^=FirstCombinedResult]", function () {
+                key = this.id.split(',')[1]; // second game
+                var oldGameKey = "";
+                var previousRow = $(this).closest('tr').prev('tr');
+                oldGameKey = previousRow.children("td").eq(gameKeyColumn).text(); // first game
+                $("#firstGameKey").val(key); // second
+                $("#oldGameKey").val(oldGameKey); // first
+            });
+
+            $(document).on("click", "button[id^=TeamFirstCombinedResult]", function () {
+                key = this.id.split(',')[1]; // second game
+                var oldGameKey = "";
+                var previousRow = $(this).closest('tr').prev('tr');
+                oldGameKey = previousRow.children("td").eq(gameKeyColumn).text(); // first game
+                $("#firstGameKey").val(key); // second
+                $("#oldGameKey").val(oldGameKey); // first
+            });
+
+            $(document).on("click", "button[id^=SecondCombinedResult]", function () {
+                key = this.id.split(',')[1]; // third game
+                var oldGameKey = "";
+                var thirdGameKey = "";
+                var previousRow = $(this).closest('tr').prev('tr');
+                var beforePreviousRow = previousRow.closest('tr').prev('tr');
+                oldGameKey = previousRow.children("td").eq(gameKeyColumn).text(); // second game
+                thirdGameKey = beforePreviousRow.children("td").eq(gameKeyColumn).text(); // first game
+                $("#firstGameKey").val(oldGameKey); //second
+                $("#oldGameKey").val(thirdGameKey); //first
+                $("#thirdGameKey").val(key); // third
+            });
+
+            $(document).on("click", "button[id^=TeamSecondCombinedResult]", function () {
+                key = this.id.split(',')[1]; // third game
+                var oldGameKey = "";
+                var thirdGameKey = "";
+                var previousRow = $(this).closest('tr').prev('tr');
+                var beforePreviousRow = previousRow.closest('tr').prev('tr');
+                oldGameKey = previousRow.children("td").eq(gameKeyColumn).text(); // second game
+                thirdGameKey = beforePreviousRow.children("td").eq(gameKeyColumn).text(); // first game
+                $("#firstGameKey").val(oldGameKey); // second
+                $("#oldGameKey").val(thirdGameKey); // first
+                $("#thirdGameKey").val(key); // third
+            });
+
+            var className = "";
+            var sizeName = "";
+            var competitionName = "";
+            var competitionPartName = "";
+            var gameChar = "";
+            var noOfRegistrations = "";
+            var judgeStaffKey = "";
+            var constructorStaffKey = "";
+            var competitionDate = "";
+            var clubName = "";
+            var courseLenght = "";
+            var refrenceTime = "";
+            var pagevalue = "";
+            var classCode = "";
+            $(document).on("click", "a[id^=startList]", function () {
+                pagevalue = "StartList";
+                gameKey = this.id.split('|')[1];
+                gameStatusCode = this.id.split('|')[2];
+                className = this.id.split('|')[3];
+                sizeName = this.id.split('|')[4];
+                competitionName = this.id.split('|')[5];
+                competitionPartName = this.id.split('|')[6];
+                gameChar = this.id.split('|')[7];
+                noOfRegistrations = this.id.split('|')[8];
+                judgeStaffKey = this.id.split('|')[9];
+                constructorStaffKey = this.id.split('|')[10];
+                competitionDate = this.id.split('|')[11];
+                clubName = this.id.split('|')[12];
+                courseLenght = this.id.split('|')[13];
+                refrenceTime = this.id.split('|')[14];
+                classCode = this.id.split('|')[15];
+                $('#GameKey').val(gameKey);
+                $('#GameStatusCode').val(gameStatusCode);
+                $('#ClassName').val(className);
+                $('#SizeName').val(sizeName);
+                $('#CompetitionName').val(competitionName);
+                $('#CompetitionPartName').val(competitionPartName);
+                $('#NoOfRegistrations').val(noOfRegistrations);
+                $('#JudgeStaffKey').val(judgeStaffKey);
+                $('#ConstructorStaffKey').val(constructorStaffKey);
+                $('#CompetitionDate').val(competitionDate);
+                $('#MainOrganiserName').val(clubName);
+                $('#CourseLength').val(courseLenght);
+                $('#ReferenceTime').val(refrenceTime);
+                $('#PageValue').val(pagevalue);
+                $('#ClassCode').val(classCode);
+                $('#view').trigger("click");
+            });
+
+            $(document).on("click", "a[id^=resultList]", function () {
+                pagevalue = "ResultList";
+                gameKey = this.id.split('|')[1];
+                gameStatusCode = this.id.split('|')[2];
+                className = this.id.split('|')[3];
+                sizeName = this.id.split('|')[4];
+                competitionName = this.id.split('|')[5];
+                competitionPartName = this.id.split('|')[6];
+                gameChar = this.id.split('|')[7];
+                noOfRegistrations = this.id.split('|')[8];
+                judgeStaffKey = this.id.split('|')[9];
+                constructorStaffKey = this.id.split('|')[10];
+                competitionDate = this.id.split('|')[11];
+                clubName = this.id.split('|')[12];
+                courseLenght = this.id.split('|')[13];
+                refrenceTime = this.id.split('|')[14];
+                classCode = this.id.split('|')[15];
+                $('#GameKey').val(gameKey);
+                $('#GameStatusCode').val(gameStatusCode);
+                $('#ClassName').val(className);
+                $('#SizeName').val(sizeName);
+                $('#CompetitionName').val(competitionName);
+                $('#CompetitionPartName').val(competitionPartName);
+                $('#NoOfRegistrations').val(noOfRegistrations);
+                $('#JudgeStaffKey').val(judgeStaffKey);
+                $('#ConstructorStaffKey').val(constructorStaffKey);
+                $('#CompetitionDate').val(competitionDate);
+                $('#MainOrganiserName').val(clubName);
+                $('#CourseLength').val(courseLenght);
+                $('#ReferenceTime').val(refrenceTime);
+                $('#PageValue').val(pagevalue);
+                $('#ClassCode').val(classCode);
+                $('#view').trigger("click");
+            });
+
+            $(document).on("click", "a[id^=TeamStartList]", function () {
+                pagevalue = this.id.split('|')[0];
+                gameKey = this.id.split('|')[1];
+                gameStatusCode = this.id.split('|')[2];
+                className = this.id.split('|')[3];
+                sizeName = this.id.split('|')[4];
+                competitionName = this.id.split('|')[5];
+                competitionPartName = this.id.split('|')[6];
+                gameChar = this.id.split('|')[7];
+                noOfRegistrations = this.id.split('|')[8];
+                judgeStaffKey = this.id.split('|')[9];
+                constructorStaffKey = this.id.split('|')[10];
+                competitionDate = this.id.split('|')[11];
+                clubName = this.id.split('|')[12];
+                courseLenght = this.id.split('|')[13];
+                refrenceTime = this.id.split('|')[14];
+                classCode = this.id.split('|')[15];
+                $('#GameKey').val(gameKey);
+                $('#GameStatusCode').val(gameStatusCode);
+                $('#ClassName').val(className);
+                $('#SizeName').val(sizeName);
+                $('#CompetitionName').val(competitionName);
+                $('#CompetitionPartName').val(competitionPartName);
+                $('#NoOfRegistrations').val(noOfRegistrations);
+                $('#JudgeStaffKey').val(judgeStaffKey);
+                $('#ConstructorStaffKey').val(constructorStaffKey);
+                $('#CompetitionDate').val(competitionDate);
+                $('#MainOrganiserName').val(clubName);
+                $('#CourseLength').val(courseLenght);
+                $('#ReferenceTime').val(refrenceTime);
+                $('#PageValue').val(pagevalue);
+                $('#ClassCode').val(classCode);
+                $('#TeamView').trigger("click");
+            });
+
+            $(document).on("click", "a[id^=TeamResultList]", function () {
+                pagevalue = this.id.split('|')[0];
+                gameKey = this.id.split('|')[1];
+                gameStatusCode = this.id.split('|')[2];
+                className = this.id.split('|')[3];
+                sizeName = this.id.split('|')[4];
+                competitionName = this.id.split('|')[5];
+                competitionPartName = this.id.split('|')[6];
+                gameChar = this.id.split('|')[7];
+                noOfRegistrations = this.id.split('|')[8];
+                judgeStaffKey = this.id.split('|')[9];
+                constructorStaffKey = this.id.split('|')[10];
+                competitionDate = this.id.split('|')[11];
+                clubName = this.id.split('|')[12];
+                courseLenght = this.id.split('|')[13];
+                refrenceTime = this.id.split('|')[14];
+                classCode = this.id.split('|')[15];
+                $('#GameKey').val(gameKey);
+                $('#GameStatusCode').val(gameStatusCode);
+                $('#ClassName').val(className);
+                $('#SizeName').val(sizeName);
+                $('#CompetitionName').val(competitionName);
+                $('#CompetitionPartName').val(competitionPartName);
+                $('#NoOfRegistrations').val(noOfRegistrations);
+                $('#JudgeStaffKey').val(judgeStaffKey);
+                $('#ConstructorStaffKey').val(constructorStaffKey);
+                $('#CompetitionDate').val(competitionDate);
+                $('#MainOrganiserName').val(clubName);
+                $('#CourseLength').val(courseLenght);
+                $('#ReferenceTime').val(refrenceTime);
+                $('#PageValue').val(pagevalue);
+                $('#ClassCode').val(classCode);
+                $('#TeamView').trigger("click");
+            });
+
+            $(window).load(function () {
+                var activeTab = localStorage.getItem('activeTab');
+                if (activeTab) {
+                    $('#comp_Gameslist_Tab a[href="' + activeTab + '"]').tab('show');
+                }
+
+                if ('0' > 0) {
+                    $("#loadPopup").trigger("click");
+                } else {
+                    $("#loadTeamPopup").trigger("click");
+                }
+
+                $("#equiPartPageCreate").on("click", function () {
+                    $("#save").trigger("click")
+                });
+                $("#SaveTeamEquiPage").on("click", function () {
+                    $("#TeamSave").trigger("click")
+                });
+                $('input[name="isActive"]:checkbox').on('click', function (e) {
+                    // prevents the event from bubbling up the DOM tree
+                    // eg the modal from cancelling the event
+                    e.stopImmediatePropagation();
+                    var checked = (e.currentTarget.checked) ? false : true;
+                    e.currentTarget.checked = (checked) ? false : checked.toString();
+                });
+                $("#GridPopupClose").on("click", function () {
+                    $.ajax({
+                        url: '/umbraco/Surface/CompetitionSurface/EquipagePopupClear'
+                    });
+                });
+                $("#equiPageClose").on("click", function () {
+                    $.ajax({
+                        url: '/umbraco/Surface/CompetitionSurface/EquipagePopupClear'
+                    });
+                });
+            });
+        </script>
+        <p>&nbsp;</p>
+    </div> <!-- /CONTENT CONTAINER --> <!-- COMMERSIAL SECTION -->
+    <div id="commercial-slot">
+    </div> <!-- /COMMERSIAL SECTION -->
+</div><!-- /WRAPPER --> <!-- FOOTER -->
+<section id="footer-section">
+    <div class="container" id="footer-container">
+        <div class="row">
+            <div class="col-md-6">
+                <h3>Kontakt</h3>
+                <hr>
+                <p><strong>Adress:</strong><br> Svenska Agilityklubben<br> c/o Lundin<br> Hasselvägen 17<br> 691 44
+                    Karlskoga</p>
+                <p><strong>Telefon:</strong><br> Ewa Lundin, SAgiKs kansli<br> 073-523 15 11<br> mån-fre 10-17</p>
+                <p><strong>E-post:</strong><br> <a href="mailto:kansli@sagik.se">kansli@sagik.se</a></p>
+            </div>
+            <div class="col-md-6">
+                <h3>Svenska Agilityklubben</h3>
+                <hr>
+                <p>Svenska Agilityklubben är en verksamhetsklubb under SKK med ansvar för agility. Som huvudman för
+                    agility ansvarar SAgiK för regelverk och central administration av utbildnings- och
+                    tävlingsverksamhet i agility inom hela SKK-organisationen.</p>
+                <p><img alt=""
+                        src="/media/1044/sagik_logo_white.png?width=295&amp;height=131" style="width: 295px; height: 131px;"></p>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <hr>
+        <p>© 2016 Svenska Agilityklubben. Alla rättigheter förbehållna om ej annat anges. <span>|</span> <a href="#"> Om
+            Cookies</a>&nbsp;<span>|</span> <a href="https://sisyfosdigital.se/" target="_blank">Webbsajt av Sisyfos
+            Digital</a></p>
+    </div>
+</section> <!-- /FOOTER -->
+<script>
+    function ToggleMenu() {
+        var obj = document.getElementById("menu-collapsed");
+        if (obj.style.display == "block")
+            obj.style.display = "none";
+        else
+            obj.style.display = "block";
+        $('.menu-toggle').toggleClass('menu-toggle-close');
+    };
+</script>
+<script src="/scripts/AgilityJS/ui.js" type="text/javascript"></script>
+<script type="text/javascript">
+    function noBack() {
+        window.history.forward();
+    }
+
+    //Disable all open Inspect Element like //Right Click //F12 //Ctrl + Shift + I //Ctrl + Shift + J //Ctrl + U
+    //document.onkeydown = function (e) {
+    //    if (event.keyCode == 123) {
+    //        return false;
+    //    }
+    //    if (e.ctrlKey && e.shiftKey && e.keyCode == 'I'.charCodeAt(0)) {
+    //        return false;
+    //    }
+    //    if (e.ctrlKey && e.shiftKey && e.keyCode == 'J'.charCodeAt(0)) {
+    //        return false;
+    //    }
+    //    if (e.ctrlKey && e.keyCode == 'U'.charCodeAt(0)) {
+    //        return false;
+    //    }
+    //}
+</script>
+<script src="/scripts/AgilityJS/custom.js?Version=1.0.0"></script>
+</body>
+</html>
