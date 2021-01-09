@@ -1,6 +1,6 @@
 cron:
   - description: "Import from sources"
     url: /cron/import
-    schedule: every 20 mins
+    schedule: every 12 hours
     retry_parameters:
       job_retry_limit: 1
