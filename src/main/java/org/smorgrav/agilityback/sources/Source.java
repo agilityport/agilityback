@@ -13,7 +13,34 @@ import java.util.List;
  */
 public interface Source {
 
-    public SourceName name();
+    SourceName name();
+
+    /**
+     * @return A stable configid regardless of changes to the sourcename
+     */
+    default String configId() {
+        final String prefix = "jobs/sources/";
+        if (name() == SourceName.agilityport) {
+            return prefix + "agilityport";
+        }
+        if (name() == SourceName.sagik) {
+            return prefix + "sagik";
+        }
+        if (name() == SourceName.nkk) {
+            return prefix + "nkk";
+        }
+        if (name() == SourceName.unknown) {
+            return prefix + "unknown";
+        }
+        if (name() == SourceName.hundestevner) {
+            return prefix + "hundestevner";
+        }
+        if (name() == SourceName.community) {
+            return prefix + "community";
+        }
+
+        return prefix + "unknown";
+    }
 
     /**
      * A competition list is a list of all available competitions between two dates.

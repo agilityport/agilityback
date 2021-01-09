@@ -18,7 +18,7 @@ import java.util.stream.Collectors;
  * This is a job that is scheduled periodically to import new competition data from predefined sources.
  * <p>
  * In steady state this will only check the source ~2 times a day. There are other jobs that
- * maintains ongoing competitions and events.
+ * will maintain ongoing competitions and events.
  *
  * <p>
  * This is much easier than to update existing competitions :)
@@ -28,36 +28,43 @@ public class ImportNewCompetitions {
     private static final Logger LOG = Logger.getLogger(ImportNewCompetitions.class.getName());
 
     public static void importNewCompetitions(Source source, Storage storage, int limit) throws IOException {
+        LOG.info("Importing new competitions from " + source.name());
 
-        // Read config - where to start importing from
-        // TODO make config nested one more step and make it robust to sourcename changes
-        StorageValues config = storage.readConfig(source.name().name());
+        // Read config - require existing config to run
+        StorageValues config = storage.readConfig(source.configId());
+        if (!config.isValid()) {
+            LOG.info("No config found for configId " + source.configId() + ". Aborting");
+            return;
+        }
 
-        // Do most of the job
+        // Do most of the job - config will be potentially updated as a side effect
         importNewCompetitions(source, storage, config, limit);
 
         // Store back the new place to start from
         storage.writeConfig(config);
     }
 
-    public static void importNewCompetitions(Source source, Storage storage, StorageValues config, int limit) throws IOException {
-        LOG.info("Importing new competitions from " + source.name());
+    static void importNewCompetitions(Source source, Storage storage, StorageValues config, int limit) throws IOException {
 
-        if (!config.getBool("enabled", true)) {
-            LOG.info("The sagik integration is not enabled according to config");
+        if (!config.getBool("enabled", false)) {
+            LOG.info(String.format("The %s source is not enabled according to config", source.name()));
             return;
         }
 
-        String fromStr = config.getString("from", LocalDate.now().format(DateTimeFormatter.ISO_DATE));
-        LocalDate from = LocalDate.parse(fromStr, DateTimeFormatter.ISO_DATE);
+        boolean isCatchupMode = config.getBool("catchup", false);
+        LOG.info(String.format("The %s source is in %s", source.name(), isCatchupMode ? "catchup mode" : " steady state"));
 
-        // During initialization (i.e batch uploading new one
-        // TODO add config for when we scan over more events
-        // (when we have caught up we cmust be able to pick up new events that is registered not that far in the future)
-        // Maybe also check new events oin the past
-        LocalDate to = from.plusDays(30); //Combined with limit this is good enough
+        LocalDate from = LocalDate.now().minusMonths(1);
+        LocalDate to = LocalDate.now().plusDays(1);
 
-        LOG.info("Import upto one week from " + fromStr);
+        // In catchup mode we potentially have to look far in the past
+        if (isCatchupMode) {
+            from = config.getISODate("catchupfrom", LocalDate.now());
+            to = from.plusDays(config.getLong("catchupdays", 30L));
+        }
+
+        LOG.info(String.format("Looking for new sources between %s and %s ", from.format(DateTimeFormatter.ISO_DATE),
+                to.format(DateTimeFormatter.ISO_DATE)));
 
         // Load all competitions between these dates from db between from and to
         List<Competition> existingCompetitions = storage.read(source.name(), from, to);
@@ -82,12 +89,13 @@ public class ImportNewCompetitions {
 
         if (newCompetitions.size() > limit) {
             LOG.info("Found (limited)" + limit + " new competitions from " + source.name());
+            newCompetitions = newCompetitions.stream().limit(limit).collect(Collectors.toList());
         } else {
             LOG.info("Found " + newCompetitions.size() + " new competitions from " + source.name());
         }
 
         // Fetch complete dataset for all new competitions
-        newCompetitions.stream().limit(limit).forEach(competition -> {
+        newCompetitions.forEach(competition -> {
             try {
                 source.fetchEvents(competition);
                 LOG.info("Found " + competition.events().size() + " events for sourceId " + String.join(",", competition.sourceIds()));
@@ -121,7 +129,7 @@ public class ImportNewCompetitions {
 
         LOG.info("New from date: " + newFrom.format(DateTimeFormatter.ISO_DATE));
 
-        // Write back where date we reached - to start where we come back
-        config.values().put("from", newFrom.format(DateTimeFormatter.ISO_DATE));
+        // Write back where date we reached - relevant for catchup
+        config.values().put("catchupfrom", newFrom.format(DateTimeFormatter.ISO_DATE));
     }
 }

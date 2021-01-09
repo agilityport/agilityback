@@ -2,17 +2,20 @@ package org.smorgrav.agilityback.storage;
 
 import com.google.cloud.firestore.QueryDocumentSnapshot;
 
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
 /**
  * A wrapper around the firestore value map to and make the firestore
- * connection not so damn high!.
+ * coupling not so damn tight!.
  * <p>
  * * It is an abstraction of how data is passed to and from firestore.
  * * We can put in a lot of conveniences here.
  * * Makes it easier to test data transfer eg serialization
+ * * It can serve as an alternative to creating domain objects
  * <p>
  * Id is required - it is the document id of these values. Not the complete path (e.g not the collection);
  */
@@ -52,6 +55,11 @@ public class StorageValues {
         return (Long) values.get(key);
     }
 
+    public Long getLong(String key, Long defaultValue) {
+        Long value = (Long) values.get(key);
+        return value == null ? defaultValue : value;
+    }
+
     public Integer getInt(String key) {
         return (Integer) values.get(key);
     }
@@ -76,6 +84,19 @@ public class StorageValues {
     public String getString(String key, String defaultValue) {
         String result = (String) values.get(key);
         return result != null ? result : defaultValue;
+    }
+
+    public LocalDate getISODate(String key) {
+        String dateStr = getString(key);
+        if (dateStr != null || !dateStr.isBlank()) {
+            return LocalDate.parse(dateStr, DateTimeFormatter.ISO_DATE);
+        }
+        return null;
+    }
+
+    public LocalDate getISODate(String key, LocalDate defaultValue) {
+        LocalDate date = getISODate(key);
+        return date == null ? defaultValue : date;
     }
 
     public String id() {

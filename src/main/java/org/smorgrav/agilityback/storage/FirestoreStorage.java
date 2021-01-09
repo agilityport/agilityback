@@ -39,6 +39,7 @@ public class FirestoreStorage implements Storage {
         firestore = FirestoreClient.getFirestore();
     }
 
+    @Override
     public StorageValues readConfig(String configId) {
         try {
             return new StorageValues(configId, firestore.collection("config").document(configId).get().get().getData());
@@ -49,6 +50,7 @@ public class FirestoreStorage implements Storage {
         }
     }
 
+    @Override
     public void writeConfig(StorageValues values) {
         try {
             firestore.collection("config").document(values.id()).set(values.values()).get();
