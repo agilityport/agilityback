@@ -73,7 +73,7 @@ public class StorageValues {
     }
 
     public Boolean getBool(String key, Boolean defaultValue) {
-        Boolean result = (Boolean) values.get(key);
+        Boolean result = getBool(key);
         return result != null ? result : defaultValue;
     }
 
@@ -82,7 +82,7 @@ public class StorageValues {
     }
 
     public String getString(String key, String defaultValue) {
-        String result = (String) values.get(key);
+        String result = getString(key);
         return result != null ? result : defaultValue;
     }
 
