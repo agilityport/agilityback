@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement>org.smorgrav.agilityback.model</OriginalElement>
+  <nodes>
+    <node x="238.0" y="3.0">org.smorgrav.agilityback.model.Event</node>
+    <node x="125.0" y="748.0">org.smorgrav.agilityback.model.Dog</node>
+    <node x="308.0" y="748.0">org.smorgrav.agilityback.model.Person</node>
+    <node x="468.0" y="495.0">org.smorgrav.agilityback.model.Certification</node>
+    <node x="762.0" y="6.0">org.smorgrav.agilityback.model.TrialType</node>
+    <node x="242.0" y="495.0">org.smorgrav.agilityback.model.CompetitionStatus</node>
+    <node x="663.0" y="495.0">org.smorgrav.agilityback.model.SourceName</node>
+    <node x="866.0" y="748.0">org.smorgrav.agilityback.model.Course</node>
+    <node x="864.0" y="495.0">org.smorgrav.agilityback.model.EquipageState</node>
+    <node x="655.0" y="748.0">org.smorgrav.agilityback.model.CompetitionType</node>
+    <node x="501.0" y="3.0">org.smorgrav.agilityback.model.Equipage</node>
+    <node x="491.0" y="748.0">org.smorgrav.agilityback.model.EventType</node>
+    <node x="0.0" y="495.0">org.smorgrav.agilityback.model.Organiser</node>
+    <node x="0.0" y="748.0">org.smorgrav.agilityback.model.Size</node>
+    <node x="-26.0" y="4.0">org.smorgrav.agilityback.model.Competition</node>
+  </nodes>
+  <notes />
+  <edges />
+  <settings layout="Hierarchic Group" zoom="1.0" x="602.5" y="466.5" />
+  <SelectedNodes />
+  <Categories>
+    <Category>Fields</Category>
+  </Categories>
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+
