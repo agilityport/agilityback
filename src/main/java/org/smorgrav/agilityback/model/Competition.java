@@ -11,18 +11,24 @@ import java.util.UUID;
 import java.util.stream.Collectors;
 
 /**
- * TODO Include federation enum - is this FIDE or UKI or something else?
- * TODO Include cup - or should cups be orgnized in an external entity only? (E.g. 4 competitions leads to a overall winner)
+ * A competition is any natural group of events that shares registration ran by one organiser
+ * in one place and over the course of one or a few days.
+ *
+ * Time will show if this is a good categorization. Maybe a competition can last a year and
+ * we have on demand registration for events - I'm not sure yet. Or maybe we will create a cup structure
+ * with a set of competitions instead.
  */
 public class Competition {
 
-    public static Competition EMPTY = new Competition("", "", LocalDate.MIN, LocalDate.MAX, LocalDate.MAX, "", SourceName.agilityport, new ArrayList<>(), CompetitionType.Unknown, CompetitionStatus.Planned, Organiser.EMPTY);
+    public static Competition EMPTY = new Competition("", "", LocalDate.MIN, LocalDate.MAX, LocalDate.MAX, "",
+            SourceName.agilityport, new ArrayList<>(), CompetitionType.Unknown, CompetitionStatus.Planned, Organiser.EMPTY, Federation.UNKNOWN);
 
-    private final String id;                    // Internal or blank if undecided yet
+    private final String id;                    // Internal - blank if undecided yet
     private final String name;
     private final LocalDate fromDate;           // Inclusive
     private final LocalDate toDate;             // Inclusive
     private final LocalDate registrationDeadline;
+    private final Federation federation;
     private final CompetitionType type;
     private final CompetitionStatus status;
     private final String eventSummary;          // This may be set by source system but overridden if we have all info we need to generate one better
@@ -35,7 +41,9 @@ public class Competition {
     private final Set<Event> events = new HashSet<>();
 
     //TODO assert not null
-    private Competition(String id, String name, LocalDate fromDate, LocalDate toDate, LocalDate registrationDeadline, String eventSummary, SourceName source, List<String> sourceIds, CompetitionType type, CompetitionStatus status, Organiser organiser) {
+    private Competition(String id, String name, LocalDate fromDate, LocalDate toDate, LocalDate registrationDeadline,
+                        String eventSummary, SourceName source, List<String> sourceIds, CompetitionType type,
+                        CompetitionStatus status, Organiser organiser, Federation federation) {
         this.id = Objects.requireNonNull(id);
         this.name = name;
         this.fromDate = fromDate;
@@ -47,6 +55,7 @@ public class Competition {
         this.sourceIds = new ArrayList<>(sourceIds);
         this.status = status;
         this.organiser = organiser;
+        this.federation = federation;
     }
 
     public void addEvent(Event event) {
@@ -54,88 +63,95 @@ public class Competition {
     }
 
     public Competition withId(String newId) {
-        return new Competition(newId, name, fromDate, toDate, registrationDeadline, eventSummary, source, sourceIds, type, status, organiser);
+        return new Competition(newId, name, fromDate, toDate, registrationDeadline, eventSummary, source, sourceIds, type, status, organiser, federation);
     }
 
     public Competition withRandomId() {
-        return new Competition(UUID.randomUUID().toString(), name, fromDate, toDate, registrationDeadline, eventSummary, source, sourceIds, type, status, organiser);
+        return new Competition(UUID.randomUUID().toString(), name, fromDate, toDate, registrationDeadline, eventSummary, source, sourceIds, type, status, organiser, federation);
     }
 
     public Competition withName(String newName) {
         if (newName == null) {
             return this;
         }
-        return new Competition(id, newName, fromDate, toDate, registrationDeadline, eventSummary, source, sourceIds, type, status, organiser);
+        return new Competition(id, newName, fromDate, toDate, registrationDeadline, eventSummary, source, sourceIds, type, status, organiser, federation);
     }
 
     public Competition withFromDate(LocalDate newDate) {
         if (newDate == null) {
             return this;
         }
-        return new Competition(id, name, newDate, toDate, registrationDeadline, eventSummary, source, sourceIds, type, status, organiser);
+        return new Competition(id, name, newDate, toDate, registrationDeadline, eventSummary, source, sourceIds, type, status, organiser, federation);
     }
 
     public Competition withToDate(LocalDate newDate) {
         if (newDate == null) {
             return this;
         }
-        return new Competition(id, name, fromDate, newDate, registrationDeadline, eventSummary, source, sourceIds, type, status, organiser);
+        return new Competition(id, name, fromDate, newDate, registrationDeadline, eventSummary, source, sourceIds, type, status, organiser, federation);
     }
 
     public Competition withRegistrationDeadline(LocalDate newDate) {
         if (newDate == null) {
             return this;
         }
-        return new Competition(id, name, fromDate, toDate, newDate, eventSummary, source, sourceIds, type, status, organiser);
+        return new Competition(id, name, fromDate, toDate, newDate, eventSummary, source, sourceIds, type, status, organiser, federation);
     }
 
     public Competition withEventSummary(String newSummary) {
         if (newSummary == null) {
             return this;
         }
-        return new Competition(id, name, fromDate, toDate, registrationDeadline, newSummary, source, sourceIds, type, status, organiser);
+        return new Competition(id, name, fromDate, toDate, registrationDeadline, newSummary, source, sourceIds, type, status, organiser, federation);
     }
 
     public Competition withSource(SourceName newSource) {
         if (newSource == null) {
             return this;
         }
-        return new Competition(id, name, fromDate, toDate, registrationDeadline, eventSummary, newSource, sourceIds, type, status, organiser);
+        return new Competition(id, name, fromDate, toDate, registrationDeadline, eventSummary, newSource, sourceIds, type, status, organiser, federation);
     }
 
     public Competition withSourceIds(List<String> newSourceIds) {
         if (newSourceIds == null) {
             return this;
         }
-        return new Competition(id, name, fromDate, toDate, registrationDeadline, eventSummary, source, newSourceIds, type, status, organiser);
+        return new Competition(id, name, fromDate, toDate, registrationDeadline, eventSummary, source, newSourceIds, type, status, organiser, federation);
     }
 
     public Competition withSourceId(String newSourceId) {
         if (newSourceId == null) {
             return this;
         }
-        return new Competition(id, name, fromDate, toDate, registrationDeadline, eventSummary, source, List.of(newSourceId), type, status, organiser);
+        return new Competition(id, name, fromDate, toDate, registrationDeadline, eventSummary, source, List.of(newSourceId), type, status, organiser, federation);
     }
 
     public Competition withType(CompetitionType newType) {
         if (newType == null) {
             return this;
         }
-        return new Competition(id, name, fromDate, toDate, registrationDeadline, eventSummary, source, sourceIds, newType, status, organiser);
+        return new Competition(id, name, fromDate, toDate, registrationDeadline, eventSummary, source, sourceIds, newType, status, organiser, federation);
     }
 
     public Competition withStatus(CompetitionStatus newStatus) {
         if (newStatus == null) {
             return this;
         }
-        return new Competition(id, name, fromDate, toDate, registrationDeadline, eventSummary, source, sourceIds, type, newStatus, organiser);
+        return new Competition(id, name, fromDate, toDate, registrationDeadline, eventSummary, source, sourceIds, type, newStatus, organiser, federation);
     }
 
     public Competition withOrganiser(Organiser newOrganiser) {
         if (newOrganiser == null) {
             return this;
         }
-        return new Competition(id, name, fromDate, toDate, registrationDeadline, eventSummary, source, sourceIds, type, status, newOrganiser);
+        return new Competition(id, name, fromDate, toDate, registrationDeadline, eventSummary, source, sourceIds, type, status, newOrganiser, federation);
+    }
+
+    public Competition withFederation(Federation newFederation) {
+        if (newFederation == null) {
+            return this;
+        }
+        return new Competition(id, name, fromDate, toDate, registrationDeadline, eventSummary, source, sourceIds, type, status, organiser, newFederation);
     }
 
     public Competition withEvents(List<Event> events) {
@@ -264,11 +280,12 @@ public class Competition {
                 eventSummary.equals(that.eventSummary) &&
                 source == that.source &&
                 sourceIds.equals(that.sourceIds) &&
-                organiser.equals(that.organiser);
+                organiser.equals(that.organiser) &&
+                Objects.equals(federation,that.federation);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, name, fromDate, toDate, registrationDeadline, type, status, eventSummary, source, sourceIds, organiser);
+        return Objects.hash(id, name, fromDate, toDate, registrationDeadline, type, status, eventSummary, source, sourceIds, organiser, federation);
     }
 }

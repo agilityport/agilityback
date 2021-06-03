@@ -6,7 +6,8 @@ public enum SourceName {
     hundestevner(true), // NO system
     nkk(true), // Dogweb today
     sagik(true),
-    unknown(false); // To make versioning easier (unknown server or client name)
+    unknown(false), // To make versioning easier (unknown server or client name)
+    devent(true);
 
     private final boolean isExternal;
 

@@ -19,18 +19,30 @@ public class Person {
     }
 
     public Person withName(String newName) {
+        if (newName == null) {
+            return this;
+        }
         return new Person(sourceId, id, newName, club);
     }
 
     public Person withSourceId(String newSourceId) {
+        if (newSourceId == null) {
+            return this;
+        }
         return new Person(newSourceId, id, name, club);
     }
 
     public Person withId(String newInternalId) {
+        if (newInternalId == null) {
+            return this;
+        }
         return new Person(sourceId, newInternalId, name, club);
     }
 
     public Person withClub(String newClub) {
+        if (newClub == null) {
+            return this;
+        }
         return new Person(sourceId, id, name, newClub);
     }
 

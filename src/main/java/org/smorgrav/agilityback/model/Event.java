@@ -19,13 +19,15 @@ public class Event {
 
     public static LocalDateTime NO_TIME = LocalDateTime.of(1970, 1, 1, 0, 0, 0);
     public static String BLANK = "";
-
     public static String DEFAULT_RING = "";
-    public static Event EMPTY = new Event(BLANK, BLANK, BLANK, BLANK, EventType.unknown, List.of(Size.unknown), TrialType.Other, DEFAULT_RING, NO_TIME, Duration.ZERO, Duration.ZERO, NO_TIME, NO_TIME, NO_TIME);
+    public static Event EMPTY = new Event(BLANK, BLANK, BLANK, BLANK, EventType.unknown, List.of(Size.unknown), TrialType.Other, DEFAULT_RING, NO_TIME, Duration.ZERO, Duration.ZERO, NO_TIME, NO_TIME, NO_TIME, BLANK, Course.EMPTY);
+
     private final String id;
     private final String competitionId; // A storage reference to the competition this event was held
     private final String sourceId;
     private final String name;          // E.g A or B Used to differentiate multiple races for same size and trial on same date - derived if not set
+    private final String judge;
+    private final Course course;
     private final EventType eventType;
     private final TrialType trialType;
     private final List<Size> sizes;     //Typically just one, and at least one (which might be unknown) - courseWalks are typically combined
@@ -47,7 +49,9 @@ public class Event {
     private LocalDateTime started;        // Static when we have it
     private LocalDateTime ended;          // Static when we have it
 
-    public Event(String id, String competitionId, String sourceId, String name, EventType eventType, List<Size> sizes, TrialType trialType, String ring, LocalDateTime schedule, Duration duration, Duration minDuration, LocalDateTime estimatedStart, LocalDateTime started, LocalDateTime ended) {
+    private Event(String id, String competitionId, String sourceId, String name, EventType eventType, List<Size> sizes,
+                  TrialType trialType, String ring, LocalDateTime schedule, Duration duration, Duration minDuration,
+                  LocalDateTime estimatedStart, LocalDateTime started, LocalDateTime ended, String judge, Course course) {
         this.id = Objects.requireNonNull(id);
         this.competitionId = Objects.requireNonNull(competitionId);
         this.sourceId = Objects.requireNonNull(sourceId);
@@ -65,22 +69,24 @@ public class Event {
         this.estimatedStart = Objects.requireNonNull(estimatedStart);
         this.started = started;
         this.ended = ended;
+        this.course = course;
+        this.judge = judge;
     }
 
     public static Event newCourseWalk(Size size, TrialType trialType, LocalDateTime schedule, Duration duration) {
-        return new Event(UUID.randomUUID().toString(), BLANK, BLANK, BLANK, EventType.courseWalk, List.of(size), trialType, DEFAULT_RING, schedule, duration, duration, NO_TIME, NO_TIME, NO_TIME);
+        return new Event(UUID.randomUUID().toString(), BLANK, BLANK, BLANK, EventType.courseWalk, List.of(size), trialType, DEFAULT_RING, schedule, duration, duration, NO_TIME, NO_TIME, NO_TIME, BLANK, Course.EMPTY);
     }
 
     public static Event newTrial(String sourceId, String name, Size size, TrialType trialType, LocalDateTime schedule) {
-        return new Event(UUID.randomUUID().toString(), BLANK, sourceId, name, EventType.trial, List.of(size), trialType, DEFAULT_RING, schedule, Duration.ofDays(0), Duration.ofHours(0), NO_TIME, NO_TIME, NO_TIME);
+        return new Event(UUID.randomUUID().toString(), BLANK, sourceId, name, EventType.trial, List.of(size), trialType, DEFAULT_RING, schedule, Duration.ofDays(0), Duration.ofHours(0), NO_TIME, NO_TIME, NO_TIME, BLANK, Course.EMPTY);
     }
 
     public static Event newBuild(Size size, TrialType trialType, LocalDateTime schedule, Duration duration) {
-        return new Event(UUID.randomUUID().toString(), BLANK, BLANK, BLANK, EventType.build, List.of(size), trialType, DEFAULT_RING, schedule, duration, duration, NO_TIME, NO_TIME, NO_TIME);
+        return new Event(UUID.randomUUID().toString(), BLANK, BLANK, BLANK, EventType.build, List.of(size), trialType, DEFAULT_RING, schedule, duration, duration, NO_TIME, NO_TIME, NO_TIME, BLANK, Course.EMPTY);
     }
 
     public static Event newBuffer(Size size, TrialType trialType, LocalDateTime schedule, Duration duration) {
-        return new Event(UUID.randomUUID().toString(), BLANK, BLANK, BLANK, EventType.buffer, List.of(size), trialType, DEFAULT_RING, schedule, duration, Duration.ofHours(0), NO_TIME, NO_TIME, NO_TIME);
+        return new Event(UUID.randomUUID().toString(), BLANK, BLANK, BLANK, EventType.buffer, List.of(size), trialType, DEFAULT_RING, schedule, duration, Duration.ofHours(0), NO_TIME, NO_TIME, NO_TIME, BLANK, Course.EMPTY);
     }
 
     public static Duration estimatedTimePrEquipage() {
@@ -179,103 +185,118 @@ public class Event {
         if (newId == null) {
             return this;
         }
-        return new Event(newId, competitionId, sourceId, name, eventType, sizes, trialType, ring, schedule, duration, minDuration, estimatedStart, started, ended);
+        return new Event(newId, competitionId, sourceId, name, eventType, sizes, trialType, ring, schedule, duration, minDuration, estimatedStart, started, ended, judge, course);
     }
 
     public Event withRandomId() {
-        return new Event(UUID.randomUUID().toString(), competitionId, sourceId, name, eventType, sizes, trialType, ring, schedule, duration, minDuration, estimatedStart, started, ended);
+        return new Event(UUID.randomUUID().toString(), competitionId, sourceId, name, eventType, sizes, trialType, ring, schedule, duration, minDuration, estimatedStart, started, ended, judge, course);
     }
 
     public Event withCompetitionId(String newId) {
         if (newId == null) {
             return this;
         }
-        return new Event(id, newId, sourceId, name, eventType, sizes, trialType, ring, schedule, duration, minDuration, estimatedStart, started, ended);
+        return new Event(id, newId, sourceId, name, eventType, sizes, trialType, ring, schedule, duration, minDuration, estimatedStart, started, ended, judge, course);
     }
 
     public Event withSourceId(String newId) {
         if (newId == null) {
             return this;
         }
-        return new Event(id, competitionId, newId, name, eventType, sizes, trialType, ring, schedule, duration, minDuration, estimatedStart, started, ended);
+        return new Event(id, competitionId, newId, name, eventType, sizes, trialType, ring, schedule, duration, minDuration, estimatedStart, started, ended, judge, course);
     }
 
     public Event withName(String newName) {
         if (newName == null) {
             return this;
         }
-        return new Event(id, competitionId, sourceId, newName, eventType, sizes, trialType, ring, schedule, duration, minDuration, estimatedStart, started, ended);
+        return new Event(id, competitionId, sourceId, newName, eventType, sizes, trialType, ring, schedule, duration, minDuration, estimatedStart, started, ended, judge, course);
     }
 
     public Event withEventType(EventType newType) {
         if (newType == null) {
             return this;
         }
-        return new Event(id, competitionId, sourceId, name, newType, sizes, trialType, ring, schedule, duration, minDuration, estimatedStart, started, ended);
+        return new Event(id, competitionId, sourceId, name, newType, sizes, trialType, ring, schedule, duration, minDuration, estimatedStart, started, ended, judge, course);
     }
 
     public Event withTrialType(TrialType newType) {
         if (newType == null) {
             return this;
         }
-        return new Event(id, competitionId, sourceId, name, eventType, sizes, newType, ring, schedule, duration, minDuration, estimatedStart, started, ended);
+        return new Event(id, competitionId, sourceId, name, eventType, sizes, newType, ring, schedule, duration, minDuration, estimatedStart, started, ended, judge, course);
     }
 
     public Event withSizes(List<Size> newSizes) {
         if (newSizes == null) {
             return this;
         }
-        return new Event(id, competitionId, sourceId, name, eventType, newSizes, trialType, ring, schedule, duration, minDuration, estimatedStart, started, ended);
+        return new Event(id, competitionId, sourceId, name, eventType, newSizes, trialType, ring, schedule, duration, minDuration, estimatedStart, started, ended, judge, course);
     }
 
     public Event withRing(String newRing) {
         if (newRing == null) {
             return this;
         }
-        return new Event(id, competitionId, sourceId, name, eventType, sizes, trialType, newRing, schedule, duration, minDuration, estimatedStart, started, ended);
+        return new Event(id, competitionId, sourceId, name, eventType, sizes, trialType, newRing, schedule, duration, minDuration, estimatedStart, started, ended, judge, course);
     }
 
     public Event withSchedule(LocalDateTime newSchedule) {
         if (newSchedule == null) {
             return this;
         }
-        return new Event(id, competitionId, sourceId, name, eventType, sizes, trialType, ring, newSchedule, duration, minDuration, estimatedStart, started, ended);
+        return new Event(id, competitionId, sourceId, name, eventType, sizes, trialType, ring, newSchedule, duration, minDuration, estimatedStart, started, ended, judge, course);
     }
 
     public Event withDuration(Duration newDuration) {
         if (newDuration == null) {
             return this;
         }
-        return new Event(id, competitionId, sourceId, name, eventType, sizes, trialType, ring, schedule, newDuration, minDuration, estimatedStart, started, ended);
+        return new Event(id, competitionId, sourceId, name, eventType, sizes, trialType, ring, schedule, newDuration, minDuration, estimatedStart, started, ended, judge, course);
     }
 
     public Event withMinDuration(Duration newMinDuration) {
         if (newMinDuration == null) {
             return this;
         }
-        return new Event(id, competitionId, sourceId, name, eventType, sizes, trialType, ring, schedule, duration, newMinDuration, estimatedStart, started, ended);
+        return new Event(id, competitionId, sourceId, name, eventType, sizes, trialType, ring, schedule, duration, newMinDuration, estimatedStart, started, ended, judge, course);
     }
 
     public Event withEstimatedStart(LocalDateTime newEstimatedStart) {
         if (newEstimatedStart == null) {
             return this;
         }
-        return new Event(id, competitionId, sourceId, name, eventType, sizes, trialType, ring, schedule, duration, minDuration, newEstimatedStart, started, ended);
+        return new Event(id, competitionId, sourceId, name, eventType, sizes, trialType, ring, schedule, duration, minDuration, newEstimatedStart, started, ended, judge, course);
     }
 
     public Event withStarted(LocalDateTime newStarted) {
         if (newStarted == null) {
             return this;
         }
-        return new Event(id, competitionId, sourceId, name, eventType, sizes, trialType, ring, schedule, duration, minDuration, estimatedStart, newStarted, ended);
+        return new Event(id, competitionId, sourceId, name, eventType, sizes, trialType, ring, schedule, duration, minDuration, estimatedStart, newStarted, ended, judge, course);
     }
 
     public Event withEnded(LocalDateTime newEnded) {
         if (newEnded == null) {
             return this;
         }
-        return new Event(id, competitionId, sourceId, name, eventType, sizes, trialType, ring, schedule, duration, minDuration, estimatedStart, started, newEnded);
+        return new Event(id, competitionId, sourceId, name, eventType, sizes, trialType, ring, schedule, duration, minDuration, estimatedStart, started, newEnded, judge, course);
     }
+
+    public Event withJudge(String newJudge) {
+        if (newJudge == null) {
+            return this;
+        }
+        return new Event(id, competitionId, sourceId, name, eventType, sizes, trialType, ring, schedule, duration, minDuration, estimatedStart, started, ended, newJudge, course);
+    }
+
+    public Event withCourse(Course newCourse) {
+        if (newCourse == null) {
+            return this;
+        }
+        return new Event(id, competitionId, sourceId, name, eventType, sizes, trialType, ring, schedule, duration, minDuration, estimatedStart, started, ended, judge, newCourse);
+    }
+
 
     public Optional<LocalDateTime> started() {
         return Optional.ofNullable(started.equals(NO_TIME) ? null : started);

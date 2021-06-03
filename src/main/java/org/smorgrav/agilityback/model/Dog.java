@@ -38,6 +38,9 @@ public class Dog {
     }
 
     public Dog withId(String newId) {
+        if (newId == null) {
+            return this;
+        }
         return new Dog(newId, sourceId, name, breed);
     }
 
@@ -49,10 +52,16 @@ public class Dog {
     }
 
     public Dog withName(String newName) {
+        if (newName == null) {
+            return this;
+        }
         return new Dog(id, sourceId, newName, breed);
     }
 
     public Dog withBreed(String newBreed) {
+        if (newBreed == null) {
+            return this;
+        }
         return new Dog(id, sourceId, name, newBreed);
     }
 

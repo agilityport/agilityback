@@ -47,31 +47,52 @@ public class Organiser {
     }
 
     public Organiser withOrganizerName(String newName) {
+        if (newName == null) {
+            return this;
+        }
         return new Organiser(newName, addressLine1, addressLine2, contactPerson, contactEmail, contactPhone, competitionLeader);
     }
 
     public Organiser withAddressLine1(String newAddress) {
+        if (newAddress == null) {
+            return this;
+        }
         return new Organiser(organizerName, newAddress, addressLine2, contactPerson, contactEmail, contactPhone, competitionLeader);
     }
 
     public Organiser withAddressLine2(String newAddress) {
+        if (newAddress == null) {
+            return this;
+        }
         return new Organiser(organizerName, addressLine1, newAddress, contactPerson, contactEmail, contactPhone, competitionLeader);
     }
 
     public Organiser withContactPerson(String newPerson) {
+        if (newPerson == null) {
+            return this;
+        }
         return new Organiser(organizerName, addressLine1, addressLine2, newPerson, contactEmail, contactPhone, competitionLeader);
     }
 
 
     public Organiser withContactEmail(String newEmail) {
+        if (newEmail == null) {
+            return this;
+        }
         return new Organiser(organizerName, addressLine1, addressLine2, contactPerson, newEmail, contactPhone, competitionLeader);
     }
 
     public Organiser withContactPhone(String newPhone) {
+        if (newPhone == null) {
+            return null;
+        }
         return new Organiser(organizerName, addressLine1, addressLine2, contactPerson, contactEmail, newPhone, competitionLeader);
     }
 
     public Organiser withCompetitionLeader(String newLeader) {
+        if (newLeader == null) {
+            return this;
+        }
         return new Organiser(organizerName, addressLine1, addressLine2, contactPerson, contactEmail, contactPhone, newLeader);
     }
 
