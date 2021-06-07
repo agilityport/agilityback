@@ -7,6 +7,7 @@ import org.smorgrav.agilityback.model.Organiser;
 import org.smorgrav.agilityback.model.SourceName;
 
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -108,14 +109,26 @@ public class CompetitionSerializer {
         Map<String, Object> fields = new HashMap<>();
         fields.put("id", competition.id());
         fields.put("name", competition.name());
-        fields.put("fromDate", competition.fromDate().toEpochDay());
-        fields.put("toDate", competition.toDate().toEpochDay());
-        fields.put("registrationDeadline", competition.registrationDeadline().toEpochDay());
-        fields.put("source", competition.source().name());
-        fields.put("sourceIds", competition.sourceIds());
+        fields.put("fromDate", competition.fromDate().format(DateTimeFormatter.ISO_DATE));
+        fields.put("toDate", competition.toDate().format(DateTimeFormatter.ISO_DATE));
         fields.put("status", competition.status().name());
         fields.put("type", competition.type().name());
+        fields.put("federation", competition.federation().name());
         fields.put("eventSummary", competition.eventSummary());
+        fields.put("searchSummary", competition.searchSummary());
+        fields.put("registration.fromDate", competition.registration().startOfRegistration());
+        fields.put("registration.toDate", competition.registration().endOfRegistration());
+        fields.put("registration.isOpen", competition.registration().registrationOpen());
+        fields.put("registration.maxCompetition", competition.registration().maxCompetition());
+        fields.put("registration.maxPrDay", competition.registration().maxPrDay());
+        fields.put("registration.maxPrEvent", competition.registration().maxPrEvent());
+        fields.put("registration.message", competition.registration().message());
+        fields.put("source.name", competition.sourceInfo().name());
+        fields.put("source.ids", competition.sourceInfo().sourceIds());
+        fields.put("source.liveUrl", competition.sourceInfo().liveUrl());
+        fields.put("source.resultsUrl", competition.sourceInfo().resultsUrl());
+        fields.put("source.registrationUrl", competition.sourceInfo().registrationUrl());
+        fields.put("source.InfoUrl", competition.sourceInfo().infoUrl());
         fields.put("organiser.name", competition.organiser().organizerName());
         fields.put("organiser.addressLine1", competition.organiser().addressLine1());
         fields.put("organiser.addressLine2", competition.organiser().addressLine2());
@@ -123,7 +136,12 @@ public class CompetitionSerializer {
         fields.put("organiser.phone", competition.organiser().contactPhone());
         fields.put("organiser.contact", competition.organiser().contactPerson());
         fields.put("organiser.competitionLeader", competition.organiser().competitionLeader());
-
+        fields.put("location.name", competition.location().name());
+        fields.put("location.country", competition.location().country());
+        fields.put("location.region", competition.location().region());
+        fields.put("location.latitude", competition.location().latitude());
+        fields.put("location.longitude", competition.location().longitude());
+        fields.put("location.address", competition.location().address());
         return fields;
     }
 }

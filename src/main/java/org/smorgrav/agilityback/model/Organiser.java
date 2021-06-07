@@ -2,6 +2,10 @@ package org.smorgrav.agilityback.model;
 
 import java.util.Objects;
 
+/**
+ * Node that this could be different from the competiotion location - i.e. organizer could be form
+ * an other place.
+ */
 public class Organiser {
     public static Organiser EMPTY = new Organiser("", "", "", "", "", "", "");
 
